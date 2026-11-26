@@ -8,6 +8,9 @@ on:
   schedule:
     - cron: "0 5 * * *" # daily: catch route changes merged in service repos
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -43,3 +46,56 @@ jobs:
       - name: Check ${{ matrix.service }} routes and permissions
         working-directory: swimresults-api/tools
         run: go run ./specgen -service ${{ matrix.service }} -dir ../../server/${{ matrix.service }}-service -check ../specs/${{ matrix.service }}.yaml
+
+  # Each package job regenerates from specs/, fails if the committed code is stale, then builds and tests.
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: tools/go.mod
+          cache-dependency-path: tools/go.sum
+      - run: make generate-go
+      - run: git diff --exit-code -- go/ || (echo "::error::go/ is stale — run 'make generate-go' and commit" && exit 1)
+      - run: go vet ./go/... && go test ./go/...
+
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: typescript/package-lock.json
+      - run: make generate-ts
+      - run: git diff --exit-code -- typescript/src || (echo "::error::typescript/src is stale — run 'make generate-ts' and commit" && exit 1)
+      - run: cd typescript && npm run build && npm test && npm pack --dry-run
+
+  swift:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: swift/tools/.build
+          key: swift-tools-${{ runner.os }}-${{ hashFiles('swift/tools/Package.swift') }}
+      - run: make generate-swift
+      - run: git diff --exit-code -- swift/ || (echo "::error::swift/Sources is stale — run 'make generate-swift' and commit" && exit 1)
+      - run: swift test
+      - name: Build for iOS
+        run: xcodebuild -scheme SwimResultsAPI-Package -destination 'generic/platform=iOS' -quiet build
+
+  kotlin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+      - run: make generate-kotlin
+      - run: git diff --exit-code -- kotlin/src/main || (echo "::error::kotlin/src is stale — run 'make generate-kotlin' and commit" && exit 1)
+      - run: cd kotlin && ./gradlew build --no-daemon

@@ -1,0 +1,8 @@
+# shared oapi-codegen settings; package and output are passed per service (see Makefile)
+generate:
+  models: true
+  client: true
+output-options:
+  skip-prune: true
+compatibility:
+  always-prefix-enum-values: true

@@ -2,3 +2,13 @@ dist/
 node_modules/
 .DS_Store
 .idea/
+.cache/
+.build/
+swift/tools/.build/
+swift/tools/Package.resolved
+kotlin/build/
+kotlin/.gradle/
+typescript/node_modules/
+typescript/dist/
+.swiftpm/
+/Package.resolved

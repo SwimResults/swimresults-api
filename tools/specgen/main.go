@@ -1,5 +1,5 @@
 // Command specgen extracts the HTTP API of a SwimResults Go service (Gin + service-core/security)
-// using full type information, and either writes a baseline OpenAPI 3.1 spec or checks an existing
+// using full type information, and either writes a baseline OpenAPI 3.0.3 spec or checks an existing
 // spec for drift.
 //
 //	specgen -service meeting -dir ../server/meeting-service -out specs/meeting.yaml          # write baseline (refuses to overwrite)
@@ -567,7 +567,29 @@ func (s *schemaSet) add(name string, def any) {
 
 func (s *schemaSet) ref(name string) any { return om("$ref", "#/components/schemas/"+name) }
 
-func nullable(schema any) any { return om("oneOf", []any{schema, om("type", "null")}) }
+// nullable marks a schema as nullable, OpenAPI 3.0 style (3.0.3 has the widest generator support).
+// 3.0.3 requires `type` next to `nullable`, so for $refs the referenced component's type is repeated.
+func (s *schemaSet) nullable(schema any) any {
+	m, ok := schema.(*orderedMap)
+	if !ok {
+		return schema
+	}
+	if ref, isRef := m.vals["$ref"].(string); isRef {
+		typ := "object" // structs (incl. components still being built during recursion)
+		if def, ok := s.defs[strings.TrimPrefix(ref, "#/components/schemas/")].(*orderedMap); ok {
+			if t, ok := def.vals["type"].(string); ok {
+				typ = t
+			}
+		}
+		return om("type", typ, "allOf", []any{m}, "nullable", true)
+	}
+	c := om()
+	for _, k := range m.keys {
+		c.set(k, m.vals[k])
+	}
+	c.set("nullable", true)
+	return c
+}
 
 func (s *schemaSet) of(t types.Type) any {
 	switch tt := t.(type) {
@@ -696,10 +718,10 @@ func (s *schemaSet) structSchema(st *types.Struct, owner *types.TypeName) any {
 		fs := s.of(f.Type())
 		switch u := types.Unalias(f.Type()).(type) {
 		case *types.Pointer:
-			fs = nullable(fs)
+			fs = s.nullable(fs)
 		case *types.Slice, *types.Map:
 			if _, isNamed := f.Type().(*types.Named); !isNamed || !isByteSlice(u) {
-				fs = nullable(fs)
+				fs = s.nullable(fs)
 			}
 		}
 		props.set(name, fs)
@@ -870,7 +892,7 @@ func buildSpec(svc, dir string, ex *extracted) any {
 	}
 	title := strings.ToUpper(svc[:1]) + svc[1:] + " Service API"
 	return om(
-		"openapi", "3.1.0",
+		"openapi", "3.0.3",
 		"info", om("title", title, "version", strings.TrimPrefix(gitDescribe(dir), "v"),
 			"description", fmt.Sprintf("SwimResults %s-service. Routes are served at the service root; the public gateway adds the `/%s/v1` prefix.", svc, svc)),
 		"servers", []any{

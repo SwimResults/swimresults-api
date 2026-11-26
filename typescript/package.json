@@ -1,0 +1,53 @@
+{
+  "name": "@swimresults/api",
+  "version": "0.0.0",
+  "description": "TypeScript types for the SwimResults APIs, generated from the OpenAPI specs",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwimResults/swimresults-api.git",
+    "directory": "typescript"
+  },
+  "homepage": "https://github.com/SwimResults/swimresults-api#readme",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./meeting": {
+      "types": "./dist/meeting.d.ts",
+      "default": "./dist/meeting.js"
+    },
+    "./athlete": {
+      "types": "./dist/athlete.d.ts",
+      "default": "./dist/athlete.js"
+    },
+    "./start": {
+      "types": "./dist/start.d.ts",
+      "default": "./dist/start.js"
+    },
+    "./user": {
+      "types": "./dist/user.d.ts",
+      "default": "./dist/user.js"
+    },
+    "./import": {
+      "types": "./dist/import.d.ts",
+      "default": "./dist/import.js"
+    }
+  },
+  "scripts": {
+    "generate": "for s in meeting athlete start user import; do openapi-typescript ../specs/$s.yaml --root-types --root-types-no-schema-prefix -o src/$s.ts || exit 1; done",
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build",
+    "test": "tsc --noEmit -p tsconfig.json && tsc --noEmit --strict --module ES2022 --moduleResolution bundler --target ES2022 test/usage.ts"
+  },
+  "devDependencies": {
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.8.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

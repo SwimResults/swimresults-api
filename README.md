@@ -1,8 +1,7 @@
 # swimresults-api
 
-API contracts for the SwimResults services: one OpenAPI 3.1 spec per service, plus the tooling that keeps
-them in sync with the Go code. Generated client packages for Go, TypeScript, Swift and Kotlin come next
-(see [Roadmap](#roadmap)).
+API contracts for the SwimResults services: one OpenAPI 3.0.3 spec per service, the tooling that keeps
+them in sync with the Go code, and client packages generated from them for Go, TypeScript, Swift and Kotlin.
 
 | Spec | Service | Public base URL |
 |---|---|---|
@@ -29,7 +28,7 @@ When you add or change a route in a service: update the spec in the same change 
 
 ```sh
 make check   # routes/permissions: code vs specs (needs ../server/<svc>-service checkouts)
-make lint    # OpenAPI validation (redocly)
+make lint    # OpenAPI 3.0.3 validation (redocly)
 ```
 
 ## Conventions in the specs
@@ -65,13 +64,124 @@ make lint    # OpenAPI validation (redocly)
 - Implicit consumers (Homepage, Livestreaming, DownloadPage) depend on specific fields; see
   [SwimResults docs/architecture.md](https://github.com/SwimResults/SwimResults/blob/master/docs/architecture.md#known-contract-drift-to-be-fixed-via-shared-specs).
 
+## Packages
+
+One version for everything: a git tag `vX.Y.Z` releases all packages (see [Releasing](#releasing)).
+
+| Language | Package | Generator | Consumers |
+|---|---|---|---|
+| Go | `github.com/swimresults/swimresults-api/go/<svc>api` | [oapi-codegen](https://github.com/oapi-codegen/oapi-codegen) v2.8.2 (models + typed client) | services calling other services |
+| TypeScript | [`@swimresults/api`](https://www.npmjs.com/package/@swimresults/api) (`/meeting`, `/athlete`, …) | [openapi-typescript](https://openapi-ts.dev) 7.13.0 (types only) | WebApplication, ManagerApplication |
+| Swift | SwiftPM package at this repo's root, products `SwimResults<Svc>API` + `SwimResultsAPISupport` | [swift-openapi-generator](https://github.com/apple/swift-openapi-generator) 1.14.4 | iosApplication |
+| Kotlin | `de.swimresults:swimresults-api` (Maven Central), packages `de.swimresults.api.<svc>` | [openapi-generator](https://openapi-generator.tech) 7.27.0, `kotlin` / Retrofit 2 + Gson | AndroidApplication |
+
+`<svc>` is `meeting`, `athlete`, `start`, `user` or `import` (the Kotlin package is `imports`, because
+`import` is a keyword). All packages are GPL-3.0, like the rest of SwimResults.
+
+### Go
+
+```go
+import "github.com/swimresults/swimresults-api/go/meetingapi"
+
+c, _ := meetingapi.NewClientWithResponses("http://meeting-service:8080",
+    meetingapi.WithRequestEditorFn(func(ctx context.Context, r *http.Request) error {
+        r.Header.Set("X-Swimresults-Service", os.Getenv("SR_SERVICE_KEY"))
+        return nil
+    }))
+res, err := c.GetEventsByMeetIdWithResponse(ctx, "IESC19") // res.JSON200 is *[]meetingapi.Event
+```
+
+Requires Go 1.24. The runtime is pinned to `oapi-codegen/runtime` v1.8.0 because v1.9 needs Go 1.26.
+
+### Swift
+
+```swift
+.package(url: "https://github.com/SwimResults/swimresults-api", from: "0.1.0"),
+.package(url: "https://github.com/apple/swift-openapi-urlsession", from: "1.0.0"),
+// target dependencies: "SwimResultsMeetingAPI", "SwimResultsAPISupport", "OpenAPIURLSession"
+
+let client = Client(serverURL: try Servers.Server1.url(), configuration: .swimResults, transport: URLSessionTransport())
+let events = try await client.getEventsByMeetId(path: .init(meetId: "IESC19")).ok.body.json
+```
+
+Always pass `configuration: .swimResults`. It decodes Go timestamps with and without fractional seconds; the
+default decoder rejects `2023-09-19T03:01:09.904Z`. `Date.isGoZeroTime` detects `0001-01-01T00:00:00Z`
+(meaning "not set").
+
+### Kotlin / Android
+
+```kotlin
+implementation("de.swimresults:swimresults-api:0.1.0")
+
+val api = de.swimresults.api.meeting.infrastructure.ApiClient(baseUrl = "https://api.swimresults.de/meeting/v1/")
+    .createService(de.swimresults.api.meeting.apis.EventApi::class.java)
+val events = api.getEventsByMeetId("IESC19").body() // suspend fun, retrofit2.Response<List<Event>>
+```
+
+### TypeScript
+
+See [typescript/README.md](typescript/README.md).
+
+## Development
+
+```sh
+make generate   # regenerate all packages from specs/ (needs Go, Node, Swift, Java 17)
+make test       # build + test all packages
+make check      # routes/permissions: code vs specs
+make lint       # OpenAPI validation
+```
+
+Generated code is committed:
+- **CI** regenerates it and fails if the committed code is stale, then builds and tests every package. The
+  Swift job also builds for iOS.
+- **Live check:** `go/contract_live_test.go` decodes real responses strictly into the generated types:
+  `SR_CONTRACT_LIVE=https://api-dev.swimresults.de go test ./go/ -run Live -v`.
+
+## Releasing
+
+1. Merge spec changes to `master` together with the regenerated packages (`make generate`).
+2. `git tag v0.2.0 && git push origin v0.2.0`.
+3. [`release.yml`](.github/workflows/release.yml) then runs:
+   - verifies the tag
+   - publishes to npm and Maven Central (once enabled, see below)
+   - creates the GitHub release
+
+   The tag itself is the Go and Swift release.
+
+Versioning is semver over the **API contract**. A breaking change in any spec (removed field or route, changed
+type) bumps the minor version while in `0.x`, and the major version from `1.0` on. From v2 on, Go also needs a
+`/v2` module path.
+
+### Publishing setup (one time)
+
+**npm** (`@swimresults/api`, trusted publishing with provenance; no long-lived token once set up):
+1. Create the npm organization `swimresults` on npmjs.com.
+2. Do the first publish, either:
+   - locally: `cd typescript && npm run build && npm publish --access public`, or
+   - by adding a granular automation token as repo secret `NPM_TOKEN` for the first release.
+3. On npmjs.com, open `@swimresults/api` → Settings → Trusted publishing and add GitHub Actions:
+   - repository `SwimResults/swimresults-api`
+   - workflow `release.yml`
+   - environment `release`
+4. Delete the `NPM_TOKEN` secret if you created one, then set repo variable `NPM_PUBLISH=true`.
+
+**Maven Central** (`de.swimresults:swimresults-api`):
+1. Sign in at [central.sonatype.com](https://central.sonatype.com) and add namespace `de.swimresults`. Verify it
+   with the DNS TXT record shown, on `swimresults.de`.
+2. Generate a user token (Account → Generate User Token) and store it as repo secrets
+   `MAVEN_CENTRAL_USERNAME` / `MAVEN_CENTRAL_PASSWORD`.
+3. Set up a GPG signing key:
+   - create the key
+   - publish the public key: `gpg --keyserver keyserver.ubuntu.com --send-keys <id>`
+   - store the armored private key and its passphrase as secrets `SIGNING_KEY` / `SIGNING_KEY_PASSWORD`
+4. Set repo variable `MAVEN_PUBLISH=true`.
+
+Put these secrets on the GitHub environment `release` rather than on the repo, and limit that environment to
+`v*` tags. You can also require a manual approval there.
+
 ## Roadmap
 
-- **Phase 3 — generated packages** (versioned with this repo's git tags `vX.Y.Z`):
-  - Go: `github.com/swimresults/swimresults-api/go/<svc>`. Replaces the per-service `client/` packages and the
-    version skew between them.
-  - TypeScript: an npm package for WebApplication and ManagerApplication.
-  - Swift: an SPM package (`Package.swift` at the repo root) for the iOS app.
-  - Kotlin: a Maven artifact for the Android app.
+- Adopt the packages one consumer at a time, starting with the Go service-to-service clients. They replace
+  the per-service `client/` packages and their version skew.
 - Schema drift check: compare Go struct fields with the spec schemas.
 - Example payloads (`examples/`) used as contract-test fixtures.

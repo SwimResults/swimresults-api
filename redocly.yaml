@@ -1,0 +1,10 @@
+extends:
+  - recommended
+rules:
+  # baseline specs have no summaries/examples yet; tighten once hand-curated
+  operation-summary: off
+  info-license: off
+  info-license-url: off
+  no-server-example.com: off   # localhost gateway server is intentional
+  operation-4xx-response: warn
+  security-defined: error

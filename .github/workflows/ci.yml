@@ -1,0 +1,45 @@
+name: Specs
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * *" # daily: catch route changes merged in service repos
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: make lint
+
+  drift:
+    # compare specs with the services' master branches
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [meeting, athlete, start, user, import]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: swimresults-api
+      - uses: actions/checkout@v4
+        with:
+          repository: SwimResults/${{ matrix.service }}-service
+          ref: master
+          path: server/${{ matrix.service }}-service
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: swimresults-api/tools/go.mod
+          cache-dependency-path: |
+            swimresults-api/tools/go.sum
+            server/${{ matrix.service }}-service/go.sum
+      - name: Check ${{ matrix.service }} routes and permissions
+        working-directory: swimresults-api/tools
+        run: go run ./specgen -service ${{ matrix.service }} -dir ../../server/${{ matrix.service }}-service -check ../specs/${{ matrix.service }}.yaml

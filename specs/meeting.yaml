@@ -47,6 +47,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AgeGroup'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -180,6 +181,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AgeGroup'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -221,6 +223,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AgeGroup'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -319,6 +322,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -452,6 +456,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Event'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -612,6 +617,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MeetingPart'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -710,6 +716,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/StorageFile'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -829,6 +836,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/StorageFile'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1042,6 +1050,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Incident'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1084,6 +1093,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Incident'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1182,6 +1192,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Location'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -1312,6 +1323,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Meeting'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -1527,6 +1539,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MeetingSeries'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -1681,6 +1694,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Style'
+                nullable: true
         "500":
           description: Internal Server Error
           content:

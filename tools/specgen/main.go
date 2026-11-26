@@ -448,6 +448,11 @@ func (a *analyzer) analyze(r *route, fn *types.Func, depth int, visiting map[*ty
 					}
 				} else {
 					s = a.schemas.of(t)
+					// Go encodes nil slices/maps as JSON null (e.g. an empty list): the response is nullable
+					switch types.Unalias(t).Underlying().(type) {
+					case *types.Slice, *types.Map:
+						s = a.schemas.nullable(s)
+					}
 				}
 				r.addResponse(status, "application/json", s, types.TypeString(t, nil))
 			}

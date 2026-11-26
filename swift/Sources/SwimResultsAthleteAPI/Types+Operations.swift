@@ -181,12 +181,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/athlete/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/athlete/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Athlete])
+                    case json([Components.Schemas.Athlete]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Athlete] {
+                    public var json: [Components.Schemas.Athlete]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -716,12 +716,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/athlete/HEAD/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/athlete/HEAD/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Athlete])
+                    case json([Components.Schemas.Athlete]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Athlete] {
+                    public var json: [Components.Schemas.Athlete]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -1544,12 +1544,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/athlete/meet/{meet_id}/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/athlete/meet/{meet_id}/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Athlete])
+                    case json([Components.Schemas.Athlete]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Athlete] {
+                    public var json: [Components.Schemas.Athlete]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -2041,12 +2041,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/athlete/meet/{meet_id}/id_list/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/athlete/meet/{meet_id}/id_list/POST/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Athlete])
+                    case json([Components.Schemas.Athlete]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Athlete] {
+                    public var json: [Components.Schemas.Athlete]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -2759,12 +2759,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/athlete/team/{team_id}/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/athlete/team/{team_id}/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Athlete])
+                    case json([Components.Schemas.Athlete]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Athlete] {
+                    public var json: [Components.Schemas.Athlete]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -3024,12 +3024,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/athlete/team/{team_id}/meet/{meet_id}/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/athlete/team/{team_id}/meet/{meet_id}/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Athlete])
+                    case json([Components.Schemas.Athlete]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Athlete] {
+                    public var json: [Components.Schemas.Athlete]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -3926,12 +3926,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/certificate/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/certificate/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Certificate])
+                    case json([Components.Schemas.Certificate]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Certificate] {
+                    public var json: [Components.Schemas.Certificate]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -4610,12 +4610,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/certificate/athlete/{athlete_id}/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/certificate/athlete/{athlete_id}/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Certificate])
+                    case json([Components.Schemas.Certificate]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Certificate] {
+                    public var json: [Components.Schemas.Certificate]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -4847,12 +4847,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/certificate/athlete/{athlete_id}/meet/{meet_id}/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/certificate/athlete/{athlete_id}/meet/{meet_id}/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Certificate])
+                    case json([Components.Schemas.Certificate]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Certificate] {
+                    public var json: [Components.Schemas.Certificate]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -5951,12 +5951,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/team/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/team/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Team])
+                    case json([Components.Schemas.Team]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Team] {
+                    public var json: [Components.Schemas.Team]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -6314,12 +6314,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/team/HEAD/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/team/HEAD/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Team])
+                    case json([Components.Schemas.Team]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Team] {
+                    public var json: [Components.Schemas.Team]? {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -7135,12 +7135,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/team/meet/{meet_id}/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/team/meet/{meet_id}/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.Team])
+                    case json([Components.Schemas.Team]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.Team] {
+                    public var json: [Components.Schemas.Team]? {
                         get throws {
                             switch self {
                             case let .json(body):

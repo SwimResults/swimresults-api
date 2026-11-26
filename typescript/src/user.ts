@@ -860,7 +860,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Config"][];
+                    "application/json": components["schemas"]["Config"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1714,7 +1714,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["NotificationUser"][];
+                    "application/json": components["schemas"]["NotificationUser"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1743,7 +1743,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["UserReport"][];
+                    "application/json": components["schemas"]["UserReport"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1807,7 +1807,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["UserReport"][];
+                    "application/json": components["schemas"]["UserReport"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1845,7 +1845,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ReportSubjectType"][];
+                    "application/json": components["schemas"]["ReportSubjectType"][] | null;
                 };
             };
         };
@@ -2482,7 +2482,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["User"][];
+                    "application/json": components["schemas"]["User"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -2511,7 +2511,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Widget"][];
+                    "application/json": components["schemas"]["Widget"][] | null;
                 };
             };
             /** @description Internal Server Error */

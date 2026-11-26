@@ -1336,7 +1336,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ImportSetting"][];
+                    "application/json": components["schemas"]["ImportSetting"][] | null;
                 };
             };
             /** @description Internal Server Error */

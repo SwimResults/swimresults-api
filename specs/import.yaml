@@ -2197,6 +2197,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ImportSetting'
+                nullable: true
         "500":
           description: Internal Server Error
           content:

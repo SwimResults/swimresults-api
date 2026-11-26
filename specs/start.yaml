@@ -82,6 +82,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Heat'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -237,6 +238,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Heat'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -380,6 +382,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Heat'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -588,6 +591,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Heat'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -814,6 +818,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Ranking'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -947,6 +952,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Ranking'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -988,6 +994,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Ranking'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1155,6 +1162,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Registration'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1335,6 +1343,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Start'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -1449,6 +1458,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Start'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1526,6 +1536,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Start'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1601,6 +1612,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Start'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1639,6 +1651,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Start'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1680,6 +1693,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Start'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1769,6 +1783,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Start'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1863,6 +1878,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EventStartResultRequestDto'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1969,6 +1985,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/StartsByYearAndGenderStatsDto'
+                nullable: true
         "400":
           description: Bad Request
           content:

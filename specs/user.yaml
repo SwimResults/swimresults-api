@@ -48,6 +48,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Config'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -786,6 +787,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/NotificationUser'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -811,6 +813,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserReport'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -870,6 +873,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserReport'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -899,6 +903,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ReportSubjectType'
+                nullable: true
   /report/submit:
     post:
       tags:
@@ -1418,6 +1423,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -1441,6 +1447,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Widget'
+                nullable: true
         "500":
           description: Internal Server Error
           content:

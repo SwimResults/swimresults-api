@@ -63,6 +63,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Athlete'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -102,6 +103,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Athlete'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -299,6 +301,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Athlete'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -391,6 +394,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Athlete'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -516,6 +520,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Athlete'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -572,6 +577,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Athlete'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -703,6 +709,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Certificate'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -811,6 +818,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Certificate'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -852,6 +860,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Certificate'
+                nullable: true
         "400":
           description: Bad Request
           content:
@@ -1029,6 +1038,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Team'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -1068,6 +1078,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Team'
+                nullable: true
         "500":
           description: Internal Server Error
           content:
@@ -1232,6 +1243,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Team'
+                nullable: true
         "400":
           description: Bad Request
           content:

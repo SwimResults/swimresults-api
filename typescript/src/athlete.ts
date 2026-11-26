@@ -646,7 +646,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Athlete"][];
+                    "application/json": components["schemas"]["Athlete"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -745,7 +745,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Athlete"][];
+                    "application/json": components["schemas"]["Athlete"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -892,7 +892,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Athlete"][];
+                    "application/json": components["schemas"]["Athlete"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -980,7 +980,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Athlete"][];
+                    "application/json": components["schemas"]["Athlete"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1107,7 +1107,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Athlete"][];
+                    "application/json": components["schemas"]["Athlete"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1152,7 +1152,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Athlete"][];
+                    "application/json": components["schemas"]["Athlete"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1310,7 +1310,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Certificate"][];
+                    "application/json": components["schemas"]["Certificate"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1436,7 +1436,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Certificate"][];
+                    "application/json": components["schemas"]["Certificate"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1477,7 +1477,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Certificate"][];
+                    "application/json": components["schemas"]["Certificate"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1672,7 +1672,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Team"][];
+                    "application/json": components["schemas"]["Team"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1738,7 +1738,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Team"][];
+                    "application/json": components["schemas"]["Team"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1884,7 +1884,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Team"][];
+                    "application/json": components["schemas"]["Team"][] | null;
                 };
             };
             /** @description Bad Request */

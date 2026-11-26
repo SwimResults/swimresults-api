@@ -878,7 +878,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["AgeGroup"][];
+                    "application/json": components["schemas"]["AgeGroup"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1035,7 +1035,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["AgeGroup"][];
+                    "application/json": components["schemas"]["AgeGroup"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1076,7 +1076,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["AgeGroup"][];
+                    "application/json": components["schemas"]["AgeGroup"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1194,7 +1194,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Event"][];
+                    "application/json": components["schemas"]["Event"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1351,7 +1351,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Event"][];
+                    "application/json": components["schemas"]["Event"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1518,7 +1518,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["MeetingPart"][];
+                    "application/json": components["schemas"]["MeetingPart"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -1636,7 +1636,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["StorageFile"][];
+                    "application/json": components["schemas"]["StorageFile"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -1780,7 +1780,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["StorageFile"][];
+                    "application/json": components["schemas"]["StorageFile"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -2020,7 +2020,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Incident"][];
+                    "application/json": components["schemas"]["Incident"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -2069,7 +2069,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Incident"][];
+                    "application/json": components["schemas"]["Incident"][] | null;
                 };
             };
             /** @description Bad Request */
@@ -2187,7 +2187,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Location"][];
+                    "application/json": components["schemas"]["Location"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -2333,7 +2333,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Meeting"][];
+                    "application/json": components["schemas"]["Meeting"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -2580,7 +2580,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["MeetingSeries"][];
+                    "application/json": components["schemas"]["MeetingSeries"][] | null;
                 };
             };
             /** @description Internal Server Error */
@@ -2764,7 +2764,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Style"][];
+                    "application/json": components["schemas"]["Style"][] | null;
                 };
             };
             /** @description Internal Server Error */

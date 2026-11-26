@@ -5210,12 +5210,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/settings/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/settings/GET/responses/200/content/application\/json`.
-                    case json([Components.Schemas.ImportSetting])
+                    case json([Components.Schemas.ImportSetting]?)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: [Components.Schemas.ImportSetting] {
+                    public var json: [Components.Schemas.ImportSetting]? {
                         get throws {
                             switch self {
                             case let .json(body):

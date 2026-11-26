@@ -247,7 +247,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Heat].self,
+                            [Components.Schemas.Heat]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -752,7 +752,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Heat].self,
+                            [Components.Schemas.Heat]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1177,7 +1177,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Heat].self,
+                            [Components.Schemas.Heat]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -1720,7 +1720,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Heat].self,
+                            [Components.Schemas.Heat]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2436,7 +2436,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Ranking].self,
+                            [Components.Schemas.Ranking]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2859,7 +2859,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Ranking].self,
+                            [Components.Schemas.Ranking]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2966,7 +2966,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Ranking].self,
+                            [Components.Schemas.Ranking]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3488,7 +3488,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Registration].self,
+                            [Components.Schemas.Registration]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4052,7 +4052,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Start].self,
+                            [Components.Schemas.Start]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4422,7 +4422,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Start].self,
+                            [Components.Schemas.Start]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4663,7 +4663,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Start].self,
+                            [Components.Schemas.Start]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4876,7 +4876,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Start].self,
+                            [Components.Schemas.Start]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -4982,7 +4982,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Start].self,
+                            [Components.Schemas.Start]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -5089,7 +5089,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Start].self,
+                            [Components.Schemas.Start]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -5304,7 +5304,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.Start].self,
+                            [Components.Schemas.Start]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -5520,7 +5520,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.EventStartResultRequestDto].self,
+                            [Components.Schemas.EventStartResultRequestDto]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -5838,7 +5838,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            [Components.Schemas.StartsByYearAndGenderStatsDto].self,
+                            [Components.Schemas.StartsByYearAndGenderStatsDto]?.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)

@@ -40,10 +40,10 @@ data class MeetingHeatEventListDto (
     val firstHeat: Heat,
 
     @SerializedName("event_number")
-    val eventNumber: kotlin.Long? = null,
+    val eventNumber: kotlin.Int? = null,
 
     @SerializedName("amount")
-    val amount: kotlin.Long? = null
+    val amount: kotlin.Int? = null
 
 ) {
 

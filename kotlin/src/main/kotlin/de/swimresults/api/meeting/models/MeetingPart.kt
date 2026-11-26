@@ -37,7 +37,7 @@ import com.google.gson.annotations.SerializedName
 data class MeetingPart (
 
     @SerializedName("number")
-    val number: kotlin.Long? = null,
+    val number: kotlin.Int? = null,
 
     @SerializedName("name")
     val name: kotlin.String? = null,

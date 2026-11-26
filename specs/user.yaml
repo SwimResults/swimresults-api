@@ -134,6 +134,7 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security:
         - bearerAuth: []
       responses:
@@ -212,6 +213,7 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1520,7 +1522,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         enabled:
@@ -1532,7 +1536,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         widget_container:
           type: array
           items:
@@ -1558,7 +1564,6 @@ components:
       properties:
         order_position:
           type: integer
-          format: int64
         widgets:
           type: array
           items:
@@ -1572,14 +1577,15 @@ components:
         data: {}
         order_position:
           type: integer
-          format: int64
       required:
         - widget
     Widget:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         size:
           type: string
         content:
@@ -1633,13 +1639,10 @@ components:
       properties:
         user_count:
           type: integer
-          format: int64
         notification_user_count:
           type: integer
-          format: int64
         success_count:
           type: integer
-          format: int64
       required:
         - user_count
         - notification_user_count
@@ -1661,7 +1664,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         user_id:
           $ref: '#/components/schemas/ObjectId'
         token:
@@ -1720,6 +1725,7 @@ components:
           type: string
         ui_size:
           type: string
+          x-go-name: UISize
         language:
           type: string
         app_version:
@@ -1752,7 +1758,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         message:
           type: string
         meeting:
@@ -1807,7 +1815,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         keycloak_id:
           type: string
         following:
@@ -1852,7 +1862,9 @@ components:
       type: object
       properties:
         athlete:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: AthleteId
         follow:
           type: boolean
       required:
@@ -1870,7 +1882,9 @@ components:
       type: object
       properties:
         athlete:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: AthleteId
         set:
           type: boolean
       required:

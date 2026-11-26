@@ -90,34 +90,34 @@ data class EasyWkActionV3Request (
     val keepsum: kotlin.String? = null,
 
     @SerializedName("firstlane")
-    val firstlane: kotlin.Long? = null,
+    val firstlane: kotlin.Int? = null,
 
     @SerializedName("lanecount")
-    val lanecount: kotlin.Long? = null,
+    val lanecount: kotlin.Int? = null,
 
     @SerializedName("vername")
     val vername: kotlin.String? = null,
 
     @SerializedName("event")
-    val event: kotlin.Long? = null,
+    val event: kotlin.Int? = null,
 
     @SerializedName("heat")
-    val heat: kotlin.Long? = null,
+    val heat: kotlin.Int? = null,
 
     @SerializedName("maxheat")
-    val maxheat: kotlin.Long? = null,
+    val maxheat: kotlin.Int? = null,
 
     @SerializedName("name")
     val name: kotlin.String? = null,
 
     @SerializedName("lane")
-    val lane: kotlin.Long? = null,
+    val lane: kotlin.Int? = null,
 
     @SerializedName("meter")
     val meter: kotlin.String? = null,
 
     @SerializedName("time")
-    val time: kotlin.Long? = null,
+    val time: kotlin.Int? = null,
 
     @SerializedName("finished")
     val finished: kotlin.String? = null,

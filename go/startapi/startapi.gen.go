@@ -19,45 +19,44 @@ import (
 
 // Address defines model for Address.
 type Address struct {
-	City       *string `json:"city,omitempty"`
-	Number     *string `json:"number,omitempty"`
-	PostalCode *string `json:"postal_code,omitempty"`
-	Street     *string `json:"street,omitempty"`
+	City       string `json:"city,omitempty"`
+	Number     string `json:"number,omitempty"`
+	PostalCode string `json:"postal_code,omitempty"`
+	Street     string `json:"street,omitempty"`
 }
 
 // AthleteRegistration defines model for AthleteRegistration.
 type AthleteRegistration struct {
-	AthleteFirstName *string `json:"athlete_first_name,omitempty"`
+	AthleteFirstName string `json:"athlete_first_name,omitempty"`
 
 	// AthleteId MongoDB ObjectID (hex)
-	AthleteId          ObjectId             `json:"athlete_id"`
-	AthleteLastName    *string              `json:"athlete_last_name,omitempty"`
-	AthleteYear        *int64               `json:"athlete_year,omitempty"`
-	StartRegistrations *[]StartRegistration `json:"start_registrations"`
+	AthleteId          ObjectId            `json:"athlete_id"`
+	AthleteLastName    string              `json:"athlete_last_name,omitempty"`
+	AthleteYear        int                 `json:"athlete_year,omitempty"`
+	StartRegistrations []StartRegistration `json:"start_registrations"`
 }
 
 // Contact defines model for Contact.
 type Contact struct {
-	Email *string `json:"email,omitempty"`
-	Fax   *string `json:"fax,omitempty"`
-	Name  *string `json:"name,omitempty"`
-	Phone *string `json:"phone,omitempty"`
+	EMail string `json:"email,omitempty"`
+	Fax   string `json:"fax,omitempty"`
+	Name  string `json:"name,omitempty"`
+	Phone string `json:"phone,omitempty"`
 }
 
 // CurrentNextHeatDto defines model for CurrentNextHeatDto.
 type CurrentNextHeatDto struct {
-	Current *Heat `json:"current"`
-	Next    *Heat `json:"next"`
+	Current Heat `json:"current"`
+	Next    Heat `json:"next"`
 }
 
 // Disqualification defines model for Disqualification.
 type Disqualification struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId     ObjectId  `json:"_id"`
+	Identifier       ObjectId  `json:"_id"`
 	AddedAt          time.Time `json:"added_at"`
 	AnnouncementTime time.Time `json:"announcement_time"`
-	Reason           *string   `json:"reason,omitempty"`
-	Type             *string   `json:"type,omitempty"`
+	Reason           string    `json:"reason,omitempty"`
+	Type             string    `json:"type,omitempty"`
 }
 
 // Error defines model for Error.
@@ -67,33 +66,32 @@ type Error struct {
 
 // EventHeatInfoDto defines model for EventHeatInfoDto.
 type EventHeatInfoDto struct {
-	Amount *int64 `json:"amount,omitempty"`
+	Amount int `json:"amount,omitempty"`
 }
 
 // EventStartResultRequestDto defines model for EventStartResultRequestDto.
 type EventStartResultRequestDto struct {
-	AgeGroup Ranking  `json:"age_group"`
-	Starts   *[]Start `json:"starts"`
+	Ranking Ranking `json:"age_group"`
+	Starts  []Start `json:"starts"`
 }
 
 // Heat defines model for Heat.
 type Heat struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId         ObjectId  `json:"_id"`
-	Event                *int64    `json:"event,omitempty"`
+	Identifier           ObjectId  `json:"_id"`
+	Event                int       `json:"event,omitempty"`
 	FinishedAt           time.Time `json:"finished_at"`
-	IsPreList            *bool     `json:"is_pre_list,omitempty"`
-	Meeting              *string   `json:"meeting,omitempty"`
-	Number               *int64    `json:"number,omitempty"`
+	IsPreList            bool      `json:"is_pre_list,omitempty"`
+	Meeting              string    `json:"meeting,omitempty"`
+	Number               int       `json:"number,omitempty"`
 	StartAt              time.Time `json:"start_at"`
 	StartDelayEstimation time.Time `json:"start_delay_estimation"`
 	StartEstimation      time.Time `json:"start_estimation"`
-	StartSoonNotified    *bool     `json:"start_soon_notified,omitempty"`
+	StartSoonNotified    bool      `json:"start_soon_notified,omitempty"`
 }
 
 // HeatEstimationDateRequest defines model for HeatEstimationDateRequest.
 type HeatEstimationDateRequest struct {
-	Events         *[]int64  `json:"events"`
+	Events         []int     `json:"events"`
 	Time           time.Time `json:"time"`
 	UpdateTimeZone bool      `json:"update_time_zone"`
 }
@@ -101,7 +99,7 @@ type HeatEstimationDateRequest struct {
 // HeatTimesRequestDto defines model for HeatTimesRequestDto.
 type HeatTimesRequestDto struct {
 	Time time.Time `json:"time"`
-	Type *string   `json:"type,omitempty"`
+	Type string    `json:"type,omitempty"`
 }
 
 // ImportDisqualificationRequestDto defines model for ImportDisqualificationRequestDto.
@@ -139,56 +137,56 @@ type ImportStartRequestDto struct {
 
 // LivestreamDto defines model for LivestreamDto.
 type LivestreamDto struct {
-	Event  LivestreamEventDto    `json:"event"`
-	Heat   LivestreamHeatDto     `json:"heat"`
-	Starts *[]LivestreamStartDto `json:"starts,omitempty"`
+	Event  LivestreamEventDto   `json:"event"`
+	Heat   LivestreamHeatDto    `json:"heat"`
+	Starts []LivestreamStartDto `json:"starts,omitempty"`
 }
 
 // LivestreamEventDto defines model for LivestreamEventDto.
 type LivestreamEventDto struct {
-	Distance      *int64  `json:"distance,omitempty"`
-	Final         *bool   `json:"final,omitempty"`
-	Gender        *string `json:"gender,omitempty"`
-	Number        *int64  `json:"number,omitempty"`
-	Part          *int64  `json:"part,omitempty"`
-	RelayDistance *string `json:"relay_distance,omitempty"`
-	Style         *string `json:"style,omitempty"`
+	Distance      int    `json:"distance,omitempty"`
+	Final         bool   `json:"final,omitempty"`
+	Gender        string `json:"gender,omitempty"`
+	Number        int    `json:"number,omitempty"`
+	Part          int    `json:"part,omitempty"`
+	RelayDistance string `json:"relay_distance,omitempty"`
+	Style         string `json:"style,omitempty"`
 }
 
 // LivestreamHeatDto defines model for LivestreamHeatDto.
 type LivestreamHeatDto struct {
-	Max    *int64 `json:"max,omitempty"`
-	Number *int64 `json:"number,omitempty"`
+	Max    int `json:"max,omitempty"`
+	Number int `json:"number,omitempty"`
 }
 
 // LivestreamHeatStateDto defines model for LivestreamHeatStateDto.
 type LivestreamHeatStateDto struct {
-	State *string `json:"state,omitempty"`
+	State string `json:"state,omitempty"`
 }
 
 // LivestreamStartDto defines model for LivestreamStartDto.
 type LivestreamStartDto struct {
-	Distance     *int64 `json:"distance,omitempty"`
-	Lane         *int64 `json:"lane,omitempty"`
-	Registration *int64 `json:"registration,omitempty"`
-	Time         *int64 `json:"time,omitempty"`
+	Distance     int `json:"distance,omitempty"`
+	Lane         int `json:"lane,omitempty"`
+	Registration int `json:"registration,omitempty"`
+	Time         int `json:"time,omitempty"`
 }
 
 // MeetingHeatEventListDto defines model for MeetingHeatEventListDto.
 type MeetingHeatEventListDto struct {
-	Amount      *int64 `json:"amount,omitempty"`
-	EventNumber *int64 `json:"event_number,omitempty"`
-	FirstHeat   Heat   `json:"first_heat"`
+	Amount      int  `json:"amount,omitempty"`
+	EventNumber int  `json:"event_number,omitempty"`
+	FirstHeat   Heat `json:"first_heat"`
 }
 
 // MeetingHeatInfoDto defines model for MeetingHeatInfoDto.
 type MeetingHeatInfoDto struct {
-	Amount *int64 `json:"amount,omitempty"`
+	Amount int `json:"amount,omitempty"`
 }
 
 // MeetingHeatsEventListDto defines model for MeetingHeatsEventListDto.
 type MeetingHeatsEventListDto struct {
-	Events *[]MeetingHeatEventListDto `json:"events,omitempty"`
+	Events []MeetingHeatEventListDto `json:"events,omitempty"`
 }
 
 // ObjectId MongoDB ObjectID (hex)
@@ -196,40 +194,37 @@ type ObjectId = string
 
 // Rank defines model for Rank.
 type Rank struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	AddedAt      time.Time `json:"added_at"`
-	Rank         *int64    `json:"rank,omitempty"`
-	Ranking      Ranking   `json:"ranking"`
-	UpdatedAt    time.Time `json:"updated_at"`
+	Identifier ObjectId  `json:"_id"`
+	AddedAt    time.Time `json:"added_at"`
+	Rank       int       `json:"rank,omitempty"`
+	Ranking    Ranking   `json:"ranking"`
+	UpdatedAt  time.Time `json:"updated_at"`
 }
 
 // Ranking defines model for Ranking.
 type Ranking struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	AddedAt      time.Time `json:"added_at"`
-	Ages         *[]int64  `json:"ages,omitempty"`
-	DsvId        *string   `json:"dsv_id,omitempty"`
-	Event        *int64    `json:"event,omitempty"`
-	Gender       *string   `json:"gender,omitempty"`
-	IsYear       *bool     `json:"is_year,omitempty"`
-	LenexId      *string   `json:"lenex_id,omitempty"`
-	MaxAge       *string   `json:"max_age,omitempty"`
-	Meeting      *string   `json:"meeting,omitempty"`
-	MinAge       *string   `json:"min_age,omitempty"`
-	Name         *string   `json:"name,omitempty"`
-	UpdatedAt    time.Time `json:"updated_at"`
+	Identifier ObjectId  `json:"_id"`
+	AddedAt    time.Time `json:"added_at"`
+	Ages       []int     `json:"ages,omitempty"`
+	DsvId      string    `json:"dsv_id,omitempty"`
+	Event      int       `json:"event,omitempty"`
+	Gender     string    `json:"gender,omitempty"`
+	IsYear     bool      `json:"is_year,omitempty"`
+	LenexId    string    `json:"lenex_id,omitempty"`
+	MaxAge     string    `json:"max_age,omitempty"`
+	Meeting    string    `json:"meeting,omitempty"`
+	MinAge     string    `json:"min_age,omitempty"`
+	Name       string    `json:"name,omitempty"`
+	UpdatedAt  time.Time `json:"updated_at"`
 }
 
 // Registration defines model for Registration.
 type Registration struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId         ObjectId               `json:"_id"`
-	AddedAt              time.Time              `json:"added_at"`
-	Address              Address                `json:"address"`
-	AthleteRegistrations *[]AthleteRegistration `json:"athlete_registrations"`
-	Contact              Contact                `json:"contact"`
+	Identifier           ObjectId              `json:"_id"`
+	AddedAt              time.Time             `json:"added_at"`
+	Address              Address               `json:"address"`
+	AthleteRegistrations []AthleteRegistration `json:"athlete_registrations"`
+	Contact              Contact               `json:"contact"`
 
 	// CreatorUserId MongoDB ObjectID (hex)
 	CreatorUserId ObjectId  `json:"creator_user_id"`
@@ -240,63 +235,62 @@ type Registration struct {
 // Result defines model for Result.
 type Result struct {
 	AddedAt    time.Time `json:"added_at"`
-	LapMeters  *int64    `json:"lap_meters,omitempty"`
-	ResultType *string   `json:"result_type,omitempty"`
+	LapMeters  int       `json:"lap_meters,omitempty"`
+	ResultType string    `json:"result_type,omitempty"`
 
 	// Time duration in nanoseconds
-	Time *int64 `json:"time,omitempty"`
+	Time time.Duration `json:"time,omitempty"`
 }
 
 // Start defines model for Start.
 type Start struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	AddedAt      time.Time `json:"added_at"`
+	Identifier ObjectId  `json:"_id"`
+	AddedAt    time.Time `json:"added_at"`
 
 	// Athlete MongoDB ObjectID (hex)
 	Athlete          ObjectId `json:"athlete"`
-	AthleteAlias     *string  `json:"athlete_alias,omitempty"`
-	AthleteMeetingId *int64   `json:"athlete_meeting_id,omitempty"`
-	AthleteName      *string  `json:"athlete_name,omitempty"`
+	AthleteAlias     string   `json:"athlete_alias,omitempty"`
+	AthleteMeetingId int      `json:"athlete_meeting_id,omitempty"`
+	AthleteName      string   `json:"athlete_name,omitempty"`
 
 	// AthleteTeam MongoDB ObjectID (hex)
 	AthleteTeam      ObjectId         `json:"athlete_team"`
-	AthleteTeamName  *string          `json:"athlete_team_name,omitempty"`
-	AthleteYear      *int64           `json:"athlete_year,omitempty"`
-	Certified        *bool            `json:"certified,omitempty"`
+	AthleteTeamName  string           `json:"athlete_team_name,omitempty"`
+	AthleteYear      int              `json:"athlete_year,omitempty"`
+	Certified        bool             `json:"certified,omitempty"`
 	Disqualification Disqualification `json:"disqualification"`
-	Event            *int64           `json:"event,omitempty"`
+	Event            int              `json:"event,omitempty"`
 	Heat             Heat             `json:"heat"`
-	HeatNumber       int64            `json:"heat_number"`
-	IsPreList        *bool            `json:"is_pre_list,omitempty"`
-	IsRelay          *bool            `json:"is_relay,omitempty"`
-	Lane             *int64           `json:"lane,omitempty"`
-	Meeting          *string          `json:"meeting,omitempty"`
-	Points           *int64           `json:"points,omitempty"`
-	Rank             *int64           `json:"rank,omitempty"`
-	Ranks            *[]Rank          `json:"ranks,omitempty"`
-	Results          *[]Result        `json:"results,omitempty"`
+	HeatNumber       int              `json:"heat_number"`
+	IsPreList        bool             `json:"is_pre_list,omitempty"`
+	IsRelay          bool             `json:"is_relay,omitempty"`
+	Lane             int              `json:"lane,omitempty"`
+	Meeting          string           `json:"meeting,omitempty"`
+	Points           int              `json:"points,omitempty"`
+	Rank             int              `json:"rank,omitempty"`
+	Ranks            []Rank           `json:"ranks,omitempty"`
+	Results          []Result         `json:"results,omitempty"`
 	UpdatedAt        time.Time        `json:"updated_at"`
 }
 
 // StartRegistration defines model for StartRegistration.
 type StartRegistration struct {
-	Event int64 `json:"event"`
+	Event int `json:"event"`
 
 	// RegistrationTime duration in nanoseconds
-	RegistrationTime int64 `json:"registration_time"`
+	RegistrationTime time.Duration `json:"registration_time"`
 }
 
 // StartsByGenderStatsDto defines model for StartsByGenderStatsDto.
 type StartsByGenderStatsDto struct {
-	Amount int64  `json:"amount"`
+	Amount int    `json:"amount"`
 	Gender string `json:"gender"`
 }
 
 // StartsByYearAndGenderStatsDto defines model for StartsByYearAndGenderStatsDto.
 type StartsByYearAndGenderStatsDto struct {
-	Genders *[]StartsByGenderStatsDto `json:"genders"`
-	Year    int64                     `json:"year"`
+	Genders []StartsByGenderStatsDto `json:"genders"`
+	Year    int                      `json:"year"`
 }
 
 // DeleteHeatsByMeetingAndEvent400TextResponseBody0 defines parameters for DeleteHeatsByMeetingAndEvent.
@@ -5659,13 +5653,13 @@ type GetHeatsAmountResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetHeatsAmountResponse) GetJSON200() *int64 {
+func (r GetHeatsAmountResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -5817,13 +5811,13 @@ type GetHeatsAmountByMeetingResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetHeatsAmountByMeetingResponse) GetJSON200() *int64 {
+func (r GetHeatsAmountByMeetingResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -7493,13 +7487,13 @@ type GetStartsAmountResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetStartsAmountResponse) GetJSON200() *int64 {
+func (r GetStartsAmountResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -7706,13 +7700,13 @@ type GetStartsAmountByMeetingResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetStartsAmountByMeetingResponse) GetJSON200() *int64 {
+func (r GetStartsAmountByMeetingResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -9466,7 +9460,7 @@ func ParseGetHeatsAmountResponse(rsp *http.Response) (*GetHeatsAmountResponse, e
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -9579,7 +9573,7 @@ func ParseGetHeatsAmountByMeetingResponse(rsp *http.Response) (*GetHeatsAmountBy
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -10775,7 +10769,7 @@ func ParseGetStartsAmountResponse(rsp *http.Response) (*GetStartsAmountResponse,
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -10928,7 +10922,7 @@ func ParseGetStartsAmountByMeetingResponse(rsp *http.Response) (*GetStartsAmount
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

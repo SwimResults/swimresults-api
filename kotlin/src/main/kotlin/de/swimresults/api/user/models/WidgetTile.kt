@@ -43,7 +43,7 @@ data class WidgetTile (
     val `data`: kotlin.Any? = null,
 
     @SerializedName("order_position")
-    val orderPosition: kotlin.Long? = null
+    val orderPosition: kotlin.Int? = null
 
 ) {
 

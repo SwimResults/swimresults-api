@@ -64,13 +64,13 @@ data class Athlete (
     val alias: kotlin.collections.List<kotlin.String>? = null,
 
     @SerializedName("year")
-    val year: kotlin.Long? = null,
+    val year: kotlin.Int? = null,
 
     @SerializedName("gender")
     val gender: kotlin.String? = null,
 
     @SerializedName("dsv_id")
-    val dsvId: kotlin.Long? = null,
+    val dsvId: kotlin.Int? = null,
 
     @SerializedName("first_meeting")
     val firstMeeting: kotlin.String? = null,

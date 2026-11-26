@@ -54,10 +54,10 @@ data class ImportFileRequest (
     val fileType: kotlin.String,
 
     @SerializedName("exclude_events")
-    val excludeEvents: kotlin.collections.List<kotlin.Long>?,
+    val excludeEvents: kotlin.collections.List<kotlin.Int>?,
 
     @SerializedName("include_events")
-    val includeEvents: kotlin.collections.List<kotlin.Long>?,
+    val includeEvents: kotlin.collections.List<kotlin.Int>?,
 
     @SerializedName("meeting")
     val meeting: kotlin.String,

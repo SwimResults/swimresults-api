@@ -40,10 +40,10 @@ import com.google.gson.annotations.SerializedName
 data class LivestreamEventDto (
 
     @SerializedName("number")
-    val number: kotlin.Long? = null,
+    val number: kotlin.Int? = null,
 
     @SerializedName("distance")
-    val distance: kotlin.Long? = null,
+    val distance: kotlin.Int? = null,
 
     @SerializedName("relay_distance")
     val relayDistance: kotlin.String? = null,
@@ -58,7 +58,7 @@ data class LivestreamEventDto (
     val `final`: kotlin.Boolean? = null,
 
     @SerializedName("part")
-    val part: kotlin.Long? = null
+    val part: kotlin.Int? = null
 
 ) {
 

@@ -39,7 +39,7 @@ data class HeatEstimationDateRequest (
     val time: java.time.OffsetDateTime,
 
     @SerializedName("events")
-    val events: kotlin.collections.List<kotlin.Long>?,
+    val events: kotlin.collections.List<kotlin.Int>?,
 
     @SerializedName("update_time_zone")
     val updateTimeZone: kotlin.Boolean

@@ -145,10 +145,10 @@ interface HeatApi {
      *  - 200: OK
      *  - 500: Internal Server Error
      *
-     * @return [kotlin.Long]
+     * @return [kotlin.Int]
      */
     @GET("heat/amount")
-    suspend fun getHeatsAmount(): Response<kotlin.Long>
+    suspend fun getHeatsAmount(): Response<kotlin.Int>
 
     /**
      * GET heat/meet/{meet_id}/amount
@@ -160,10 +160,10 @@ interface HeatApi {
      *  - 500: Internal Server Error
      *
      * @param meetId 
-     * @return [kotlin.Long]
+     * @return [kotlin.Int]
      */
     @GET("heat/meet/{meet_id}/amount")
-    suspend fun getHeatsAmountByMeeting(@Path("meet_id") meetId: kotlin.String): Response<kotlin.Long>
+    suspend fun getHeatsAmountByMeeting(@Path("meet_id") meetId: kotlin.String): Response<kotlin.Int>
 
     /**
      * GET heat/meet/{meet_id}

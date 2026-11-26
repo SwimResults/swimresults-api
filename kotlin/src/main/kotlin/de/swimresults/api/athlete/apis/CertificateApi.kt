@@ -61,10 +61,10 @@ interface CertificateApi {
      *  - 200: OK
      *  - 500: Internal Server Error
      *
-     * @return [kotlin.Long]
+     * @return [kotlin.Int]
      */
     @GET("certificate/amount")
-    suspend fun getCertificatesAmount(): Response<kotlin.Long>
+    suspend fun getCertificatesAmount(): Response<kotlin.Int>
 
     /**
      * GET certificate/meet/{meet_id}/amount
@@ -76,10 +76,10 @@ interface CertificateApi {
      *  - 500: Internal Server Error
      *
      * @param meetId 
-     * @return [kotlin.Long]
+     * @return [kotlin.Int]
      */
     @GET("certificate/meet/{meet_id}/amount")
-    suspend fun getCertificatesAmountByMeeting(@Path("meet_id") meetId: kotlin.String): Response<kotlin.Long>
+    suspend fun getCertificatesAmountByMeeting(@Path("meet_id") meetId: kotlin.String): Response<kotlin.Int>
 
     /**
      * GET certificate/athlete/{athlete_id}

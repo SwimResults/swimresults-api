@@ -55,7 +55,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Disqualification`.
         public struct Disqualification: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Disqualification/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Disqualification/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Disqualification/_id`.
+            public var _id: Components.Schemas.Disqualification._IdPayload
             /// - Remark: Generated from `#/components/schemas/Disqualification/type`.
             public var _type: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Disqualification/reason`.
@@ -73,7 +91,7 @@ extension Components {
             ///   - announcementTime:
             ///   - addedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Disqualification._IdPayload,
                 _type: Swift.String? = nil,
                 reason: Swift.String? = nil,
                 announcementTime: Foundation.Date,
@@ -96,17 +114,35 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Start`.
         public struct Start: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Start/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Start/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Start/_id`.
+            public var _id: Components.Schemas.Start._IdPayload
             /// - Remark: Generated from `#/components/schemas/Start/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Start/event`.
-            public var event: Swift.Int64?
+            public var event: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Start/heat_number`.
-            public var heatNumber: Swift.Int64
+            public var heatNumber: Swift.Int
             /// - Remark: Generated from `#/components/schemas/Start/heat`.
             public var heat: Components.Schemas.Heat
             /// - Remark: Generated from `#/components/schemas/Start/lane`.
-            public var lane: Swift.Int64?
+            public var lane: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Start/is_relay`.
             public var isRelay: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/Start/is_pre_list`.
@@ -114,21 +150,21 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/Start/athlete`.
             public var athlete: Components.Schemas.ObjectId
             /// - Remark: Generated from `#/components/schemas/Start/athlete_meeting_id`.
-            public var athleteMeetingId: Swift.Int64?
+            public var athleteMeetingId: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Start/athlete_name`.
             public var athleteName: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Start/athlete_alias`.
             public var athleteAlias: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Start/athlete_year`.
-            public var athleteYear: Swift.Int64?
+            public var athleteYear: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Start/athlete_team`.
             public var athleteTeam: Components.Schemas.ObjectId
             /// - Remark: Generated from `#/components/schemas/Start/athlete_team_name`.
             public var athleteTeamName: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Start/rank`.
-            public var rank: Swift.Int64?
+            public var rank: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Start/points`.
-            public var points: Swift.Int64?
+            public var points: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Start/certified`.
             public var certified: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/Start/results`.
@@ -168,23 +204,23 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Start._IdPayload,
                 meeting: Swift.String? = nil,
-                event: Swift.Int64? = nil,
-                heatNumber: Swift.Int64,
+                event: Swift.Int? = nil,
+                heatNumber: Swift.Int,
                 heat: Components.Schemas.Heat,
-                lane: Swift.Int64? = nil,
+                lane: Swift.Int? = nil,
                 isRelay: Swift.Bool? = nil,
                 isPreList: Swift.Bool? = nil,
                 athlete: Components.Schemas.ObjectId,
-                athleteMeetingId: Swift.Int64? = nil,
+                athleteMeetingId: Swift.Int? = nil,
                 athleteName: Swift.String? = nil,
                 athleteAlias: Swift.String? = nil,
-                athleteYear: Swift.Int64? = nil,
+                athleteYear: Swift.Int? = nil,
                 athleteTeam: Components.Schemas.ObjectId,
                 athleteTeamName: Swift.String? = nil,
-                rank: Swift.Int64? = nil,
-                points: Swift.Int64? = nil,
+                rank: Swift.Int? = nil,
+                points: Swift.Int? = nil,
                 certified: Swift.Bool? = nil,
                 results: [Components.Schemas.Result]? = nil,
                 ranks: [Components.Schemas.Rank]? = nil,
@@ -245,13 +281,31 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Heat`.
         public struct Heat: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Heat/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Heat/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Heat/_id`.
+            public var _id: Components.Schemas.Heat._IdPayload
             /// - Remark: Generated from `#/components/schemas/Heat/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Heat/event`.
-            public var event: Swift.Int64?
+            public var event: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Heat/number`.
-            public var number: Swift.Int64?
+            public var number: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Heat/is_pre_list`.
             public var isPreList: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/Heat/start_estimation`.
@@ -278,10 +332,10 @@ extension Components {
             ///   - finishedAt:
             ///   - startSoonNotified:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Heat._IdPayload,
                 meeting: Swift.String? = nil,
-                event: Swift.Int64? = nil,
-                number: Swift.Int64? = nil,
+                event: Swift.Int? = nil,
+                number: Swift.Int? = nil,
                 isPreList: Swift.Bool? = nil,
                 startEstimation: Foundation.Date,
                 startDelayEstimation: Foundation.Date,
@@ -322,7 +376,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/Result/result_type`.
             public var resultType: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Result/lap_meters`.
-            public var lapMeters: Swift.Int64?
+            public var lapMeters: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Result/added_at`.
             public var addedAt: Foundation.Date
             /// Creates a new `Result`.
@@ -335,7 +389,7 @@ extension Components {
             public init(
                 time: Swift.Int64? = nil,
                 resultType: Swift.String? = nil,
-                lapMeters: Swift.Int64? = nil,
+                lapMeters: Swift.Int? = nil,
                 addedAt: Foundation.Date
             ) {
                 self.time = time
@@ -353,9 +407,27 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Rank`.
         public struct Rank: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Rank/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Rank/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Rank/_id`.
+            public var _id: Components.Schemas.Rank._IdPayload
             /// - Remark: Generated from `#/components/schemas/Rank/rank`.
-            public var rank: Swift.Int64?
+            public var rank: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Rank/ranking`.
             public var ranking: Components.Schemas.Ranking
             /// - Remark: Generated from `#/components/schemas/Rank/added_at`.
@@ -371,8 +443,8 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
-                rank: Swift.Int64? = nil,
+                _id: Components.Schemas.Rank._IdPayload,
+                rank: Swift.Int? = nil,
                 ranking: Components.Schemas.Ranking,
                 addedAt: Foundation.Date,
                 updatedAt: Foundation.Date
@@ -394,11 +466,29 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Ranking`.
         public struct Ranking: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Ranking/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Ranking/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Ranking/_id`.
+            public var _id: Components.Schemas.Ranking._IdPayload
             /// - Remark: Generated from `#/components/schemas/Ranking/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Ranking/event`.
-            public var event: Swift.Int64?
+            public var event: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Ranking/gender`.
             public var gender: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Ranking/min_age`.
@@ -406,7 +496,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/Ranking/max_age`.
             public var maxAge: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Ranking/ages`.
-            public var ages: [Swift.Int64]?
+            public var ages: [Swift.Int]?
             /// - Remark: Generated from `#/components/schemas/Ranking/is_year`.
             public var isYear: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/Ranking/name`.
@@ -436,13 +526,13 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Ranking._IdPayload,
                 meeting: Swift.String? = nil,
-                event: Swift.Int64? = nil,
+                event: Swift.Int? = nil,
                 gender: Swift.String? = nil,
                 minAge: Swift.String? = nil,
                 maxAge: Swift.String? = nil,
-                ages: [Swift.Int64]? = nil,
+                ages: [Swift.Int]? = nil,
                 isYear: Swift.Bool? = nil,
                 name: Swift.String? = nil,
                 lenexId: Swift.String? = nil,
@@ -498,9 +588,9 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/MeetingHeatEventListDto`.
         public struct MeetingHeatEventListDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/MeetingHeatEventListDto/event_number`.
-            public var eventNumber: Swift.Int64?
+            public var eventNumber: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/MeetingHeatEventListDto/amount`.
-            public var amount: Swift.Int64?
+            public var amount: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/MeetingHeatEventListDto/first_heat`.
             public var firstHeat: Components.Schemas.Heat
             /// Creates a new `MeetingHeatEventListDto`.
@@ -510,8 +600,8 @@ extension Components {
             ///   - amount:
             ///   - firstHeat:
             public init(
-                eventNumber: Swift.Int64? = nil,
-                amount: Swift.Int64? = nil,
+                eventNumber: Swift.Int? = nil,
+                amount: Swift.Int? = nil,
                 firstHeat: Components.Schemas.Heat
             ) {
                 self.eventNumber = eventNumber
@@ -527,12 +617,12 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/MeetingHeatInfoDto`.
         public struct MeetingHeatInfoDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/MeetingHeatInfoDto/amount`.
-            public var amount: Swift.Int64?
+            public var amount: Swift.Int?
             /// Creates a new `MeetingHeatInfoDto`.
             ///
             /// - Parameters:
             ///   - amount:
-            public init(amount: Swift.Int64? = nil) {
+            public init(amount: Swift.Int? = nil) {
                 self.amount = amount
             }
             public enum CodingKeys: String, CodingKey {
@@ -542,12 +632,12 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/EventHeatInfoDto`.
         public struct EventHeatInfoDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/EventHeatInfoDto/amount`.
-            public var amount: Swift.Int64?
+            public var amount: Swift.Int?
             /// Creates a new `EventHeatInfoDto`.
             ///
             /// - Parameters:
             ///   - amount:
-            public init(amount: Swift.Int64? = nil) {
+            public init(amount: Swift.Int? = nil) {
                 self.amount = amount
             }
             public enum CodingKeys: String, CodingKey {
@@ -633,7 +723,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/HeatEstimationDateRequest/time`.
             public var time: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/HeatEstimationDateRequest/events`.
-            public var events: [Swift.Int64]?
+            public var events: [Swift.Int]?
             /// - Remark: Generated from `#/components/schemas/HeatEstimationDateRequest/update_time_zone`.
             public var updateTimeZone: Swift.Bool
             /// Creates a new `HeatEstimationDateRequest`.
@@ -644,7 +734,7 @@ extension Components {
             ///   - updateTimeZone:
             public init(
                 time: Foundation.Date,
-                events: [Swift.Int64]? = nil,
+                events: [Swift.Int]? = nil,
                 updateTimeZone: Swift.Bool
             ) {
                 self.time = time
@@ -721,7 +811,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Registration`.
         public struct Registration: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Registration/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Registration/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Registration/_id`.
+            public var _id: Components.Schemas.Registration._IdPayload
             /// - Remark: Generated from `#/components/schemas/Registration/meeting`.
             public var meeting: Swift.String
             /// - Remark: Generated from `#/components/schemas/Registration/creator_user_id`.
@@ -748,7 +856,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Registration._IdPayload,
                 meeting: Swift.String,
                 creatorUserId: Components.Schemas.ObjectId,
                 address: Components.Schemas.Address,
@@ -856,7 +964,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/AthleteRegistration/athlete_last_name`.
             public var athleteLastName: Swift.String?
             /// - Remark: Generated from `#/components/schemas/AthleteRegistration/athlete_year`.
-            public var athleteYear: Swift.Int64?
+            public var athleteYear: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/AthleteRegistration/start_registrations`.
             public var startRegistrations: [Components.Schemas.StartRegistration]?
             /// Creates a new `AthleteRegistration`.
@@ -871,7 +979,7 @@ extension Components {
                 athleteId: Components.Schemas.ObjectId,
                 athleteFirstName: Swift.String? = nil,
                 athleteLastName: Swift.String? = nil,
-                athleteYear: Swift.Int64? = nil,
+                athleteYear: Swift.Int? = nil,
                 startRegistrations: [Components.Schemas.StartRegistration]? = nil
             ) {
                 self.athleteId = athleteId
@@ -891,7 +999,7 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/StartRegistration`.
         public struct StartRegistration: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/StartRegistration/event`.
-            public var event: Swift.Int64
+            public var event: Swift.Int
             /// duration in nanoseconds
             ///
             /// - Remark: Generated from `#/components/schemas/StartRegistration/registration_time`.
@@ -902,7 +1010,7 @@ extension Components {
             ///   - event:
             ///   - registrationTime: duration in nanoseconds
             public init(
-                event: Swift.Int64,
+                event: Swift.Int,
                 registrationTime: Swift.Int64
             ) {
                 self.event = event
@@ -939,7 +1047,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto`.
         public struct EventStartResultRequestDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto/age_group`.
-            public var ageGroup: Components.Schemas.Ranking
+            public struct AgeGroupPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto/age_group/value1`.
+                public var value1: Components.Schemas.Ranking
+                /// Creates a new `AgeGroupPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.Ranking) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try .init(from: decoder)
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try self.value1.encode(to: encoder)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto/age_group`.
+            public var ageGroup: Components.Schemas.EventStartResultRequestDto.AgeGroupPayload
             /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto/starts`.
             public var starts: [Components.Schemas.Start]?
             /// Creates a new `EventStartResultRequestDto`.
@@ -948,7 +1074,7 @@ extension Components {
             ///   - ageGroup:
             ///   - starts:
             public init(
-                ageGroup: Components.Schemas.Ranking,
+                ageGroup: Components.Schemas.EventStartResultRequestDto.AgeGroupPayload,
                 starts: [Components.Schemas.Start]? = nil
             ) {
                 self.ageGroup = ageGroup
@@ -962,7 +1088,7 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/StartsByYearAndGenderStatsDto`.
         public struct StartsByYearAndGenderStatsDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/StartsByYearAndGenderStatsDto/year`.
-            public var year: Swift.Int64
+            public var year: Swift.Int
             /// - Remark: Generated from `#/components/schemas/StartsByYearAndGenderStatsDto/genders`.
             public var genders: [Components.Schemas.StartsByGenderStatsDto]?
             /// Creates a new `StartsByYearAndGenderStatsDto`.
@@ -971,7 +1097,7 @@ extension Components {
             ///   - year:
             ///   - genders:
             public init(
-                year: Swift.Int64,
+                year: Swift.Int,
                 genders: [Components.Schemas.StartsByGenderStatsDto]? = nil
             ) {
                 self.year = year
@@ -987,7 +1113,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/StartsByGenderStatsDto/gender`.
             public var gender: Swift.String
             /// - Remark: Generated from `#/components/schemas/StartsByGenderStatsDto/amount`.
-            public var amount: Swift.Int64
+            public var amount: Swift.Int
             /// Creates a new `StartsByGenderStatsDto`.
             ///
             /// - Parameters:
@@ -995,7 +1121,7 @@ extension Components {
             ///   - amount:
             public init(
                 gender: Swift.String,
-                amount: Swift.Int64
+                amount: Swift.Int
             ) {
                 self.gender = gender
                 self.amount = amount
@@ -1037,9 +1163,9 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/LivestreamEventDto`.
         public struct LivestreamEventDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/LivestreamEventDto/number`.
-            public var number: Swift.Int64?
+            public var number: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/LivestreamEventDto/distance`.
-            public var distance: Swift.Int64?
+            public var distance: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/LivestreamEventDto/relay_distance`.
             public var relayDistance: Swift.String?
             /// - Remark: Generated from `#/components/schemas/LivestreamEventDto/gender`.
@@ -1049,7 +1175,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/LivestreamEventDto/final`.
             public var final: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/LivestreamEventDto/part`.
-            public var part: Swift.Int64?
+            public var part: Swift.Int?
             /// Creates a new `LivestreamEventDto`.
             ///
             /// - Parameters:
@@ -1061,13 +1187,13 @@ extension Components {
             ///   - final:
             ///   - part:
             public init(
-                number: Swift.Int64? = nil,
-                distance: Swift.Int64? = nil,
+                number: Swift.Int? = nil,
+                distance: Swift.Int? = nil,
                 relayDistance: Swift.String? = nil,
                 gender: Swift.String? = nil,
                 style: Swift.String? = nil,
                 final: Swift.Bool? = nil,
-                part: Swift.Int64? = nil
+                part: Swift.Int? = nil
             ) {
                 self.number = number
                 self.distance = distance
@@ -1090,17 +1216,17 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/LivestreamHeatDto`.
         public struct LivestreamHeatDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/LivestreamHeatDto/number`.
-            public var number: Swift.Int64?
+            public var number: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/LivestreamHeatDto/max`.
-            public var max: Swift.Int64?
+            public var max: Swift.Int?
             /// Creates a new `LivestreamHeatDto`.
             ///
             /// - Parameters:
             ///   - number:
             ///   - max:
             public init(
-                number: Swift.Int64? = nil,
-                max: Swift.Int64? = nil
+                number: Swift.Int? = nil,
+                max: Swift.Int? = nil
             ) {
                 self.number = number
                 self.max = max
@@ -1113,13 +1239,13 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/LivestreamStartDto`.
         public struct LivestreamStartDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/LivestreamStartDto/lane`.
-            public var lane: Swift.Int64?
+            public var lane: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/LivestreamStartDto/time`.
-            public var time: Swift.Int64?
+            public var time: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/LivestreamStartDto/registration`.
-            public var registration: Swift.Int64?
+            public var registration: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/LivestreamStartDto/distance`.
-            public var distance: Swift.Int64?
+            public var distance: Swift.Int?
             /// Creates a new `LivestreamStartDto`.
             ///
             /// - Parameters:
@@ -1128,10 +1254,10 @@ extension Components {
             ///   - registration:
             ///   - distance:
             public init(
-                lane: Swift.Int64? = nil,
-                time: Swift.Int64? = nil,
-                registration: Swift.Int64? = nil,
-                distance: Swift.Int64? = nil
+                lane: Swift.Int? = nil,
+                time: Swift.Int? = nil,
+                registration: Swift.Int? = nil,
+                distance: Swift.Int? = nil
             ) {
                 self.lane = lane
                 self.time = time

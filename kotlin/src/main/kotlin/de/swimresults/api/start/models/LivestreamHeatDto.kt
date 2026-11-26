@@ -35,10 +35,10 @@ import com.google.gson.annotations.SerializedName
 data class LivestreamHeatDto (
 
     @SerializedName("number")
-    val number: kotlin.Long? = null,
+    val number: kotlin.Int? = null,
 
     @SerializedName("max")
-    val max: kotlin.Long? = null
+    val max: kotlin.Int? = null
 
 ) {
 

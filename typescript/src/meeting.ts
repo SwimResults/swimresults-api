@@ -617,7 +617,6 @@ export interface components {
         AgeGroup: {
             _id: components["schemas"]["ObjectId"];
             meeting?: string;
-            /** Format: int64 */
             event?: number;
             default?: boolean;
             gender?: string;
@@ -636,9 +635,7 @@ export interface components {
         };
         Event: {
             _id: components["schemas"]["ObjectId"];
-            /** Format: int64 */
             number?: number;
-            /** Format: int64 */
             distance?: number;
             relay_distance?: string;
             meeting?: string;
@@ -650,7 +647,6 @@ export interface components {
             finished?: boolean;
             certified?: boolean;
             no_start_list?: boolean;
-            /** Format: int64 */
             ordering?: number;
             /** Format: date-time */
             added_at: string;
@@ -669,7 +665,6 @@ export interface components {
             name?: string;
         };
         MeetingPart: {
-            /** Format: int64 */
             number?: number;
             name?: string;
             events?: components["schemas"]["Event"][] | null;
@@ -682,7 +677,6 @@ export interface components {
         ImportEventRequestDto: {
             event: components["schemas"]["Event"];
             style_name: string;
-            /** Format: int64 */
             part_number: number;
         };
         EventCertificationRequestDto: {
@@ -699,9 +693,7 @@ export interface components {
             in_file_list?: boolean;
             hidden?: boolean;
             existing?: boolean;
-            /** Format: int64 */
             downloads?: number;
-            /** Format: int64 */
             ordering?: number;
             /** Format: date-time */
             added_at: string;
@@ -718,9 +710,7 @@ export interface components {
             start: string;
             /** Format: date-time */
             end: string;
-            /** Format: int64 */
             prev_event?: number;
-            /** Format: int64 */
             next_event?: number;
             /** Format: date-time */
             added_at: string;
@@ -739,9 +729,7 @@ export interface components {
             city?: string;
             postal_code?: string;
             name?: string;
-            /** Format: int64 */
             lanes?: number;
-            /** Format: int64 */
             first_lane?: number;
             /** Format: date-time */
             added_at: string;
@@ -757,7 +745,6 @@ export interface components {
             location: components["schemas"]["Location"];
             organizer_id: components["schemas"]["ObjectId"];
             series: components["schemas"]["MeetingSeries"];
-            /** Format: int64 */
             iteration?: number;
             subtitles?: string[] | null;
             warnings?: string[] | null;

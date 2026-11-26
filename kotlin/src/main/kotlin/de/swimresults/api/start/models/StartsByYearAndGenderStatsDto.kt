@@ -36,7 +36,7 @@ import com.google.gson.annotations.SerializedName
 data class StartsByYearAndGenderStatsDto (
 
     @SerializedName("year")
-    val year: kotlin.Long,
+    val year: kotlin.Int,
 
     @SerializedName("genders")
     val genders: kotlin.collections.List<StartsByGenderStatsDto>?

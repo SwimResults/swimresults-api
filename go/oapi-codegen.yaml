@@ -4,5 +4,8 @@ generate:
   client: true
 output-options:
   skip-prune: true
+  # optional fields as plain values with omitempty (like the services' own Go models), not pointers
+  prefer-skip-optional-pointer: true
+  prefer-skip-optional-pointer-on-container-types: true
 compatibility:
   always-prefix-enum-values: true

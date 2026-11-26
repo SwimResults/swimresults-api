@@ -42,14 +42,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -78,14 +81,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -171,10 +177,12 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: year
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -211,7 +219,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "500":
           description: Internal Server Error
           content:
@@ -271,14 +278,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -323,7 +333,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "400":
           description: Bad Request
           content:
@@ -353,14 +362,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       requestBody:
         required: true
         content:
@@ -404,10 +416,12 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: year
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -481,14 +495,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -534,14 +551,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -761,7 +781,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "500":
           description: Internal Server Error
           content:
@@ -896,7 +915,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "400":
           description: Bad Request
           content:
@@ -990,14 +1008,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1026,14 +1047,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1091,6 +1115,7 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1127,7 +1152,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "500":
           description: Internal Server Error
           content:
@@ -1187,14 +1211,17 @@ paths:
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: offset
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: query
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1239,7 +1266,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "400":
           description: Bad Request
           content:
@@ -1265,6 +1291,7 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1380,7 +1407,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         name:
           type: string
         firstname:
@@ -1394,12 +1423,10 @@ components:
           nullable: true
         year:
           type: integer
-          format: int64
         gender:
           type: string
         dsv_id:
           type: integer
-          format: int64
         team:
           $ref: '#/components/schemas/Team'
         first_meeting:
@@ -1416,7 +1443,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         name:
           type: string
         alias:
@@ -1428,10 +1457,8 @@ components:
           type: string
         dsv_id:
           type: integer
-          format: int64
         state_id:
           type: integer
-          format: int64
         address:
           $ref: '#/components/schemas/Address'
         contact:
@@ -1472,6 +1499,7 @@ components:
           type: string
         email:
           type: string
+          x-go-name: EMail
         phone:
           type: string
         fax:
@@ -1499,9 +1527,12 @@ components:
       type: object
       properties:
         athlete:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: AthleteId
         meeting:
           type: string
+          x-go-name: MeetingId
       required:
         - athlete
     AthleteIdList:
@@ -1518,7 +1549,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         name:
           type: string
         athlete_id:
@@ -1533,10 +1566,8 @@ components:
           type: boolean
         downloads:
           type: integer
-          format: int64
         ordering:
           type: integer
-          format: int64
         added_at:
           type: string
           format: date-time

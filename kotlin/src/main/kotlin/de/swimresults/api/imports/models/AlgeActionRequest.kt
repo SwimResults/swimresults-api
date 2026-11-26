@@ -47,19 +47,19 @@ data class AlgeActionRequest (
     val action: kotlin.String,
 
     @SerializedName("event")
-    val event: kotlin.Long? = null,
+    val event: kotlin.Int? = null,
 
     @SerializedName("heat")
-    val heat: kotlin.Long? = null,
+    val heat: kotlin.Int? = null,
 
     @SerializedName("lane")
-    val lane: kotlin.Long? = null,
+    val lane: kotlin.Int? = null,
 
     @SerializedName("meter")
-    val meter: kotlin.Long? = null,
+    val meter: kotlin.Int? = null,
 
     @SerializedName("time")
-    val time: kotlin.Long? = null,
+    val time: kotlin.Int? = null,
 
     @SerializedName("finished")
     val finished: kotlin.String? = null

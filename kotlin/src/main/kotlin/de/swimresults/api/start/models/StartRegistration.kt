@@ -35,7 +35,7 @@ import com.google.gson.annotations.SerializedName
 data class StartRegistration (
 
     @SerializedName("event")
-    val event: kotlin.Long,
+    val event: kotlin.Int,
 
     /* duration in nanoseconds */
     @SerializedName("registration_time")

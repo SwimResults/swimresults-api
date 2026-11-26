@@ -64,7 +64,7 @@ data class Start (
     val id: kotlin.String,
 
     @SerializedName("heat_number")
-    val heatNumber: kotlin.Long,
+    val heatNumber: kotlin.Int,
 
     @SerializedName("heat")
     val heat: Heat,
@@ -90,10 +90,10 @@ data class Start (
     val meeting: kotlin.String? = null,
 
     @SerializedName("event")
-    val event: kotlin.Long? = null,
+    val event: kotlin.Int? = null,
 
     @SerializedName("lane")
-    val lane: kotlin.Long? = null,
+    val lane: kotlin.Int? = null,
 
     @SerializedName("is_relay")
     val isRelay: kotlin.Boolean? = null,
@@ -102,7 +102,7 @@ data class Start (
     val isPreList: kotlin.Boolean? = null,
 
     @SerializedName("athlete_meeting_id")
-    val athleteMeetingId: kotlin.Long? = null,
+    val athleteMeetingId: kotlin.Int? = null,
 
     @SerializedName("athlete_name")
     val athleteName: kotlin.String? = null,
@@ -111,16 +111,16 @@ data class Start (
     val athleteAlias: kotlin.String? = null,
 
     @SerializedName("athlete_year")
-    val athleteYear: kotlin.Long? = null,
+    val athleteYear: kotlin.Int? = null,
 
     @SerializedName("athlete_team_name")
     val athleteTeamName: kotlin.String? = null,
 
     @SerializedName("rank")
-    val rank: kotlin.Long? = null,
+    val rank: kotlin.Int? = null,
 
     @SerializedName("points")
-    val points: kotlin.Long? = null,
+    val points: kotlin.Int? = null,
 
     @SerializedName("certified")
     val certified: kotlin.Boolean? = null,

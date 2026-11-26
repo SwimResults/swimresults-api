@@ -37,16 +37,16 @@ import com.google.gson.annotations.SerializedName
 data class LivestreamStartDto (
 
     @SerializedName("lane")
-    val lane: kotlin.Long? = null,
+    val lane: kotlin.Int? = null,
 
     @SerializedName("time")
-    val time: kotlin.Long? = null,
+    val time: kotlin.Int? = null,
 
     @SerializedName("registration")
-    val registration: kotlin.Long? = null,
+    val registration: kotlin.Int? = null,
 
     @SerializedName("distance")
-    val distance: kotlin.Long? = null
+    val distance: kotlin.Int? = null
 
 ) {
 

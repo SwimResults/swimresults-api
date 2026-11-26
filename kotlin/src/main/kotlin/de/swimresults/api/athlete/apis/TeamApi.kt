@@ -109,10 +109,10 @@ interface TeamApi {
      *  - 200: OK
      *  - 500: Internal Server Error
      *
-     * @return [kotlin.Long]
+     * @return [kotlin.Int]
      */
     @GET("team/amount")
-    suspend fun getTeamsAmount(): Response<kotlin.Long>
+    suspend fun getTeamsAmount(): Response<kotlin.Int>
 
     /**
      * GET team/meet/{meet_id}/amount
@@ -124,10 +124,10 @@ interface TeamApi {
      *  - 500: Internal Server Error
      *
      * @param meetId 
-     * @return [kotlin.Long]
+     * @return [kotlin.Int]
      */
     @GET("team/meet/{meet_id}/amount")
-    suspend fun getTeamsAmountByMeeting(@Path("meet_id") meetId: kotlin.String): Response<kotlin.Long>
+    suspend fun getTeamsAmountByMeeting(@Path("meet_id") meetId: kotlin.String): Response<kotlin.Int>
 
     /**
      * GET team/meet/{meet_id}

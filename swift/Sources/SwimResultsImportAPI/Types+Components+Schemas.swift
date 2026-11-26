@@ -40,9 +40,9 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/ImportFileRequest/file_type`.
             public var fileType: Swift.String
             /// - Remark: Generated from `#/components/schemas/ImportFileRequest/exclude_events`.
-            public var excludeEvents: [Swift.Int64]?
+            public var excludeEvents: [Swift.Int]?
             /// - Remark: Generated from `#/components/schemas/ImportFileRequest/include_events`.
-            public var includeEvents: [Swift.Int64]?
+            public var includeEvents: [Swift.Int]?
             /// - Remark: Generated from `#/components/schemas/ImportFileRequest/meeting`.
             public var meeting: Swift.String
             /// - Remark: Generated from `#/components/schemas/ImportFileRequest/session_id`.
@@ -66,8 +66,8 @@ extension Components {
                 text: Swift.String,
                 fileExtension: Swift.String,
                 fileType: Swift.String,
-                excludeEvents: [Swift.Int64]? = nil,
-                includeEvents: [Swift.Int64]? = nil,
+                excludeEvents: [Swift.Int]? = nil,
+                includeEvents: [Swift.Int]? = nil,
                 meeting: Swift.String,
                 sessionId: Swift.String,
                 features: [Swift.String]? = nil
@@ -120,7 +120,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/ImportSetting`.
         public struct ImportSetting: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/ImportSetting/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/ImportSetting/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/ImportSetting/_id`.
+            public var _id: Components.Schemas.ImportSetting._IdPayload
             /// - Remark: Generated from `#/components/schemas/ImportSetting/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/ImportSetting/pdf_start_list_settings`.
@@ -141,7 +159,7 @@ extension Components {
             ///   - certificateSettings:
             ///   - timeZone:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.ImportSetting._IdPayload,
                 meeting: Swift.String? = nil,
                 pdfStartListSettings: Components.Schemas.ImportPdfStartListSettings,
                 pdfResultListSettings: Components.Schemas.ImportPdfResultListSettings,
@@ -515,25 +533,25 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/keepsum`.
             public var keepsum: Swift.String?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/firstlane`.
-            public var firstlane: Swift.Int64?
+            public var firstlane: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/lanecount`.
-            public var lanecount: Swift.Int64?
+            public var lanecount: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/vername`.
             public var vername: Swift.String?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/event`.
-            public var event: Swift.Int64?
+            public var event: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/heat`.
-            public var heat: Swift.Int64?
+            public var heat: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/maxheat`.
-            public var maxheat: Swift.Int64?
+            public var maxheat: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/name`.
             public var name: Swift.String?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/lane`.
-            public var lane: Swift.Int64?
+            public var lane: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/meter`.
             public var meter: Swift.String?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/time`.
-            public var time: Swift.Int64?
+            public var time: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/finished`.
             public var finished: Swift.String?
             /// - Remark: Generated from `#/components/schemas/EasyWkActionV3Request/content`.
@@ -659,16 +677,16 @@ extension Components {
                 pwd: Swift.String,
                 action: Swift.String,
                 keepsum: Swift.String? = nil,
-                firstlane: Swift.Int64? = nil,
-                lanecount: Swift.Int64? = nil,
+                firstlane: Swift.Int? = nil,
+                lanecount: Swift.Int? = nil,
                 vername: Swift.String? = nil,
-                event: Swift.Int64? = nil,
-                heat: Swift.Int64? = nil,
-                maxheat: Swift.Int64? = nil,
+                event: Swift.Int? = nil,
+                heat: Swift.Int? = nil,
+                maxheat: Swift.Int? = nil,
                 name: Swift.String? = nil,
-                lane: Swift.Int64? = nil,
+                lane: Swift.Int? = nil,
                 meter: Swift.String? = nil,
-                time: Swift.Int64? = nil,
+                time: Swift.Int? = nil,
                 finished: Swift.String? = nil,
                 content: Swift.String? = nil,
                 srw0: Swift.String? = nil,
@@ -812,15 +830,15 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/AlgeActionRequest/action`.
             public var action: Swift.String
             /// - Remark: Generated from `#/components/schemas/AlgeActionRequest/event`.
-            public var event: Swift.Int64?
+            public var event: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/AlgeActionRequest/heat`.
-            public var heat: Swift.Int64?
+            public var heat: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/AlgeActionRequest/lane`.
-            public var lane: Swift.Int64?
+            public var lane: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/AlgeActionRequest/meter`.
-            public var meter: Swift.Int64?
+            public var meter: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/AlgeActionRequest/time`.
-            public var time: Swift.Int64?
+            public var time: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/AlgeActionRequest/finished`.
             public var finished: Swift.String?
             /// Creates a new `AlgeActionRequest`.
@@ -837,11 +855,11 @@ extension Components {
             public init(
                 password: Swift.String,
                 action: Swift.String,
-                event: Swift.Int64? = nil,
-                heat: Swift.Int64? = nil,
-                lane: Swift.Int64? = nil,
-                meter: Swift.Int64? = nil,
-                time: Swift.Int64? = nil,
+                event: Swift.Int? = nil,
+                heat: Swift.Int? = nil,
+                lane: Swift.Int? = nil,
+                meter: Swift.Int? = nil,
+                time: Swift.Int? = nil,
                 finished: Swift.String? = nil
             ) {
                 self.password = password

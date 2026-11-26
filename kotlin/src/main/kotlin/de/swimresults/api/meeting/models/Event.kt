@@ -71,10 +71,10 @@ data class Event (
     val updatedAt: java.time.OffsetDateTime,
 
     @SerializedName("number")
-    val number: kotlin.Long? = null,
+    val number: kotlin.Int? = null,
 
     @SerializedName("distance")
-    val distance: kotlin.Long? = null,
+    val distance: kotlin.Int? = null,
 
     @SerializedName("relay_distance")
     val relayDistance: kotlin.String? = null,
@@ -98,7 +98,7 @@ data class Event (
     val noStartList: kotlin.Boolean? = null,
 
     @SerializedName("ordering")
-    val ordering: kotlin.Long? = null
+    val ordering: kotlin.Int? = null
 
 ) {
 

@@ -91,6 +91,14 @@ c, _ := meetingapi.NewClientWithResponses("http://meeting-service:8080",
 res, err := c.GetEventsByMeetIdWithResponse(ctx, "IESC19") // res.JSON200 is *[]meetingapi.Event
 ```
 
+The Go types mirror the services' own models, so code moving from a service's `client`/`model` packages mostly
+changes imports:
+- **Field names** match the Go models (kept in the specs as `x-go-name`, e.g. `_id` → `Identifier`).
+- **Optional fields** are plain values with `omitempty`, not pointers.
+- **Types:** Go `int` stays `int`, and `time.Duration` stays `time.Duration` (`x-go-type`).
+- **IDs:** `ObjectId` is a `string`. The services decode `""` like an unset ObjectID.
+- **Optional query parameters** are pointers, so unset ones are not sent.
+
 Requires Go 1.24. The runtime is pinned to `oapi-codegen/runtime` v1.8.0 because v1.9 needs Go 1.26.
 
 ### Swift

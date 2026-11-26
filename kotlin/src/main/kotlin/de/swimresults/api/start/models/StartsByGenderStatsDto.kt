@@ -38,7 +38,7 @@ data class StartsByGenderStatsDto (
     val gender: kotlin.String,
 
     @SerializedName("amount")
-    val amount: kotlin.Long
+    val amount: kotlin.Int
 
 ) {
 

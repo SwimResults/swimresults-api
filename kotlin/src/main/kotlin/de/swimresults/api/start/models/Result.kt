@@ -47,7 +47,7 @@ data class Result (
     val resultType: kotlin.String? = null,
 
     @SerializedName("lap_meters")
-    val lapMeters: kotlin.Long? = null
+    val lapMeters: kotlin.Int? = null
 
 ) {
 

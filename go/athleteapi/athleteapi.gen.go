@@ -19,71 +19,68 @@ import (
 
 // AddParticipationRequestDto defines model for AddParticipationRequestDto.
 type AddParticipationRequestDto struct {
-	// Athlete MongoDB ObjectID (hex)
-	Athlete ObjectId `json:"athlete"`
-	Meeting *string  `json:"meeting,omitempty"`
+	AthleteId ObjectId `json:"athlete"`
+	MeetingId string   `json:"meeting,omitempty"`
 }
 
 // Address defines model for Address.
 type Address struct {
-	City       *string `json:"city,omitempty"`
-	Number     *string `json:"number,omitempty"`
-	PostalCode *string `json:"postal_code,omitempty"`
-	Street     *string `json:"street,omitempty"`
+	City       string `json:"city,omitempty"`
+	Number     string `json:"number,omitempty"`
+	PostalCode string `json:"postal_code,omitempty"`
+	Street     string `json:"street,omitempty"`
 }
 
 // Athlete defines model for Athlete.
 type Athlete struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId  ObjectId  `json:"_id"`
-	Alias         *[]string `json:"alias,omitempty"`
-	DsvId         *int64    `json:"dsv_id,omitempty"`
-	FirstMeeting  *string   `json:"first_meeting,omitempty"`
-	Firstname     *string   `json:"firstname,omitempty"`
-	Gender        *string   `json:"gender,omitempty"`
-	Lastname      *string   `json:"lastname,omitempty"`
-	Name          *string   `json:"name,omitempty"`
-	Participation *[]string `json:"participation,omitempty"`
-	Team          Team      `json:"team"`
-	Year          *int64    `json:"year,omitempty"`
+	Identifier    ObjectId `json:"_id"`
+	Alias         []string `json:"alias,omitempty"`
+	DsvId         int      `json:"dsv_id,omitempty"`
+	FirstMeeting  string   `json:"first_meeting,omitempty"`
+	Firstname     string   `json:"firstname,omitempty"`
+	Gender        string   `json:"gender,omitempty"`
+	Lastname      string   `json:"lastname,omitempty"`
+	Name          string   `json:"name,omitempty"`
+	Participation []string `json:"participation,omitempty"`
+	Team          Team     `json:"team"`
+	Year          int      `json:"year,omitempty"`
 }
 
 // AthleteIdList defines model for AthleteIdList.
 type AthleteIdList struct {
-	Athletes *[]ObjectId `json:"athletes"`
+	Athletes []ObjectId `json:"athletes"`
 }
 
 // Certificate defines model for Certificate.
 type Certificate struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	AddedAt      time.Time `json:"added_at"`
+	Identifier ObjectId  `json:"_id"`
+	AddedAt    time.Time `json:"added_at"`
 
 	// AthleteId MongoDB ObjectID (hex)
 	AthleteId ObjectId  `json:"athlete_id"`
-	Downloads *int64    `json:"downloads,omitempty"`
-	Hidden    *bool     `json:"hidden,omitempty"`
-	Meeting   *string   `json:"meeting,omitempty"`
-	Name      *string   `json:"name,omitempty"`
-	Ordering  *int64    `json:"ordering,omitempty"`
-	Path      *string   `json:"path,omitempty"`
+	Downloads int       `json:"downloads,omitempty"`
+	Hidden    bool      `json:"hidden,omitempty"`
+	Meeting   string    `json:"meeting,omitempty"`
+	Name      string    `json:"name,omitempty"`
+	Ordering  int       `json:"ordering,omitempty"`
+	Path      string    `json:"path,omitempty"`
 	UpdatedAt time.Time `json:"updated_at"`
-	Url       *string   `json:"url,omitempty"`
+	Url       string    `json:"url,omitempty"`
 }
 
 // ColorSet defines model for ColorSet.
 type ColorSet struct {
-	Contrast  *string `json:"contrast,omitempty"`
-	Primary   *string `json:"primary,omitempty"`
-	Secondary *string `json:"secondary,omitempty"`
+	Contrast  string `json:"contrast,omitempty"`
+	Primary   string `json:"primary,omitempty"`
+	Secondary string `json:"secondary,omitempty"`
 }
 
 // Contact defines model for Contact.
 type Contact struct {
-	Email *string `json:"email,omitempty"`
-	Fax   *string `json:"fax,omitempty"`
-	Name  *string `json:"name,omitempty"`
-	Phone *string `json:"phone,omitempty"`
+	EMail string `json:"email,omitempty"`
+	Fax   string `json:"fax,omitempty"`
+	Name  string `json:"name,omitempty"`
+	Phone string `json:"phone,omitempty"`
 }
 
 // Error defines model for Error.
@@ -117,20 +114,19 @@ type ObjectId = string
 
 // Team defines model for Team.
 type Team struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId  ObjectId  `json:"_id"`
-	Address       Address   `json:"address"`
-	Alias         *[]string `json:"alias,omitempty"`
-	ColorSet      ColorSet  `json:"color_set"`
-	Contact       Contact   `json:"contact"`
-	Country       *string   `json:"country,omitempty"`
-	DsvId         *int64    `json:"dsv_id,omitempty"`
-	FirstMeeting  *string   `json:"first_meeting,omitempty"`
-	LogoUrl       *string   `json:"logo_url,omitempty"`
-	Name          *string   `json:"name,omitempty"`
-	Participation *[]string `json:"participation,omitempty"`
-	StateId       *int64    `json:"state_id,omitempty"`
-	Website       *string   `json:"website,omitempty"`
+	Identifier    ObjectId `json:"_id"`
+	Address       Address  `json:"address"`
+	Alias         []string `json:"alias,omitempty"`
+	ColorSet      ColorSet `json:"color_set"`
+	Contact       Contact  `json:"contact"`
+	Country       string   `json:"country,omitempty"`
+	DsvId         int      `json:"dsv_id,omitempty"`
+	FirstMeeting  string   `json:"first_meeting,omitempty"`
+	LogoUrl       string   `json:"logo_url,omitempty"`
+	Name          string   `json:"name,omitempty"`
+	Participation []string `json:"participation,omitempty"`
+	StateId       int      `json:"state_id,omitempty"`
+	Website       string   `json:"website,omitempty"`
 }
 
 // GetAthletesParams defines parameters for GetAthletes.
@@ -3923,13 +3919,13 @@ type GetAthletesAmountResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetAthletesAmountResponse) GetJSON200() *int64 {
+func (r GetAthletesAmountResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -4081,7 +4077,7 @@ type GetAthletesAmountByMeetingResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON500 the response for an HTTP 500 `application/json` response
@@ -4089,7 +4085,7 @@ type GetAthletesAmountByMeetingResponse struct {
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetAthletesAmountByMeetingResponse) GetJSON200() *int64 {
+func (r GetAthletesAmountByMeetingResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -4720,13 +4716,13 @@ type GetCertificatesAmountResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetCertificatesAmountResponse) GetJSON200() *int64 {
+func (r GetCertificatesAmountResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -4926,7 +4922,7 @@ type GetCertificatesAmountByMeetingResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON500 the response for an HTTP 500 `application/json` response
@@ -4934,7 +4930,7 @@ type GetCertificatesAmountByMeetingResponse struct {
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetCertificatesAmountByMeetingResponse) GetJSON200() *int64 {
+func (r GetCertificatesAmountByMeetingResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -5290,13 +5286,13 @@ type GetTeamsAmountResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetTeamsAmountResponse) GetJSON200() *int64 {
+func (r GetTeamsAmountResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -5448,7 +5444,7 @@ type GetTeamsAmountByMeetingResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *int64
+	JSON200 *int
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON500 the response for an HTTP 500 `application/json` response
@@ -5456,7 +5452,7 @@ type GetTeamsAmountByMeetingResponse struct {
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetTeamsAmountByMeetingResponse) GetJSON200() *int64 {
+func (r GetTeamsAmountByMeetingResponse) GetJSON200() *int {
 	return r.JSON200
 }
 
@@ -6504,7 +6500,7 @@ func ParseGetAthletesAmountResponse(rsp *http.Response) (*GetAthletesAmountRespo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -6617,7 +6613,7 @@ func ParseGetAthletesAmountByMeetingResponse(rsp *http.Response) (*GetAthletesAm
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -7076,7 +7072,7 @@ func ParseGetCertificatesAmountResponse(rsp *http.Response) (*GetCertificatesAmo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -7222,7 +7218,7 @@ func ParseGetCertificatesAmountByMeetingResponse(rsp *http.Response) (*GetCertif
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -7481,7 +7477,7 @@ func ParseGetTeamsAmountResponse(rsp *http.Response) (*GetTeamsAmountResponse, e
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -7594,7 +7590,7 @@ func ParseGetTeamsAmountByMeetingResponse(rsp *http.Response) (*GetTeamsAmountBy
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest int64
+		var dest int
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}

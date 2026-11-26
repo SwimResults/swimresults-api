@@ -74,14 +74,14 @@ func TestLiveContract(t *testing.T) {
 	var meetID string
 	var events []meetingapi.Event
 	for i := len(meetings) - 1; i >= 0 && meetID == ""; i-- {
-		if meetings[i].MeetId == nil {
+		if meetings[i].MeetId == "" {
 			continue
 		}
-		b := get(t, base+"/meeting/v1/event/meet/"+*meetings[i].MeetId)
+		b := get(t, base+"/meeting/v1/event/meet/"+meetings[i].MeetId)
 		var evs []meetingapi.Event
 		strictDecode(t, "GET meeting/v1/event/meet/{id}", b, &evs)
-		if len(evs) > 0 && evs[0].Number != nil {
-			meetID, events = *meetings[i].MeetId, evs
+		if len(evs) > 0 && evs[0].Number != 0 {
+			meetID, events = meetings[i].MeetId, evs
 		}
 	}
 	if meetID == "" {
@@ -100,7 +100,7 @@ func TestLiveContract(t *testing.T) {
 
 	var starts []startapi.Start
 	strictDecode(t, "GET start/v1/start/meet/{id}/event/{n}",
-		get(t, base+"/start/v1/start/meet/"+meetID+"/event/"+strconv.FormatInt(*events[0].Number, 10)), &starts)
+		get(t, base+"/start/v1/start/meet/"+meetID+"/event/"+strconv.Itoa(events[0].Number)), &starts)
 
 	var heats []startapi.Heat
 	strictDecode(t, "GET start/v1/heat/meet/{id}", get(t, base+"/start/v1/heat/meet/"+meetID), &heats)

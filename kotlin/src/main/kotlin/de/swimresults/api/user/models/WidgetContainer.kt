@@ -36,7 +36,7 @@ import com.google.gson.annotations.SerializedName
 data class WidgetContainer (
 
     @SerializedName("order_position")
-    val orderPosition: kotlin.Long? = null,
+    val orderPosition: kotlin.Int? = null,
 
     @SerializedName("widgets")
     val widgets: kotlin.collections.List<WidgetTile>? = null

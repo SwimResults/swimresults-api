@@ -166,7 +166,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "500":
           description: Internal Server Error
           content:
@@ -272,7 +271,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "400":
           description: Bad Request
           content:
@@ -1187,6 +1185,7 @@ paths:
           in: query
           schema:
             $ref: '#/components/schemas/ObjectId'
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1420,7 +1419,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "500":
           description: Internal Server Error
           content:
@@ -1562,7 +1560,6 @@ paths:
             application/json:
               schema:
                 type: integer
-                format: int64
         "400":
           description: Bad Request
           content:
@@ -2090,7 +2087,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         type:
           type: string
         reason:
@@ -2109,20 +2108,19 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         event:
           type: integer
-          format: int64
         heat_number:
           type: integer
-          format: int64
         heat:
           $ref: '#/components/schemas/Heat'
         lane:
           type: integer
-          format: int64
         is_relay:
           type: boolean
         is_pre_list:
@@ -2131,24 +2129,20 @@ components:
           $ref: '#/components/schemas/ObjectId'
         athlete_meeting_id:
           type: integer
-          format: int64
         athlete_name:
           type: string
         athlete_alias:
           type: string
         athlete_year:
           type: integer
-          format: int64
         athlete_team:
           $ref: '#/components/schemas/ObjectId'
         athlete_team_name:
           type: string
         rank:
           type: integer
-          format: int64
         points:
           type: integer
-          format: int64
         certified:
           type: boolean
         results:
@@ -2182,15 +2176,15 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         event:
           type: integer
-          format: int64
         number:
           type: integer
-          format: int64
         is_pre_list:
           type: boolean
         start_estimation:
@@ -2220,11 +2214,11 @@ components:
           type: integer
           format: int64
           description: duration in nanoseconds
+          x-go-type: time.Duration
         result_type:
           type: string
         lap_meters:
           type: integer
-          format: int64
         added_at:
           type: string
           format: date-time
@@ -2234,10 +2228,11 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         rank:
           type: integer
-          format: int64
         ranking:
           $ref: '#/components/schemas/Ranking'
         added_at:
@@ -2255,12 +2250,13 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         event:
           type: integer
-          format: int64
         gender:
           type: string
         min_age:
@@ -2271,7 +2267,6 @@ components:
           type: array
           items:
             type: integer
-            format: int64
           nullable: true
         is_year:
           type: boolean
@@ -2304,10 +2299,8 @@ components:
       properties:
         event_number:
           type: integer
-          format: int64
         amount:
           type: integer
-          format: int64
         first_heat:
           $ref: '#/components/schemas/Heat'
       required:
@@ -2317,13 +2310,11 @@ components:
       properties:
         amount:
           type: integer
-          format: int64
     EventHeatInfoDto:
       type: object
       properties:
         amount:
           type: integer
-          format: int64
     CurrentNextHeatDto:
       type: object
       properties:
@@ -2357,7 +2348,6 @@ components:
           type: array
           items:
             type: integer
-            format: int64
           nullable: true
         update_time_zone:
           type: boolean
@@ -2396,7 +2386,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         creator_user_id:
@@ -2443,6 +2435,7 @@ components:
           type: string
         email:
           type: string
+          x-go-name: EMail
         phone:
           type: string
         fax:
@@ -2458,7 +2451,6 @@ components:
           type: string
         athlete_year:
           type: integer
-          format: int64
         start_registrations:
           type: array
           items:
@@ -2472,11 +2464,11 @@ components:
       properties:
         event:
           type: integer
-          format: int64
         registration_time:
           type: integer
           format: int64
           description: duration in nanoseconds
+          x-go-type: time.Duration
       required:
         - event
         - registration_time
@@ -2494,7 +2486,9 @@ components:
       type: object
       properties:
         age_group:
-          $ref: '#/components/schemas/Ranking'
+          allOf:
+            - $ref: '#/components/schemas/Ranking'
+          x-go-name: Ranking
         starts:
           type: array
           items:
@@ -2508,7 +2502,6 @@ components:
       properties:
         year:
           type: integer
-          format: int64
         genders:
           type: array
           items:
@@ -2524,7 +2517,6 @@ components:
           type: string
         amount:
           type: integer
-          format: int64
       required:
         - gender
         - amount
@@ -2548,10 +2540,8 @@ components:
       properties:
         number:
           type: integer
-          format: int64
         distance:
           type: integer
-          format: int64
         relay_distance:
           type: string
         gender:
@@ -2562,31 +2552,24 @@ components:
           type: boolean
         part:
           type: integer
-          format: int64
     LivestreamHeatDto:
       type: object
       properties:
         number:
           type: integer
-          format: int64
         max:
           type: integer
-          format: int64
     LivestreamStartDto:
       type: object
       properties:
         lane:
           type: integer
-          format: int64
         time:
           type: integer
-          format: int64
         registration:
           type: integer
-          format: int64
         distance:
           type: integer
-          format: int64
     LivestreamHeatStateDto:
       type: object
       properties:

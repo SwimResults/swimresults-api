@@ -610,7 +610,8 @@ func (s *schemaSet) of(t types.Type) any {
 			path == "time" && obj.Name() == "Time":
 			return om("type", "string", "format", "date-time")
 		case path == "time" && obj.Name() == "Duration":
-			return om("type", "integer", "format", "int64", "description", "duration in nanoseconds")
+			return om("type", "integer", "format", "int64", "description", "duration in nanoseconds",
+				"x-go-type", "time.Duration") // generated Go code already imports "time" for date-time fields
 		case path == "encoding/json" && obj.Name() == "RawMessage":
 			return om()
 		case path == "github.com/gin-gonic/gin" && obj.Name() == "H":
@@ -646,11 +647,14 @@ func (s *schemaSet) of(t types.Type) any {
 		case tt.Info()&types.IsBoolean != 0:
 			return om("type", "boolean")
 		case tt.Info()&types.IsInteger != 0:
-			f := "int64"
-			if tt.Kind() == types.Int32 || tt.Kind() == types.Uint32 || tt.Kind() == types.Int16 || tt.Kind() == types.Int8 || tt.Kind() == types.Uint8 || tt.Kind() == types.Uint16 {
-				f = "int32"
+			// plain Go int/uint: no format, so generators use their native int (Go: int)
+			switch tt.Kind() {
+			case types.Int64, types.Uint64:
+				return om("type", "integer", "format", "int64")
+			case types.Int32, types.Uint32, types.Int16, types.Uint16, types.Int8, types.Uint8:
+				return om("type", "integer", "format", "int32")
 			}
-			return om("type", "integer", "format", f)
+			return om("type", "integer")
 		case tt.Info()&types.IsFloat != 0:
 			return om("type", "number", "format", "double")
 		}
@@ -722,6 +726,15 @@ func (s *schemaSet) structSchema(st *types.Struct, owner *types.TypeName) any {
 		case *types.Slice, *types.Map:
 			if _, isNamed := f.Type().(*types.Named); !isNamed || !isByteSlice(u) {
 				fs = s.nullable(fs)
+			}
+		}
+		// keep the Go field name for the generated Go client when it differs from the default (e.g. _id -> Identifier)
+		if f.Name() != defaultGoName(name) {
+			if m, ok := fs.(*orderedMap); ok {
+				if _, isRef := m.vals["$ref"]; isRef {
+					fs = om("allOf", []any{m}) // OpenAPI 3.0 ignores siblings of $ref
+				}
+				fs.(*orderedMap).set("x-go-name", f.Name())
 			}
 		}
 		props.set(name, fs)
@@ -843,6 +856,10 @@ func buildSpec(svc, dir string, ex *extracted) any {
 				pm.set("required", true)
 			}
 			pm.set("schema", schema)
+			if p.In == "query" && !p.Required {
+				// keep optional query params as pointers in Go, so unset params are not sent (?limit=0&query=)
+				pm.set("x-go-type-skip-optional-pointer", false)
+			}
 			params = append(params, pm)
 		}
 		if len(params) > 0 {
@@ -1041,4 +1058,18 @@ func yamlMarshal(v any) ([]byte, error) {
 		return nil, err
 	}
 	return []byte(sb.String()), enc.Close()
+}
+
+// defaultGoName approximates oapi-codegen's field naming for a JSON property name (snake_case -> CamelCase).
+func defaultGoName(json string) string {
+	var b strings.Builder
+	for _, part := range regexp.MustCompile(`[^A-Za-z0-9]+`).Split(json, -1) {
+		if part != "" {
+			b.WriteString(strings.ToUpper(part[:1]) + part[1:])
+		}
+	}
+	if strings.HasPrefix(json, "_") {
+		return "Underscore" + b.String()
+	}
+	return b.String()
 }

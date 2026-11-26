@@ -80,10 +80,10 @@ data class StorageFile (
     val existing: kotlin.Boolean? = null,
 
     @SerializedName("downloads")
-    val downloads: kotlin.Long? = null,
+    val downloads: kotlin.Int? = null,
 
     @SerializedName("ordering")
-    val ordering: kotlin.Long? = null
+    val ordering: kotlin.Int? = null
 
 ) {
 

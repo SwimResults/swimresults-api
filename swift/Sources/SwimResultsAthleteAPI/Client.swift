@@ -640,7 +640,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Swift.Int64.self,
+                            Swift.Int.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -964,7 +964,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Swift.Int64.self,
+                            Swift.Int.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2272,7 +2272,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Swift.Int64.self,
+                            Swift.Int.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -2660,7 +2660,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Swift.Int64.self,
+                            Swift.Int.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3384,7 +3384,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Swift.Int64.self,
+                            Swift.Int.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
@@ -3708,7 +3708,7 @@ public struct Client: APIProtocol {
                     switch chosenContentType {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
-                            Swift.Int64.self,
+                            Swift.Int.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)

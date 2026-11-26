@@ -36,13 +36,13 @@ import com.google.gson.annotations.SerializedName
 data class NotificationsResponseDto (
 
     @SerializedName("user_count")
-    val userCount: kotlin.Long,
+    val userCount: kotlin.Int,
 
     @SerializedName("notification_user_count")
-    val notificationUserCount: kotlin.Long,
+    val notificationUserCount: kotlin.Int,
 
     @SerializedName("success_count")
-    val successCount: kotlin.Long
+    val successCount: kotlin.Int
 
 ) {
 

@@ -59,7 +59,7 @@ data class Ranking (
     val meeting: kotlin.String? = null,
 
     @SerializedName("event")
-    val event: kotlin.Long? = null,
+    val event: kotlin.Int? = null,
 
     @SerializedName("gender")
     val gender: kotlin.String? = null,
@@ -71,7 +71,7 @@ data class Ranking (
     val maxAge: kotlin.String? = null,
 
     @SerializedName("ages")
-    val ages: kotlin.collections.List<kotlin.Long>? = null,
+    val ages: kotlin.collections.List<kotlin.Int>? = null,
 
     @SerializedName("is_year")
     val isYear: kotlin.Boolean? = null,

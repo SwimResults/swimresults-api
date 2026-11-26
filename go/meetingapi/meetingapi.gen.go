@@ -19,26 +19,25 @@ import (
 
 // AgeGroup defines model for AgeGroup.
 type AgeGroup struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	AddedAt      time.Time `json:"added_at"`
-	Ages         *[]int64  `json:"ages,omitempty"`
-	Default      *bool     `json:"default,omitempty"`
-	Event        *int64    `json:"event,omitempty"`
-	Gender       *string   `json:"gender,omitempty"`
-	IsYear       *bool     `json:"is_year,omitempty"`
-	MaxAge       *string   `json:"max_age,omitempty"`
-	Meeting      *string   `json:"meeting,omitempty"`
-	MinAge       *string   `json:"min_age,omitempty"`
-	Name         *string   `json:"name,omitempty"`
-	UpdatedAt    time.Time `json:"updated_at"`
+	Identifier ObjectId  `json:"_id"`
+	AddedAt    time.Time `json:"added_at"`
+	Ages       []int     `json:"ages,omitempty"`
+	Default    bool      `json:"default,omitempty"`
+	Event      int       `json:"event,omitempty"`
+	Gender     string    `json:"gender,omitempty"`
+	IsYear     bool      `json:"is_year,omitempty"`
+	MaxAge     string    `json:"max_age,omitempty"`
+	Meeting    string    `json:"meeting,omitempty"`
+	MinAge     string    `json:"min_age,omitempty"`
+	Name       string    `json:"name,omitempty"`
+	UpdatedAt  time.Time `json:"updated_at"`
 }
 
 // ColorSet defines model for ColorSet.
 type ColorSet struct {
-	Contrast  *string `json:"contrast,omitempty"`
-	Primary   *string `json:"primary,omitempty"`
-	Secondary *string `json:"secondary,omitempty"`
+	Contrast  string `json:"contrast,omitempty"`
+	Primary   string `json:"primary,omitempty"`
+	Secondary string `json:"secondary,omitempty"`
 }
 
 // Error defines model for Error.
@@ -48,36 +47,35 @@ type Error struct {
 
 // Event defines model for Event.
 type Event struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId  ObjectId    `json:"_id"`
+	Identifier    ObjectId    `json:"_id"`
 	AddedAt       time.Time   `json:"added_at"`
-	Certified     *bool       `json:"certified,omitempty"`
-	Distance      *int64      `json:"distance,omitempty"`
+	Certified     bool        `json:"certified,omitempty"`
+	Distance      int         `json:"distance,omitempty"`
 	Final         EventFinal  `json:"final"`
-	Finished      *bool       `json:"finished,omitempty"`
-	Gender        *string     `json:"gender,omitempty"`
-	Meeting       *string     `json:"meeting,omitempty"`
-	NameExtension *string     `json:"name_extension,omitempty"`
-	NoStartList   *bool       `json:"no_start_list,omitempty"`
-	Number        *int64      `json:"number,omitempty"`
-	Ordering      *int64      `json:"ordering,omitempty"`
+	Finished      bool        `json:"finished,omitempty"`
+	Gender        string      `json:"gender,omitempty"`
+	Meeting       string      `json:"meeting,omitempty"`
+	NameExtension string      `json:"name_extension,omitempty"`
+	NoStartList   bool        `json:"no_start_list,omitempty"`
+	Number        int         `json:"number,omitempty"`
+	Ordering      int         `json:"ordering,omitempty"`
 	Part          MeetingPart `json:"part"`
-	RelayDistance *string     `json:"relay_distance,omitempty"`
+	RelayDistance string      `json:"relay_distance,omitempty"`
 	Style         Style       `json:"style"`
 	UpdatedAt     time.Time   `json:"updated_at"`
 }
 
 // EventCertificationRequestDto defines model for EventCertificationRequestDto.
 type EventCertificationRequestDto struct {
-	Certified           *bool `json:"certified,omitempty"`
-	ToggleCertification *bool `json:"toggle_certification,omitempty"`
+	Certified           bool `json:"certified,omitempty"`
+	ToggleCertification bool `json:"toggle_certification,omitempty"`
 }
 
 // EventFinal defines model for EventFinal.
 type EventFinal struct {
-	IsFinal  *bool   `json:"is_final,omitempty"`
-	IsPrelim *bool   `json:"is_prelim,omitempty"`
-	Name     *string `json:"name,omitempty"`
+	IsFinal  bool   `json:"is_final,omitempty"`
+	IsPrelim bool   `json:"is_prelim,omitempty"`
+	Name     string `json:"name,omitempty"`
 }
 
 // EventLivetimingDto defines model for EventLivetimingDto.
@@ -94,24 +92,23 @@ type ImportAgeGroupRequestDto struct {
 
 // ImportEventRequestDto defines model for ImportEventRequestDto.
 type ImportEventRequestDto struct {
-	Event      Event  `json:"event"`
-	PartNumber int64  `json:"part_number"`
-	StyleName  string `json:"style_name"`
+	Event             Event  `json:"event"`
+	MeetingPartNumber int    `json:"part_number"`
+	StyleName         string `json:"style_name"`
 }
 
 // Incident defines model for Incident.
 type Incident struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId  ObjectId  `json:"_id"`
+	Identifier    ObjectId  `json:"_id"`
 	AddedAt       time.Time `json:"added_at"`
 	End           time.Time `json:"end"`
-	Meeting       *string   `json:"meeting,omitempty"`
-	Name          *string   `json:"name,omitempty"`
-	NameExtension *string   `json:"name_extension,omitempty"`
-	NextEvent     *int64    `json:"next_event,omitempty"`
-	PrevEvent     *int64    `json:"prev_event,omitempty"`
+	Meeting       string    `json:"meeting,omitempty"`
+	Name          string    `json:"name,omitempty"`
+	NameExtension string    `json:"name_extension,omitempty"`
+	NextEvent     int       `json:"next_event,omitempty"`
+	PrevEvent     int       `json:"prev_event,omitempty"`
 	Start         time.Time `json:"start"`
-	Type          *string   `json:"type,omitempty"`
+	Type          string    `json:"type,omitempty"`
 	UpdatedAt     time.Time `json:"updated_at"`
 }
 
@@ -123,89 +120,82 @@ type IncidentDateRequest struct {
 
 // Location defines model for Location.
 type Location struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	AddedAt      time.Time `json:"added_at"`
-	City         *string   `json:"city,omitempty"`
-	FirstLane    *int64    `json:"first_lane,omitempty"`
-	Lanes        *int64    `json:"lanes,omitempty"`
-	Name         *string   `json:"name,omitempty"`
-	Number       *string   `json:"number,omitempty"`
-	PostalCode   *string   `json:"postal_code,omitempty"`
-	Street       *string   `json:"street,omitempty"`
-	UpdatedAt    time.Time `json:"updated_at"`
+	Identifier ObjectId  `json:"_id"`
+	AddedAt    time.Time `json:"added_at"`
+	City       string    `json:"city,omitempty"`
+	FirstLane  int       `json:"first_lane,omitempty"`
+	Lanes      int       `json:"lanes,omitempty"`
+	Name       string    `json:"name,omitempty"`
+	Number     string    `json:"number,omitempty"`
+	PostalCode string    `json:"postal_code,omitempty"`
+	Street     string    `json:"street,omitempty"`
+	UpdatedAt  time.Time `json:"updated_at"`
 }
 
 // Meeting defines model for Meeting.
 type Meeting struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId      `json:"_id"`
-	AddedAt      time.Time     `json:"added_at"`
-	Data         MeetingData   `json:"data"`
-	DateEnd      time.Time     `json:"date_end"`
-	DateStart    time.Time     `json:"date_start"`
-	Iteration    *int64        `json:"iteration,omitempty"`
-	Layout       MeetingLayout `json:"layout"`
-	Location     Location      `json:"location"`
-	MeetId       *string       `json:"meet_id,omitempty"`
-
-	// OrganizerId MongoDB ObjectID (hex)
-	OrganizerId ObjectId      `json:"organizer_id"`
+	Identifier  ObjectId      `json:"_id"`
+	AddedAt     time.Time     `json:"added_at"`
+	Data        MeetingData   `json:"data"`
+	DateEnd     time.Time     `json:"date_end"`
+	DateStart   time.Time     `json:"date_start"`
+	Iteration   int           `json:"iteration,omitempty"`
+	Layout      MeetingLayout `json:"layout"`
+	Location    Location      `json:"location"`
+	MeetId      string        `json:"meet_id,omitempty"`
+	Organizer   ObjectId      `json:"organizer_id"`
 	Series      MeetingSeries `json:"series"`
-	State       *string       `json:"state,omitempty"`
-	Subtitles   *[]string     `json:"subtitles,omitempty"`
-	Tags        *[]string     `json:"tags,omitempty"`
-	Unpublished *bool         `json:"unpublished,omitempty"`
+	State       string        `json:"state,omitempty"`
+	Subtitles   []string      `json:"subtitles,omitempty"`
+	Tags        []string      `json:"tags,omitempty"`
+	Unpublished bool          `json:"unpublished,omitempty"`
 	UpdatedAt   time.Time     `json:"updated_at"`
-	Warnings    *[]string     `json:"warnings,omitempty"`
+	Warnings    []string      `json:"warnings,omitempty"`
 }
 
 // MeetingData defines model for MeetingData.
 type MeetingData struct {
-	FacebookUrl             *string    `json:"facebook_url,omitempty"`
-	FtpResultListMask       *string    `json:"ftp_result_list_mask,omitempty"`
-	FtpStartListMask        *string    `json:"ftp_start_list_mask,omitempty"`
-	HasCertificates         *bool      `json:"has_certificates,omitempty"`
-	HasFtpResultList        *bool      `json:"has_ftp_result_list,omitempty"`
-	HasFtpStartList         *bool      `json:"has_ftp_start_list,omitempty"`
-	HasLivetiming           *bool      `json:"has_livetiming,omitempty"`
-	InstagramUrl            *string    `json:"instagram_url,omitempty"`
-	LivetimingUrl           *string    `json:"livetiming_url,omitempty"`
-	PushNotificationChannel *string    `json:"push_notification_channel,omitempty"`
-	Sponsors                *[]Sponsor `json:"sponsors,omitempty"`
-	StreamEmbedUrl          *string    `json:"stream_embed_url,omitempty"`
-	StreamUrl               *string    `json:"stream_url,omitempty"`
-	WebsiteUrl              *string    `json:"website_url,omitempty"`
+	FacebookUrl             string    `json:"facebook_url,omitempty"`
+	FtpResultListMask       string    `json:"ftp_result_list_mask,omitempty"`
+	FtpStartListMask        string    `json:"ftp_start_list_mask,omitempty"`
+	HasCertificates         bool      `json:"has_certificates,omitempty"`
+	HasFtpResultList        bool      `json:"has_ftp_result_list,omitempty"`
+	HasFtpStartList         bool      `json:"has_ftp_start_list,omitempty"`
+	HasLivetiming           bool      `json:"has_livetiming,omitempty"`
+	InstagramUrl            string    `json:"instagram_url,omitempty"`
+	LivetimingUrl           string    `json:"livetiming_url,omitempty"`
+	PushNotificationChannel string    `json:"push_notification_channel,omitempty"`
+	Sponsors                []Sponsor `json:"sponsors,omitempty"`
+	StreamEmbedUrl          string    `json:"stream_embed_url,omitempty"`
+	StreamUrl               string    `json:"stream_url,omitempty"`
+	WebsiteUrl              string    `json:"website_url,omitempty"`
 }
 
 // MeetingLayout defines model for MeetingLayout.
 type MeetingLayout struct {
-	BannerUrl    *string  `json:"banner_url,omitempty"`
+	BannerUrl    string   `json:"banner_url,omitempty"`
 	ColorSet     ColorSet `json:"color_set"`
-	LogoSmallUrl *string  `json:"logo_small_url,omitempty"`
-	LogoUrl      *string  `json:"logo_url,omitempty"`
+	LogoSmallUrl string   `json:"logo_small_url,omitempty"`
+	LogoUrl      string   `json:"logo_url,omitempty"`
 }
 
 // MeetingPart defines model for MeetingPart.
 type MeetingPart struct {
-	Events *[]Event `json:"events,omitempty"`
-	Name   *string  `json:"name,omitempty"`
-	Number *int64   `json:"number,omitempty"`
+	Events []Event `json:"events,omitempty"`
+	Name   string  `json:"name,omitempty"`
+	Number int     `json:"number,omitempty"`
 }
 
 // MeetingSeries defines model for MeetingSeries.
 type MeetingSeries struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	AddedAt      time.Time `json:"added_at"`
-	Location     Location  `json:"location"`
-	NameFull     *string   `json:"name_full,omitempty"`
-	NameMedium   *string   `json:"name_medium,omitempty"`
-	NameShort    *string   `json:"name_short,omitempty"`
-
-	// OrganizerId MongoDB ObjectID (hex)
-	OrganizerId ObjectId  `json:"organizer_id"`
-	UpdatedAt   time.Time `json:"updated_at"`
+	Identifier ObjectId  `json:"_id"`
+	AddedAt    time.Time `json:"added_at"`
+	Location   Location  `json:"location"`
+	NameFull   string    `json:"name_full,omitempty"`
+	NameMedium string    `json:"name_medium,omitempty"`
+	NameShort  string    `json:"name_short,omitempty"`
+	Organizer  ObjectId  `json:"organizer_id"`
+	UpdatedAt  time.Time `json:"updated_at"`
 }
 
 // ObjectId MongoDB ObjectID (hex)
@@ -213,36 +203,34 @@ type ObjectId = string
 
 // Sponsor defines model for Sponsor.
 type Sponsor struct {
-	ImageUrl   *string `json:"image_url,omitempty"`
-	Name       *string `json:"name,omitempty"`
-	WebsiteUrl *string `json:"website_url,omitempty"`
+	ImageUrl   string `json:"image_url,omitempty"`
+	Name       string `json:"name,omitempty"`
+	WebsiteUrl string `json:"website_url,omitempty"`
 }
 
 // StorageFile defines model for StorageFile.
 type StorageFile struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	AddedAt      time.Time `json:"added_at"`
-	Downloads    *int64    `json:"downloads,omitempty"`
-	Existing     *bool     `json:"existing,omitempty"`
-	Extension    *string   `json:"extension,omitempty"`
-	Hidden       *bool     `json:"hidden,omitempty"`
-	InFileList   *bool     `json:"in_file_list,omitempty"`
-	Meeting      *string   `json:"meeting,omitempty"`
-	Name         *string   `json:"name,omitempty"`
-	Ordering     *int64    `json:"ordering,omitempty"`
-	Path         *string   `json:"path,omitempty"`
-	UpdatedAt    time.Time `json:"updated_at"`
-	Url          *string   `json:"url,omitempty"`
+	Identifier ObjectId  `json:"_id"`
+	AddedAt    time.Time `json:"added_at"`
+	Downloads  int       `json:"downloads,omitempty"`
+	Existing   bool      `json:"existing,omitempty"`
+	Extension  string    `json:"extension,omitempty"`
+	Hidden     bool      `json:"hidden,omitempty"`
+	InFileList bool      `json:"in_file_list,omitempty"`
+	Meeting    string    `json:"meeting,omitempty"`
+	Name       string    `json:"name,omitempty"`
+	Ordering   int       `json:"ordering,omitempty"`
+	Path       string    `json:"path,omitempty"`
+	UpdatedAt  time.Time `json:"updated_at"`
+	Url        string    `json:"url,omitempty"`
 }
 
 // Style defines model for Style.
 type Style struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
-	Aliases      *[]string `json:"aliases,omitempty"`
-	Name         *string   `json:"name,omitempty"`
-	Relay        *bool     `json:"relay,omitempty"`
+	Identifier ObjectId `json:"_id"`
+	Aliases    []string `json:"aliases,omitempty"`
+	Name       string   `json:"name,omitempty"`
+	Relay      bool     `json:"relay,omitempty"`
 }
 
 // IncrementDownloadsTextBody defines parameters for IncrementDownloads.

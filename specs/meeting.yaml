@@ -1301,6 +1301,7 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1878,12 +1879,13 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         event:
           type: integer
-          format: int64
         default:
           type: boolean
         gender:
@@ -1896,7 +1898,6 @@ components:
           type: array
           items:
             type: integer
-            format: int64
           nullable: true
         is_year:
           type: boolean
@@ -1923,13 +1924,13 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         number:
           type: integer
-          format: int64
         distance:
           type: integer
-          format: int64
         relay_distance:
           type: string
         meeting:
@@ -1952,7 +1953,6 @@ components:
           type: boolean
         ordering:
           type: integer
-          format: int64
         added_at:
           type: string
           format: date-time
@@ -1970,7 +1970,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         name:
           type: string
         aliases:
@@ -1996,7 +1998,6 @@ components:
       properties:
         number:
           type: integer
-          format: int64
         name:
           type: string
         events:
@@ -2026,7 +2027,7 @@ components:
           type: string
         part_number:
           type: integer
-          format: int64
+          x-go-name: MeetingPartNumber
       required:
         - event
         - style_name
@@ -2042,7 +2043,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         path:
@@ -2061,10 +2064,8 @@ components:
           type: boolean
         downloads:
           type: integer
-          format: int64
         ordering:
           type: integer
-          format: int64
         added_at:
           type: string
           format: date-time
@@ -2079,7 +2080,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         type:
@@ -2096,10 +2099,8 @@ components:
           format: date-time
         prev_event:
           type: integer
-          format: int64
         next_event:
           type: integer
-          format: int64
         added_at:
           type: string
           format: date-time
@@ -2127,7 +2128,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         street:
           type: string
         number:
@@ -2140,10 +2143,8 @@ components:
           type: string
         lanes:
           type: integer
-          format: int64
         first_lane:
           type: integer
-          format: int64
         added_at:
           type: string
           format: date-time
@@ -2158,7 +2159,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         date_start:
           type: string
           format: date-time
@@ -2168,12 +2171,13 @@ components:
         location:
           $ref: '#/components/schemas/Location'
         organizer_id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Organizer
         series:
           $ref: '#/components/schemas/MeetingSeries'
         iteration:
           type: integer
-          format: int64
         subtitles:
           type: array
           items:
@@ -2220,7 +2224,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         name_full:
           type: string
         name_medium:
@@ -2230,7 +2236,9 @@ components:
         location:
           $ref: '#/components/schemas/Location'
         organizer_id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Organizer
         added_at:
           type: string
           format: date-time

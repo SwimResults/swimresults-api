@@ -62,10 +62,10 @@ data class Heat (
     val meeting: kotlin.String? = null,
 
     @SerializedName("event")
-    val event: kotlin.Long? = null,
+    val event: kotlin.Int? = null,
 
     @SerializedName("number")
-    val number: kotlin.Long? = null,
+    val number: kotlin.Int? = null,
 
     @SerializedName("is_pre_list")
     val isPreList: kotlin.Boolean? = null,

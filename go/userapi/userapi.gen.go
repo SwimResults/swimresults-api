@@ -56,22 +56,20 @@ type BroadcastResponseDto struct {
 
 // Config defines model for Config.
 type Config struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId `json:"_id"`
-	Enabled      bool     `json:"enabled"`
-	Meeting      *string  `json:"meeting,omitempty"`
+	Identifier ObjectId `json:"_id"`
+	Enabled    bool     `json:"enabled"`
+	Meeting    string   `json:"meeting,omitempty"`
 }
 
 // Dashboard defines model for Dashboard.
 type Dashboard struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId    ObjectId           `json:"_id"`
-	Default         *bool              `json:"default,omitempty"`
-	Meeting         *string            `json:"meeting,omitempty"`
-	MeetingStates   *[]string          `json:"meeting_states,omitempty"`
-	Official        *bool              `json:"official,omitempty"`
-	User            *string            `json:"user,omitempty"`
-	WidgetContainer *[]WidgetContainer `json:"widget_container,omitempty"`
+	Identifier      ObjectId          `json:"_id"`
+	Default         bool              `json:"default,omitempty"`
+	Meeting         string            `json:"meeting,omitempty"`
+	MeetingStates   []string          `json:"meeting_states,omitempty"`
+	Official        bool              `json:"official,omitempty"`
+	User            string            `json:"user,omitempty"`
+	WidgetContainer []WidgetContainer `json:"widget_container,omitempty"`
 }
 
 // Device defines model for Device.
@@ -84,7 +82,7 @@ type Device struct {
 	SystemName     string `json:"system_name"`
 	SystemVersion  string `json:"system_version"`
 	Type           string `json:"type"`
-	UiSize         string `json:"ui_size"`
+	UISize         string `json:"ui_size"`
 }
 
 // Error defines model for Error.
@@ -94,9 +92,8 @@ type Error struct {
 
 // FollowAthleteRequestDto defines model for FollowAthleteRequestDto.
 type FollowAthleteRequestDto struct {
-	// Athlete MongoDB ObjectID (hex)
-	Athlete ObjectId `json:"athlete"`
-	Follow  *bool    `json:"follow,omitempty"`
+	AthleteId ObjectId `json:"athlete"`
+	Follow    bool     `json:"follow,omitempty"`
 }
 
 // FollowingAthlete defines model for FollowingAthlete.
@@ -139,14 +136,13 @@ type NotificationSettings struct {
 
 // NotificationUser defines model for NotificationUser.
 type NotificationUser struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId             `json:"_id"`
-	AddedAt      time.Time            `json:"added_at"`
-	Device       Device               `json:"device"`
-	PushService  string               `json:"push_service"`
-	Settings     NotificationSettings `json:"settings"`
-	Token        string               `json:"token"`
-	UpdatedAt    time.Time            `json:"updated_at"`
+	Identifier  ObjectId             `json:"_id"`
+	AddedAt     time.Time            `json:"added_at"`
+	Device      Device               `json:"device"`
+	PushService string               `json:"push_service"`
+	Settings    NotificationSettings `json:"settings"`
+	Token       string               `json:"token"`
+	UpdatedAt   time.Time            `json:"updated_at"`
 
 	// UserId MongoDB ObjectID (hex)
 	UserId ObjectId `json:"user_id"`
@@ -154,9 +150,9 @@ type NotificationUser struct {
 
 // NotificationsResponseDto defines model for NotificationsResponseDto.
 type NotificationsResponseDto struct {
-	NotificationUserCount int64 `json:"notification_user_count"`
-	SuccessCount          int64 `json:"success_count"`
-	UserCount             int64 `json:"user_count"`
+	NotificationUserCount int `json:"notification_user_count"`
+	SuccessCount          int `json:"success_count"`
+	UserCount             int `json:"user_count"`
 }
 
 // ObjectId MongoDB ObjectID (hex)
@@ -165,9 +161,9 @@ type ObjectId = string
 // RegisterNotificationUserRequestDto defines model for RegisterNotificationUserRequestDto.
 type RegisterNotificationUserRequestDto struct {
 	Device      Device               `json:"device"`
-	PushService *string              `json:"push_service,omitempty"`
+	PushService string               `json:"push_service,omitempty"`
 	Settings    NotificationSettings `json:"settings"`
-	Token       *string              `json:"token,omitempty"`
+	Token       string               `json:"token,omitempty"`
 }
 
 // ReportSubjectType defines model for ReportSubjectType.
@@ -175,57 +171,54 @@ type ReportSubjectType string
 
 // SetLanguageRequestDto defines model for SetLanguageRequestDto.
 type SetLanguageRequestDto struct {
-	Language *string `json:"language,omitempty"`
+	Language string `json:"language,omitempty"`
 }
 
 // SetMeRequestDto defines model for SetMeRequestDto.
 type SetMeRequestDto struct {
-	// Athlete MongoDB ObjectID (hex)
-	Athlete ObjectId `json:"athlete"`
-	Set     *bool    `json:"set,omitempty"`
+	AthleteId ObjectId `json:"athlete"`
+	Set       bool     `json:"set,omitempty"`
 }
 
 // SetThemeRequestDto defines model for SetThemeRequestDto.
 type SetThemeRequestDto struct {
-	Theme *string `json:"theme,omitempty"`
+	Theme string `json:"theme,omitempty"`
 }
 
 // Settings defines model for Settings.
 type Settings struct {
-	Language *string `json:"language,omitempty"`
-	Theme    *string `json:"theme,omitempty"`
+	Language string `json:"language,omitempty"`
+	Theme    string `json:"theme,omitempty"`
 }
 
 // SubscribeMeetingRequestDto defines model for SubscribeMeetingRequestDto.
 type SubscribeMeetingRequestDto struct {
 	Meeting   string `json:"meeting"`
-	Subscribe *bool  `json:"subscribe,omitempty"`
+	Subscribe bool   `json:"subscribe,omitempty"`
 }
 
 // User defines model for User.
 type User struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId            `json:"_id"`
-	Following    *[]FollowingAthlete `json:"following,omitempty"`
-	KeycloakId   *string             `json:"keycloak_id,omitempty"`
-	Meetings     *[]string           `json:"meetings,omitempty"`
-	OwnAthleteId *ObjectId           `json:"own_athlete_id,omitempty"`
-	Settings     Settings            `json:"settings"`
+	Identifier   ObjectId           `json:"_id"`
+	Following    []FollowingAthlete `json:"following,omitempty"`
+	KeycloakId   string             `json:"keycloak_id,omitempty"`
+	Meetings     []string           `json:"meetings,omitempty"`
+	OwnAthleteId ObjectId           `json:"own_athlete_id,omitempty"`
+	Settings     Settings           `json:"settings"`
 }
 
 // UserReport defines model for UserReport.
 type UserReport struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId  `json:"_id"`
+	Identifier   ObjectId  `json:"_id"`
 	Acknowledged bool      `json:"acknowledged"`
 	AddedAt      time.Time `json:"added_at"`
 	Completed    bool      `json:"completed"`
-	Meeting      *string   `json:"meeting,omitempty"`
+	Meeting      string    `json:"meeting,omitempty"`
 	Message      string    `json:"message"`
 
 	// SubjectId MongoDB ObjectID (hex)
-	SubjectId   ObjectId           `json:"subject_id"`
-	SubjectType *ReportSubjectType `json:"subject_type,omitempty"`
+	SubjectId   ObjectId          `json:"subject_id"`
+	SubjectType ReportSubjectType `json:"subject_type,omitempty"`
 
 	// UserId MongoDB ObjectID (hex)
 	UserId ObjectId `json:"user_id"`
@@ -233,33 +226,32 @@ type UserReport struct {
 
 // UserReportSubmission defines model for UserReportSubmission.
 type UserReportSubmission struct {
-	Anonymous *bool   `json:"anonymous,omitempty"`
-	Meeting   *string `json:"meeting,omitempty"`
-	Message   string  `json:"message"`
+	Anonymous bool   `json:"anonymous,omitempty"`
+	Meeting   string `json:"meeting,omitempty"`
+	Message   string `json:"message"`
 
 	// SubjectId MongoDB ObjectID (hex)
-	SubjectId   ObjectId           `json:"subject_id"`
-	SubjectType *ReportSubjectType `json:"subject_type,omitempty"`
+	SubjectId   ObjectId          `json:"subject_id"`
+	SubjectType ReportSubjectType `json:"subject_type,omitempty"`
 }
 
 // Widget defines model for Widget.
 type Widget struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId ObjectId `json:"_id"`
-	Content      *string  `json:"content,omitempty"`
-	Size         *string  `json:"size,omitempty"`
+	Identifier ObjectId `json:"_id"`
+	Content    string   `json:"content,omitempty"`
+	Size       string   `json:"size,omitempty"`
 }
 
 // WidgetContainer defines model for WidgetContainer.
 type WidgetContainer struct {
-	OrderPosition *int64        `json:"order_position,omitempty"`
-	Widgets       *[]WidgetTile `json:"widgets,omitempty"`
+	OrderPosition int          `json:"order_position,omitempty"`
+	Widgets       []WidgetTile `json:"widgets,omitempty"`
 }
 
 // WidgetTile defines model for WidgetTile.
 type WidgetTile struct {
 	Data          interface{} `json:"data,omitempty"`
-	OrderPosition *int64      `json:"order_position,omitempty"`
+	OrderPosition int         `json:"order_position,omitempty"`
 	Widget        Widget      `json:"widget"`
 }
 

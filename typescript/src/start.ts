@@ -790,27 +790,20 @@ export interface components {
         Start: {
             _id: components["schemas"]["ObjectId"];
             meeting?: string;
-            /** Format: int64 */
             event?: number;
-            /** Format: int64 */
             heat_number: number;
             heat: components["schemas"]["Heat"];
-            /** Format: int64 */
             lane?: number;
             is_relay?: boolean;
             is_pre_list?: boolean;
             athlete: components["schemas"]["ObjectId"];
-            /** Format: int64 */
             athlete_meeting_id?: number;
             athlete_name?: string;
             athlete_alias?: string;
-            /** Format: int64 */
             athlete_year?: number;
             athlete_team: components["schemas"]["ObjectId"];
             athlete_team_name?: string;
-            /** Format: int64 */
             rank?: number;
-            /** Format: int64 */
             points?: number;
             certified?: boolean;
             results?: components["schemas"]["Result"][] | null;
@@ -824,9 +817,7 @@ export interface components {
         Heat: {
             _id: components["schemas"]["ObjectId"];
             meeting?: string;
-            /** Format: int64 */
             event?: number;
-            /** Format: int64 */
             number?: number;
             is_pre_list?: boolean;
             /** Format: date-time */
@@ -846,14 +837,12 @@ export interface components {
              */
             time?: number;
             result_type?: string;
-            /** Format: int64 */
             lap_meters?: number;
             /** Format: date-time */
             added_at: string;
         };
         Rank: {
             _id: components["schemas"]["ObjectId"];
-            /** Format: int64 */
             rank?: number;
             ranking: components["schemas"]["Ranking"];
             /** Format: date-time */
@@ -864,7 +853,6 @@ export interface components {
         Ranking: {
             _id: components["schemas"]["ObjectId"];
             meeting?: string;
-            /** Format: int64 */
             event?: number;
             gender?: string;
             min_age?: string;
@@ -883,18 +871,14 @@ export interface components {
             events?: components["schemas"]["MeetingHeatEventListDto"][] | null;
         };
         MeetingHeatEventListDto: {
-            /** Format: int64 */
             event_number?: number;
-            /** Format: int64 */
             amount?: number;
             first_heat: components["schemas"]["Heat"];
         };
         MeetingHeatInfoDto: {
-            /** Format: int64 */
             amount?: number;
         };
         EventHeatInfoDto: {
-            /** Format: int64 */
             amount?: number;
         };
         CurrentNextHeatDto: {
@@ -950,12 +934,10 @@ export interface components {
             athlete_id: components["schemas"]["ObjectId"];
             athlete_first_name?: string;
             athlete_last_name?: string;
-            /** Format: int64 */
             athlete_year?: number;
             start_registrations: components["schemas"]["StartRegistration"][] | null;
         };
         StartRegistration: {
-            /** Format: int64 */
             event: number;
             /**
              * Format: int64
@@ -972,13 +954,11 @@ export interface components {
             starts: components["schemas"]["Start"][] | null;
         };
         StartsByYearAndGenderStatsDto: {
-            /** Format: int64 */
             year: number;
             genders: components["schemas"]["StartsByGenderStatsDto"][] | null;
         };
         StartsByGenderStatsDto: {
             gender: string;
-            /** Format: int64 */
             amount: number;
         };
         LivestreamDto: {
@@ -987,31 +967,22 @@ export interface components {
             starts?: components["schemas"]["LivestreamStartDto"][] | null;
         };
         LivestreamEventDto: {
-            /** Format: int64 */
             number?: number;
-            /** Format: int64 */
             distance?: number;
             relay_distance?: string;
             gender?: string;
             style?: string;
             final?: boolean;
-            /** Format: int64 */
             part?: number;
         };
         LivestreamHeatDto: {
-            /** Format: int64 */
             number?: number;
-            /** Format: int64 */
             max?: number;
         };
         LivestreamStartDto: {
-            /** Format: int64 */
             lane?: number;
-            /** Format: int64 */
             time?: number;
-            /** Format: int64 */
             registration?: number;
-            /** Format: int64 */
             distance?: number;
         };
         LivestreamHeatStateDto: {

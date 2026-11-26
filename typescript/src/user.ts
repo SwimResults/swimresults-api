@@ -650,14 +650,12 @@ export interface components {
             meeting?: string;
         };
         WidgetContainer: {
-            /** Format: int64 */
             order_position?: number;
             widgets?: components["schemas"]["WidgetTile"][] | null;
         };
         WidgetTile: {
             widget: components["schemas"]["Widget"];
             data?: unknown;
-            /** Format: int64 */
             order_position?: number;
         };
         Widget: {
@@ -682,11 +680,8 @@ export interface components {
             interruption_level: string;
         };
         NotificationsResponseDto: {
-            /** Format: int64 */
             user_count: number;
-            /** Format: int64 */
             notification_user_count: number;
-            /** Format: int64 */
             success_count: number;
         };
         BroadcastResponseDto: {

@@ -71,10 +71,10 @@ data class Team (
     val country: kotlin.String? = null,
 
     @SerializedName("dsv_id")
-    val dsvId: kotlin.Long? = null,
+    val dsvId: kotlin.Int? = null,
 
     @SerializedName("state_id")
-    val stateId: kotlin.Long? = null,
+    val stateId: kotlin.Int? = null,
 
     @SerializedName("website")
     val website: kotlin.String? = null,

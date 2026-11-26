@@ -68,10 +68,10 @@ data class Location (
     val name: kotlin.String? = null,
 
     @SerializedName("lanes")
-    val lanes: kotlin.Long? = null,
+    val lanes: kotlin.Int? = null,
 
     @SerializedName("first_lane")
-    val firstLane: kotlin.Long? = null
+    val firstLane: kotlin.Int? = null
 
 ) {
 

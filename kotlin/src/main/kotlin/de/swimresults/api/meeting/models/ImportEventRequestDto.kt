@@ -43,7 +43,7 @@ data class ImportEventRequestDto (
     val styleName: kotlin.String,
 
     @SerializedName("part_number")
-    val partNumber: kotlin.Long
+    val partNumber: kotlin.Int
 
 ) {
 

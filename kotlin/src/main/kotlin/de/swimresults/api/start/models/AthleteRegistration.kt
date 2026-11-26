@@ -52,7 +52,7 @@ data class AthleteRegistration (
     val athleteLastName: kotlin.String? = null,
 
     @SerializedName("athlete_year")
-    val athleteYear: kotlin.Long? = null
+    val athleteYear: kotlin.Int? = null
 
 ) {
 

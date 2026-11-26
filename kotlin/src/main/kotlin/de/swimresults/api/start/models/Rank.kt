@@ -52,7 +52,7 @@ data class Rank (
     val updatedAt: java.time.OffsetDateTime,
 
     @SerializedName("rank")
-    val rank: kotlin.Long? = null
+    val rank: kotlin.Int? = null
 
 ) {
 

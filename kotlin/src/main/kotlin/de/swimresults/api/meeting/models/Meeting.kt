@@ -86,7 +86,7 @@ data class Meeting (
     val updatedAt: java.time.OffsetDateTime,
 
     @SerializedName("iteration")
-    val iteration: kotlin.Long? = null,
+    val iteration: kotlin.Int? = null,
 
     @SerializedName("subtitles")
     val subtitles: kotlin.collections.List<kotlin.String>? = null,

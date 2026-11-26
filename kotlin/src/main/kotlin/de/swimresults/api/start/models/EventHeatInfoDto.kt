@@ -34,7 +34,7 @@ import com.google.gson.annotations.SerializedName
 data class EventHeatInfoDto (
 
     @SerializedName("amount")
-    val amount: kotlin.Long? = null
+    val amount: kotlin.Int? = null
 
 ) {
 

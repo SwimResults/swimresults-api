@@ -18,72 +18,72 @@ import (
 
 // AlgeActionRequest defines model for AlgeActionRequest.
 type AlgeActionRequest struct {
-	Action   string  `json:"action"`
-	Event    *int64  `json:"event,omitempty"`
-	Finished *string `json:"finished,omitempty"`
-	Heat     *int64  `json:"heat,omitempty"`
-	Lane     *int64  `json:"lane,omitempty"`
-	Meter    *int64  `json:"meter,omitempty"`
-	Password string  `json:"password"`
-	Time     *int64  `json:"time,omitempty"`
+	Action   string `json:"action"`
+	Event    int    `json:"event,omitempty"`
+	Finished string `json:"finished,omitempty"`
+	Heat     int    `json:"heat,omitempty"`
+	Lane     int    `json:"lane,omitempty"`
+	Meter    int    `json:"meter,omitempty"`
+	Password string `json:"password"`
+	Time     int    `json:"time,omitempty"`
 }
 
 // EasyWkAction defines model for EasyWkAction.
 type EasyWkAction struct {
-	Key   *string `json:"key,omitempty"`
-	Value *string `json:"value,omitempty"`
+	Key   string `json:"key,omitempty"`
+	Value string `json:"value,omitempty"`
 }
 
 // EasyWkActionV3Request defines model for EasyWkActionV3Request.
 type EasyWkActionV3Request struct {
-	Action    string  `json:"action"`
-	Club0     *string `json:"club0,omitempty"`
-	Club1     *string `json:"club1,omitempty"`
-	Club10    *string `json:"club10,omitempty"`
-	Club2     *string `json:"club2,omitempty"`
-	Club3     *string `json:"club3,omitempty"`
-	Club4     *string `json:"club4,omitempty"`
-	Club5     *string `json:"club5,omitempty"`
-	Club6     *string `json:"club6,omitempty"`
-	Club7     *string `json:"club7,omitempty"`
-	Club8     *string `json:"club8,omitempty"`
-	Club9     *string `json:"club9,omitempty"`
-	Content   *string `json:"content,omitempty"`
-	Event     *int64  `json:"event,omitempty"`
-	Finished  *string `json:"finished,omitempty"`
-	Firstlane *int64  `json:"firstlane,omitempty"`
-	Heat      *int64  `json:"heat,omitempty"`
-	Keepsum   *string `json:"keepsum,omitempty"`
-	Lane      *int64  `json:"lane,omitempty"`
-	Lanecount *int64  `json:"lanecount,omitempty"`
-	Maxheat   *int64  `json:"maxheat,omitempty"`
-	Meter     *string `json:"meter,omitempty"`
-	Name      *string `json:"name,omitempty"`
-	Pwd       string  `json:"pwd"`
-	Srw0      *string `json:"srw0,omitempty"`
-	Srw1      *string `json:"srw1,omitempty"`
-	Srw10     *string `json:"srw10,omitempty"`
-	Srw2      *string `json:"srw2,omitempty"`
-	Srw3      *string `json:"srw3,omitempty"`
-	Srw4      *string `json:"srw4,omitempty"`
-	Srw5      *string `json:"srw5,omitempty"`
-	Srw6      *string `json:"srw6,omitempty"`
-	Srw7      *string `json:"srw7,omitempty"`
-	Srw8      *string `json:"srw8,omitempty"`
-	Srw9      *string `json:"srw9,omitempty"`
-	Time      *int64  `json:"time,omitempty"`
-	Vername   *string `json:"vername,omitempty"`
-	Yob0      *string `json:"yob0,omitempty"`
-	Yob1      *string `json:"yob1,omitempty"`
-	Yob10     *string `json:"yob10,omitempty"`
-	Yob2      *string `json:"yob2,omitempty"`
-	Yob3      *string `json:"yob3,omitempty"`
-	Yob4      *string `json:"yob4,omitempty"`
-	Yob5      *string `json:"yob5,omitempty"`
-	Yob6      *string `json:"yob6,omitempty"`
-	Yob7      *string `json:"yob7,omitempty"`
-	Yob8      *string `json:"yob8,omitempty"`
-	Yob9      *string `json:"yob9,omitempty"`
+	Action      string `json:"action"`
+	Team0       string `json:"club0,omitempty"`
+	Team1       string `json:"club1,omitempty"`
+	Team10      string `json:"club10,omitempty"`
+	Team2       string `json:"club2,omitempty"`
+	Team3       string `json:"club3,omitempty"`
+	Team4       string `json:"club4,omitempty"`
+	Team5       string `json:"club5,omitempty"`
+	Team6       string `json:"club6,omitempty"`
+	Team7       string `json:"club7,omitempty"`
+	Team8       string `json:"club8,omitempty"`
+	Team9       string `json:"club9,omitempty"`
+	Content     string `json:"content,omitempty"`
+	Event       int    `json:"event,omitempty"`
+	Finished    string `json:"finished,omitempty"`
+	FirstLane   int    `json:"firstlane,omitempty"`
+	Heat        int    `json:"heat,omitempty"`
+	KeepSum     string `json:"keepsum,omitempty"`
+	Lane        int    `json:"lane,omitempty"`
+	LaneCount   int    `json:"lanecount,omitempty"`
+	MaxHeat     int    `json:"maxheat,omitempty"`
+	Meter       string `json:"meter,omitempty"`
+	EventName   string `json:"name,omitempty"`
+	Password    string `json:"pwd"`
+	Athlete0    string `json:"srw0,omitempty"`
+	Athlete1    string `json:"srw1,omitempty"`
+	Athlete10   string `json:"srw10,omitempty"`
+	Athlete2    string `json:"srw2,omitempty"`
+	Athlete3    string `json:"srw3,omitempty"`
+	Athlete4    string `json:"srw4,omitempty"`
+	Athlete5    string `json:"srw5,omitempty"`
+	Athlete6    string `json:"srw6,omitempty"`
+	Athlete7    string `json:"srw7,omitempty"`
+	Athlete8    string `json:"srw8,omitempty"`
+	Athlete9    string `json:"srw9,omitempty"`
+	Time        int    `json:"time,omitempty"`
+	MeetingName string `json:"vername,omitempty"`
+	Year0       string `json:"yob0,omitempty"`
+	Year1       string `json:"yob1,omitempty"`
+	Year10      string `json:"yob10,omitempty"`
+	Year2       string `json:"yob2,omitempty"`
+	Year3       string `json:"yob3,omitempty"`
+	Year4       string `json:"yob4,omitempty"`
+	Year5       string `json:"yob5,omitempty"`
+	Year6       string `json:"yob6,omitempty"`
+	Year7       string `json:"yob7,omitempty"`
+	Year8       string `json:"yob8,omitempty"`
+	Year9       string `json:"yob9,omitempty"`
 }
 
 // Error defines model for Error.
@@ -93,7 +93,7 @@ type Error struct {
 
 // ImportCertificateSettings defines model for ImportCertificateSettings.
 type ImportCertificateSettings struct {
-	AiSystemPrompt *string `json:"ai_system_prompt,omitempty"`
+	AiSystemPrompt string `json:"ai_system_prompt,omitempty"`
 }
 
 // ImportCertificatesRequestDto defines model for ImportCertificatesRequestDto.
@@ -104,81 +104,80 @@ type ImportCertificatesRequestDto struct {
 
 // ImportFileRequest defines model for ImportFileRequest.
 type ImportFileRequest struct {
-	ExcludeEvents *[]int64  `json:"exclude_events"`
-	Features      *[]string `json:"features"`
-	FileExtension string    `json:"file_extension"`
-	FileType      string    `json:"file_type"`
-	IncludeEvents *[]int64  `json:"include_events"`
-	Meeting       string    `json:"meeting"`
-	SessionId     string    `json:"session_id"`
-	Text          string    `json:"text"`
-	Url           string    `json:"url"`
+	ExcludeEvents []int    `json:"exclude_events"`
+	Features      []string `json:"features"`
+	FileExtension string   `json:"file_extension"`
+	FileType      string   `json:"file_type"`
+	IncludeEvents []int    `json:"include_events"`
+	Meeting       string   `json:"meeting"`
+	SessionID     string   `json:"session_id"`
+	Text          string   `json:"text"`
+	Url           string   `json:"url"`
 }
 
 // ImportPdfResultListSettings defines model for ImportPdfResultListSettings.
 type ImportPdfResultListSettings struct {
-	AthleteReplaceStrings         *[]string  `json:"athlete_replace_strings,omitempty"`
-	DisqualificationSeparator     *string    `json:"disqualification_separator,omitempty"`
-	DisqualificationTimePattern   *string    `json:"disqualification_time_pattern,omitempty"`
-	DistanceSeparator             *string    `json:"distance_separator,omitempty"`
-	DnsSeparator                  *string    `json:"dns_separator,omitempty"`
-	EventMultipleNumbersSeparator *string    `json:"event_multiple_numbers_separator,omitempty"`
-	EventNumberSeparator          *string    `json:"event_number_separator,omitempty"`
-	EventRequiredStrings          *[]string  `json:"event_required_strings,omitempty"`
-	EventSeparator                *string    `json:"event_separator,omitempty"`
-	EventSkipStrings              *[]string  `json:"event_skip_strings,omitempty"`
+	AthleteReplaceStrings         []string   `json:"athlete_replace_strings,omitempty"`
+	DisqualificationSeparator     string     `json:"disqualification_separator,omitempty"`
+	DisqualificationTimePattern   string     `json:"disqualification_time_pattern,omitempty"`
+	DistanceSeparator             string     `json:"distance_separator,omitempty"`
+	DnsSeparator                  string     `json:"dns_separator,omitempty"`
+	EventMultipleNumbersSeparator string     `json:"event_multiple_numbers_separator,omitempty"`
+	EventNumberSeparator          string     `json:"event_number_separator,omitempty"`
+	EventRequiredStrings          []string   `json:"event_required_strings,omitempty"`
+	EventSeparator                string     `json:"event_separator,omitempty"`
+	EventSkipStrings              []string   `json:"event_skip_strings,omitempty"`
 	GenderMapping                 [][]string `json:"gender_mapping"`
-	LoggedOutSeparator            *string    `json:"logged_out_separator,omitempty"`
-	OmitFirst                     *[]string  `json:"omit_first,omitempty"`
-	OncePerEvent                  *bool      `json:"once_per_event,omitempty"`
-	RatingRightSeparators         *[]string  `json:"rating_right_separators,omitempty"`
-	RatingSeparators              *[]string  `json:"rating_separators,omitempty"`
-	ReasonRightSeparator          *string    `json:"reason_right_separator,omitempty"`
-	ResultEndCutStrings           *[]string  `json:"result_end_cut_strings,omitempty"`
-	ResultPattern                 *string    `json:"result_pattern,omitempty"`
-	ResultSeparator               *string    `json:"result_separator,omitempty"`
-	StyleNameSkipStrings          *[]string  `json:"style_name_skip_strings,omitempty"`
-	SwimTimePattern               *string    `json:"swim_time_pattern,omitempty"`
-	YearOpenString                *string    `json:"year_open_string,omitempty"`
-	YearPattern                   *string    `json:"year_pattern,omitempty"`
+	LoggedOutSeparator            string     `json:"logged_out_separator,omitempty"`
+	OmitFirst                     []string   `json:"omit_first,omitempty"`
+	OncePerEvent                  bool       `json:"once_per_event,omitempty"`
+	RatingRightSeparators         []string   `json:"rating_right_separators,omitempty"`
+	RatingSeparators              []string   `json:"rating_separators,omitempty"`
+	ReasonRightSeparator          string     `json:"reason_right_separator,omitempty"`
+	ResultEndCutStrings           []string   `json:"result_end_cut_strings,omitempty"`
+	ResultPattern                 string     `json:"result_pattern,omitempty"`
+	ResultSeparator               string     `json:"result_separator,omitempty"`
+	StyleNameSkipStrings          []string   `json:"style_name_skip_strings,omitempty"`
+	SwimTimePattern               string     `json:"swim_time_pattern,omitempty"`
+	YearOpenString                string     `json:"year_open_string,omitempty"`
+	YearPattern                   string     `json:"year_pattern,omitempty"`
 }
 
 // ImportPdfStartListSettings defines model for ImportPdfStartListSettings.
 type ImportPdfStartListSettings struct {
-	DistanceSeparator      *string    `json:"distance_separator,omitempty"`
-	EventNumberSeparator   *string    `json:"event_number_separator,omitempty"`
-	EventRequiredStrings   *[]string  `json:"event_required_strings,omitempty"`
-	EventSeparator         *string    `json:"event_separator,omitempty"`
-	EventSkipStrings       *[]string  `json:"event_skip_strings,omitempty"`
+	DistanceSeparator      string     `json:"distance_separator,omitempty"`
+	EventNumberSeparator   string     `json:"event_number_separator,omitempty"`
+	EventRequiredStrings   []string   `json:"event_required_strings,omitempty"`
+	EventSeparator         string     `json:"event_separator,omitempty"`
+	EventSkipStrings       []string   `json:"event_skip_strings,omitempty"`
 	GenderMapping          [][]string `json:"gender_mapping"`
-	HeatHasNoTime          *bool      `json:"heat_has_no_time,omitempty"`
-	HeatNumberSeparator    *string    `json:"heat_number_separator,omitempty"`
-	HeatRequiredStrings    *[]string  `json:"heat_required_strings,omitempty"`
-	HeatSeparator          *string    `json:"heat_separator,omitempty"`
-	HeatSkipStrings        *[]string  `json:"heat_skip_strings,omitempty"`
-	HeatTimeLayout         *string    `json:"heat_time_layout,omitempty"`
-	HeatTimeLeftSeparator  *string    `json:"heat_time_left_separator,omitempty"`
-	HeatTimeRightSeparator *string    `json:"heat_time_right_separator,omitempty"`
-	LaneNumberPattern      *string    `json:"lane_number_pattern,omitempty"`
-	LaneRightSeparator     *string    `json:"lane_right_separator,omitempty"`
-	LaneSeparator          *string    `json:"lane_separator,omitempty"`
-	LaneSkipStrings        *[]string  `json:"lane_skip_strings,omitempty"`
-	OmitFirst              *[]string  `json:"omit_first,omitempty"`
-	StyleNameSkipStrings   *[]string  `json:"style_name_skip_strings,omitempty"`
-	SwimTimePattern        *string    `json:"swim_time_pattern,omitempty"`
-	YearOpenString         *string    `json:"year_open_string,omitempty"`
-	YearPattern            *string    `json:"year_pattern,omitempty"`
+	HeatHasNoTime          bool       `json:"heat_has_no_time,omitempty"`
+	HeatNumberSeparator    string     `json:"heat_number_separator,omitempty"`
+	HeatRequiredStrings    []string   `json:"heat_required_strings,omitempty"`
+	HeatSeparator          string     `json:"heat_separator,omitempty"`
+	HeatSkipStrings        []string   `json:"heat_skip_strings,omitempty"`
+	HeatTimeLayout         string     `json:"heat_time_layout,omitempty"`
+	HeatTimeLeftSeparator  string     `json:"heat_time_left_separator,omitempty"`
+	HeatTimeRightSeparator string     `json:"heat_time_right_separator,omitempty"`
+	LaneNumberPattern      string     `json:"lane_number_pattern,omitempty"`
+	LaneRightSeparator     string     `json:"lane_right_separator,omitempty"`
+	LaneSeparator          string     `json:"lane_separator,omitempty"`
+	LaneSkipStrings        []string   `json:"lane_skip_strings,omitempty"`
+	OmitFirst              []string   `json:"omit_first,omitempty"`
+	StyleNameSkipStrings   []string   `json:"style_name_skip_strings,omitempty"`
+	SwimTimePattern        string     `json:"swim_time_pattern,omitempty"`
+	YearOpenString         string     `json:"year_open_string,omitempty"`
+	YearPattern            string     `json:"year_pattern,omitempty"`
 }
 
 // ImportSetting defines model for ImportSetting.
 type ImportSetting struct {
-	// UnderscoreId MongoDB ObjectID (hex)
-	UnderscoreId          ObjectId                    `json:"_id"`
+	Identifier            ObjectId                    `json:"_id"`
 	CertificateSettings   ImportCertificateSettings   `json:"certificate_settings"`
-	Meeting               *string                     `json:"meeting,omitempty"`
+	Meeting               string                      `json:"meeting,omitempty"`
 	PdfResultListSettings ImportPdfResultListSettings `json:"pdf_result_list_settings"`
 	PdfStartListSettings  ImportPdfStartListSettings  `json:"pdf_start_list_settings"`
-	TimeZone              *string                     `json:"time_zone,omitempty"`
+	TimeZone              string                      `json:"time_zone,omitempty"`
 }
 
 // ObjectId MongoDB ObjectID (hex)

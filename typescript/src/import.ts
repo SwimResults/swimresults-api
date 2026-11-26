@@ -361,22 +361,15 @@ export interface components {
             pwd: string;
             action: string;
             keepsum?: string;
-            /** Format: int64 */
             firstlane?: number;
-            /** Format: int64 */
             lanecount?: number;
             vername?: string;
-            /** Format: int64 */
             event?: number;
-            /** Format: int64 */
             heat?: number;
-            /** Format: int64 */
             maxheat?: number;
             name?: string;
-            /** Format: int64 */
             lane?: number;
             meter?: string;
-            /** Format: int64 */
             time?: number;
             finished?: string;
             content?: string;
@@ -417,15 +410,10 @@ export interface components {
         AlgeActionRequest: {
             password: string;
             action: string;
-            /** Format: int64 */
             event?: number;
-            /** Format: int64 */
             heat?: number;
-            /** Format: int64 */
             lane?: number;
-            /** Format: int64 */
             meter?: number;
-            /** Format: int64 */
             time?: number;
             finished?: string;
         };

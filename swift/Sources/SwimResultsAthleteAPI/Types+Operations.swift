@@ -1114,12 +1114,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/athlete/amount/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/athlete/amount/GET/responses/200/content/application\/json`.
-                    case json(Swift.Int64)
+                    case json(Swift.Int)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Swift.Int64 {
+                    public var json: Swift.Int {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -1774,12 +1774,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/athlete/meet/{meet_id}/amount/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/athlete/meet/{meet_id}/amount/GET/responses/200/content/application\/json`.
-                    case json(Swift.Int64)
+                    case json(Swift.Int)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Swift.Int64 {
+                    public var json: Swift.Int {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -4431,12 +4431,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/certificate/amount/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/certificate/amount/GET/responses/200/content/application\/json`.
-                    case json(Swift.Int64)
+                    case json(Swift.Int)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Swift.Int64 {
+                    public var json: Swift.Int {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -5249,12 +5249,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/certificate/meet/{meet_id}/amount/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/certificate/meet/{meet_id}/amount/GET/responses/200/content/application\/json`.
-                    case json(Swift.Int64)
+                    case json(Swift.Int)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Swift.Int64 {
+                    public var json: Swift.Int {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -6705,12 +6705,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/team/amount/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/team/amount/GET/responses/200/content/application\/json`.
-                    case json(Swift.Int64)
+                    case json(Swift.Int)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Swift.Int64 {
+                    public var json: Swift.Int {
                         get throws {
                             switch self {
                             case let .json(body):
@@ -7365,12 +7365,12 @@ public enum Operations {
                 /// - Remark: Generated from `#/paths/team/meet/{meet_id}/amount/GET/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
                     /// - Remark: Generated from `#/paths/team/meet/{meet_id}/amount/GET/responses/200/content/application\/json`.
-                    case json(Swift.Int64)
+                    case json(Swift.Int)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
                     /// - Throws: An error if `self` is not `.json`.
                     /// - SeeAlso: `.json`.
-                    public var json: Swift.Int64 {
+                    public var json: Swift.Int {
                         get throws {
                             switch self {
                             case let .json(body):

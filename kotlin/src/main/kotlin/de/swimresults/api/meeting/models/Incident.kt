@@ -72,10 +72,10 @@ data class Incident (
     val nameExtension: kotlin.String? = null,
 
     @SerializedName("prev_event")
-    val prevEvent: kotlin.Long? = null,
+    val prevEvent: kotlin.Int? = null,
 
     @SerializedName("next_event")
-    val nextEvent: kotlin.Long? = null
+    val nextEvent: kotlin.Int? = null
 
 ) {
 

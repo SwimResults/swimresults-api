@@ -32,11 +32,29 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/AgeGroup`.
         public struct AgeGroup: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/AgeGroup/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/AgeGroup/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/AgeGroup/_id`.
+            public var _id: Components.Schemas.AgeGroup._IdPayload
             /// - Remark: Generated from `#/components/schemas/AgeGroup/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/AgeGroup/event`.
-            public var event: Swift.Int64?
+            public var event: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/AgeGroup/default`.
             public var _default: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/AgeGroup/gender`.
@@ -46,7 +64,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/AgeGroup/max_age`.
             public var maxAge: Swift.String?
             /// - Remark: Generated from `#/components/schemas/AgeGroup/ages`.
-            public var ages: [Swift.Int64]?
+            public var ages: [Swift.Int]?
             /// - Remark: Generated from `#/components/schemas/AgeGroup/is_year`.
             public var isYear: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/AgeGroup/name`.
@@ -71,14 +89,14 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.AgeGroup._IdPayload,
                 meeting: Swift.String? = nil,
-                event: Swift.Int64? = nil,
+                event: Swift.Int? = nil,
                 _default: Swift.Bool? = nil,
                 gender: Swift.String? = nil,
                 minAge: Swift.String? = nil,
                 maxAge: Swift.String? = nil,
-                ages: [Swift.Int64]? = nil,
+                ages: [Swift.Int]? = nil,
                 isYear: Swift.Bool? = nil,
                 name: Swift.String? = nil,
                 addedAt: Foundation.Date,
@@ -130,11 +148,29 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Event`.
         public struct Event: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Event/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Event/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Event/_id`.
+            public var _id: Components.Schemas.Event._IdPayload
             /// - Remark: Generated from `#/components/schemas/Event/number`.
-            public var number: Swift.Int64?
+            public var number: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Event/distance`.
-            public var distance: Swift.Int64?
+            public var distance: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Event/relay_distance`.
             public var relayDistance: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Event/meeting`.
@@ -156,7 +192,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/Event/no_start_list`.
             public var noStartList: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/Event/ordering`.
-            public var ordering: Swift.Int64?
+            public var ordering: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Event/added_at`.
             public var addedAt: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/Event/updated_at`.
@@ -181,9 +217,9 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
-                number: Swift.Int64? = nil,
-                distance: Swift.Int64? = nil,
+                _id: Components.Schemas.Event._IdPayload,
+                number: Swift.Int? = nil,
+                distance: Swift.Int? = nil,
                 relayDistance: Swift.String? = nil,
                 meeting: Swift.String? = nil,
                 gender: Swift.String? = nil,
@@ -194,7 +230,7 @@ extension Components {
                 finished: Swift.Bool? = nil,
                 certified: Swift.Bool? = nil,
                 noStartList: Swift.Bool? = nil,
-                ordering: Swift.Int64? = nil,
+                ordering: Swift.Int? = nil,
                 addedAt: Foundation.Date,
                 updatedAt: Foundation.Date
             ) {
@@ -237,7 +273,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Style`.
         public struct Style: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Style/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Style/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Style/_id`.
+            public var _id: Components.Schemas.Style._IdPayload
             /// - Remark: Generated from `#/components/schemas/Style/name`.
             public var name: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Style/aliases`.
@@ -252,7 +306,7 @@ extension Components {
             ///   - aliases:
             ///   - relay:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Style._IdPayload,
                 name: Swift.String? = nil,
                 aliases: [Swift.String]? = nil,
                 relay: Swift.Bool? = nil
@@ -301,7 +355,7 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/MeetingPart`.
         public struct MeetingPart: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/MeetingPart/number`.
-            public var number: Swift.Int64?
+            public var number: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/MeetingPart/name`.
             public var name: Swift.String?
             /// - Remark: Generated from `#/components/schemas/MeetingPart/events`.
@@ -313,7 +367,7 @@ extension Components {
             ///   - name:
             ///   - events:
             public init(
-                number: Swift.Int64? = nil,
+                number: Swift.Int? = nil,
                 name: Swift.String? = nil,
                 events: [Components.Schemas.Event]? = nil
             ) {
@@ -363,7 +417,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/ImportEventRequestDto/style_name`.
             public var styleName: Swift.String
             /// - Remark: Generated from `#/components/schemas/ImportEventRequestDto/part_number`.
-            public var partNumber: Swift.Int64
+            public var partNumber: Swift.Int
             /// Creates a new `ImportEventRequestDto`.
             ///
             /// - Parameters:
@@ -373,7 +427,7 @@ extension Components {
             public init(
                 event: Components.Schemas.Event,
                 styleName: Swift.String,
-                partNumber: Swift.Int64
+                partNumber: Swift.Int
             ) {
                 self.event = event
                 self.styleName = styleName
@@ -411,7 +465,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/StorageFile`.
         public struct StorageFile: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/StorageFile/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/StorageFile/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/StorageFile/_id`.
+            public var _id: Components.Schemas.StorageFile._IdPayload
             /// - Remark: Generated from `#/components/schemas/StorageFile/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/StorageFile/path`.
@@ -429,9 +501,9 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/StorageFile/existing`.
             public var existing: Swift.Bool?
             /// - Remark: Generated from `#/components/schemas/StorageFile/downloads`.
-            public var downloads: Swift.Int64?
+            public var downloads: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/StorageFile/ordering`.
-            public var ordering: Swift.Int64?
+            public var ordering: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/StorageFile/added_at`.
             public var addedAt: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/StorageFile/updated_at`.
@@ -453,7 +525,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.StorageFile._IdPayload,
                 meeting: Swift.String? = nil,
                 path: Swift.String? = nil,
                 url: Swift.String? = nil,
@@ -462,8 +534,8 @@ extension Components {
                 inFileList: Swift.Bool? = nil,
                 hidden: Swift.Bool? = nil,
                 existing: Swift.Bool? = nil,
-                downloads: Swift.Int64? = nil,
-                ordering: Swift.Int64? = nil,
+                downloads: Swift.Int? = nil,
+                ordering: Swift.Int? = nil,
                 addedAt: Foundation.Date,
                 updatedAt: Foundation.Date
             ) {
@@ -500,7 +572,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Incident`.
         public struct Incident: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Incident/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Incident/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Incident/_id`.
+            public var _id: Components.Schemas.Incident._IdPayload
             /// - Remark: Generated from `#/components/schemas/Incident/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Incident/type`.
@@ -514,9 +604,9 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/Incident/end`.
             public var end: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/Incident/prev_event`.
-            public var prevEvent: Swift.Int64?
+            public var prevEvent: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Incident/next_event`.
-            public var nextEvent: Swift.Int64?
+            public var nextEvent: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Incident/added_at`.
             public var addedAt: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/Incident/updated_at`.
@@ -536,15 +626,15 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Incident._IdPayload,
                 meeting: Swift.String? = nil,
                 _type: Swift.String? = nil,
                 name: Swift.String? = nil,
                 nameExtension: Swift.String? = nil,
                 start: Foundation.Date,
                 end: Foundation.Date,
-                prevEvent: Swift.Int64? = nil,
-                nextEvent: Swift.Int64? = nil,
+                prevEvent: Swift.Int? = nil,
+                nextEvent: Swift.Int? = nil,
                 addedAt: Foundation.Date,
                 updatedAt: Foundation.Date
             ) {
@@ -600,7 +690,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Location`.
         public struct Location: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Location/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Location/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Location/_id`.
+            public var _id: Components.Schemas.Location._IdPayload
             /// - Remark: Generated from `#/components/schemas/Location/street`.
             public var street: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Location/number`.
@@ -612,9 +720,9 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/Location/name`.
             public var name: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Location/lanes`.
-            public var lanes: Swift.Int64?
+            public var lanes: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Location/first_lane`.
-            public var firstLane: Swift.Int64?
+            public var firstLane: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Location/added_at`.
             public var addedAt: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/Location/updated_at`.
@@ -633,14 +741,14 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Location._IdPayload,
                 street: Swift.String? = nil,
                 number: Swift.String? = nil,
                 city: Swift.String? = nil,
                 postalCode: Swift.String? = nil,
                 name: Swift.String? = nil,
-                lanes: Swift.Int64? = nil,
-                firstLane: Swift.Int64? = nil,
+                lanes: Swift.Int? = nil,
+                firstLane: Swift.Int? = nil,
                 addedAt: Foundation.Date,
                 updatedAt: Foundation.Date
             ) {
@@ -671,7 +779,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Meeting`.
         public struct Meeting: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Meeting/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Meeting/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Meeting/_id`.
+            public var _id: Components.Schemas.Meeting._IdPayload
             /// - Remark: Generated from `#/components/schemas/Meeting/date_start`.
             public var dateStart: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/Meeting/date_end`.
@@ -679,11 +805,29 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/Meeting/location`.
             public var location: Components.Schemas.Location
             /// - Remark: Generated from `#/components/schemas/Meeting/organizer_id`.
-            public var organizerId: Components.Schemas.ObjectId
+            public struct OrganizerIdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Meeting/organizer_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `OrganizerIdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Meeting/organizer_id`.
+            public var organizerId: Components.Schemas.Meeting.OrganizerIdPayload
             /// - Remark: Generated from `#/components/schemas/Meeting/series`.
             public var series: Components.Schemas.MeetingSeries
             /// - Remark: Generated from `#/components/schemas/Meeting/iteration`.
-            public var iteration: Swift.Int64?
+            public var iteration: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Meeting/subtitles`.
             public var subtitles: [Swift.String]?
             /// - Remark: Generated from `#/components/schemas/Meeting/warnings`.
@@ -725,13 +869,13 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Meeting._IdPayload,
                 dateStart: Foundation.Date,
                 dateEnd: Foundation.Date,
                 location: Components.Schemas.Location,
-                organizerId: Components.Schemas.ObjectId,
+                organizerId: Components.Schemas.Meeting.OrganizerIdPayload,
                 series: Components.Schemas.MeetingSeries,
-                iteration: Swift.Int64? = nil,
+                iteration: Swift.Int? = nil,
                 subtitles: [Swift.String]? = nil,
                 warnings: [Swift.String]? = nil,
                 tags: [Swift.String]? = nil,
@@ -784,7 +928,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/MeetingSeries`.
         public struct MeetingSeries: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/MeetingSeries/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/MeetingSeries/_id`.
+            public var _id: Components.Schemas.MeetingSeries._IdPayload
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/name_full`.
             public var nameFull: Swift.String?
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/name_medium`.
@@ -794,7 +956,25 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/location`.
             public var location: Components.Schemas.Location
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/organizer_id`.
-            public var organizerId: Components.Schemas.ObjectId
+            public struct OrganizerIdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/MeetingSeries/organizer_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `OrganizerIdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/MeetingSeries/organizer_id`.
+            public var organizerId: Components.Schemas.MeetingSeries.OrganizerIdPayload
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/added_at`.
             public var addedAt: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/updated_at`.
@@ -811,12 +991,12 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.MeetingSeries._IdPayload,
                 nameFull: Swift.String? = nil,
                 nameMedium: Swift.String? = nil,
                 nameShort: Swift.String? = nil,
                 location: Components.Schemas.Location,
-                organizerId: Components.Schemas.ObjectId,
+                organizerId: Components.Schemas.MeetingSeries.OrganizerIdPayload,
                 addedAt: Foundation.Date,
                 updatedAt: Foundation.Date
             ) {

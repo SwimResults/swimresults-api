@@ -134,194 +134,242 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: action
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: keepsum
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: firstlane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: lanecount
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: vername
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: event
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: heat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: maxheat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: name
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: lane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: meter
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: time
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: finished
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: content
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -350,194 +398,242 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: action
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: keepsum
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: firstlane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: lanecount
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: vername
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: event
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: heat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: maxheat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: name
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: lane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: meter
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: time
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: finished
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: content
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -566,194 +662,242 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: action
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: keepsum
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: firstlane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: lanecount
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: vername
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: event
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: heat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: maxheat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: name
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: lane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: meter
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: time
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: finished
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: content
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -782,194 +926,242 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: action
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: keepsum
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: firstlane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: lanecount
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: vername
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: event
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: heat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: maxheat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: name
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: lane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: meter
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: time
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: finished
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: content
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -998,194 +1190,242 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: action
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: keepsum
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: firstlane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: lanecount
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: vername
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: event
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: heat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: maxheat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: name
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: lane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: meter
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: time
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: finished
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: content
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1215,194 +1455,242 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: action
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: keepsum
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: firstlane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: lanecount
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: vername
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: event
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: heat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: maxheat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: name
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: lane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: meter
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: time
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: finished
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: content
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -1432,194 +1720,242 @@ paths:
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: action
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: keepsum
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: firstlane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: lanecount
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: vername
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: event
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: heat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: maxheat
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: name
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: lane
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: meter
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: time
           in: query
           schema:
             type: integer
+          x-go-type-skip-optional-pointer: false
         - name: finished
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: content
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club0
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club1
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club2
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club3
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club4
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club5
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club6
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club7
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club8
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club9
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: srw10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: yob10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
         - name: club10
           in: query
           schema:
             type: string
+          x-go-type-skip-optional-pointer: false
       security: []
       responses:
         "200":
@@ -2013,18 +2349,17 @@ components:
           type: array
           items:
             type: integer
-            format: int64
           nullable: true
         include_events:
           type: array
           items:
             type: integer
-            format: int64
           nullable: true
         meeting:
           type: string
         session_id:
           type: string
+          x-go-name: SessionID
         features:
           type: array
           items:
@@ -2054,7 +2389,9 @@ components:
       type: object
       properties:
         _id:
-          $ref: '#/components/schemas/ObjectId'
+          allOf:
+            - $ref: '#/components/schemas/ObjectId'
+          x-go-name: Identifier
         meeting:
           type: string
         pdf_start_list_settings:
@@ -2244,107 +2581,140 @@ components:
       properties:
         pwd:
           type: string
+          x-go-name: Password
         action:
           type: string
         keepsum:
           type: string
+          x-go-name: KeepSum
         firstlane:
           type: integer
-          format: int64
+          x-go-name: FirstLane
         lanecount:
           type: integer
-          format: int64
+          x-go-name: LaneCount
         vername:
           type: string
+          x-go-name: MeetingName
         event:
           type: integer
-          format: int64
         heat:
           type: integer
-          format: int64
         maxheat:
           type: integer
-          format: int64
+          x-go-name: MaxHeat
         name:
           type: string
+          x-go-name: EventName
         lane:
           type: integer
-          format: int64
         meter:
           type: string
         time:
           type: integer
-          format: int64
         finished:
           type: string
         content:
           type: string
         srw0:
           type: string
+          x-go-name: Athlete0
         yob0:
           type: string
+          x-go-name: Year0
         club0:
           type: string
+          x-go-name: Team0
         srw1:
           type: string
+          x-go-name: Athlete1
         yob1:
           type: string
+          x-go-name: Year1
         club1:
           type: string
+          x-go-name: Team1
         srw2:
           type: string
+          x-go-name: Athlete2
         yob2:
           type: string
+          x-go-name: Year2
         club2:
           type: string
+          x-go-name: Team2
         srw3:
           type: string
+          x-go-name: Athlete3
         yob3:
           type: string
+          x-go-name: Year3
         club3:
           type: string
+          x-go-name: Team3
         srw4:
           type: string
+          x-go-name: Athlete4
         yob4:
           type: string
+          x-go-name: Year4
         club4:
           type: string
+          x-go-name: Team4
         srw5:
           type: string
+          x-go-name: Athlete5
         yob5:
           type: string
+          x-go-name: Year5
         club5:
           type: string
+          x-go-name: Team5
         srw6:
           type: string
+          x-go-name: Athlete6
         yob6:
           type: string
+          x-go-name: Year6
         club6:
           type: string
+          x-go-name: Team6
         srw7:
           type: string
+          x-go-name: Athlete7
         yob7:
           type: string
+          x-go-name: Year7
         club7:
           type: string
+          x-go-name: Team7
         srw8:
           type: string
+          x-go-name: Athlete8
         yob8:
           type: string
+          x-go-name: Year8
         club8:
           type: string
+          x-go-name: Team8
         srw9:
           type: string
+          x-go-name: Athlete9
         yob9:
           type: string
+          x-go-name: Year9
         club9:
           type: string
+          x-go-name: Team9
         srw10:
           type: string
+          x-go-name: Athlete10
         yob10:
           type: string
+          x-go-name: Year10
         club10:
           type: string
+          x-go-name: Team10
       required:
         - pwd
         - action
@@ -2357,19 +2727,14 @@ components:
           type: string
         event:
           type: integer
-          format: int64
         heat:
           type: integer
-          format: int64
         lane:
           type: integer
-          format: int64
         meter:
           type: integer
-          format: int64
         time:
           type: integer
-          format: int64
         finished:
           type: string
       required:

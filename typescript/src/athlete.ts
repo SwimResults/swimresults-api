@@ -506,10 +506,8 @@ export interface components {
             firstname?: string;
             lastname?: string;
             alias?: string[] | null;
-            /** Format: int64 */
             year?: number;
             gender?: string;
-            /** Format: int64 */
             dsv_id?: number;
             team: components["schemas"]["Team"];
             first_meeting?: string;
@@ -520,9 +518,7 @@ export interface components {
             name?: string;
             alias?: string[] | null;
             country?: string;
-            /** Format: int64 */
             dsv_id?: number;
-            /** Format: int64 */
             state_id?: number;
             address: components["schemas"]["Address"];
             contact: components["schemas"]["Contact"];
@@ -568,9 +564,7 @@ export interface components {
             path?: string;
             url?: string;
             hidden?: boolean;
-            /** Format: int64 */
             downloads?: number;
-            /** Format: int64 */
             ordering?: number;
             /** Format: date-time */
             added_at: string;

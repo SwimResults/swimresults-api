@@ -19,7 +19,7 @@ class DecodingTest {
     fun decodesEventsWithGoTimestamps() {
         val events: Array<Event> = Serializer.gson.fromJson(json, Array<Event>::class.java)
         assertEquals(1, events.size)
-        assertEquals(1L, events[0].number)
+        assertEquals(1, events[0].number)
         assertEquals("BUTTERFLY", events[0].style.name)
         assertEquals(OffsetDateTime.parse("2023-09-19T03:01:09.904Z"), events[0].addedAt)
         assertEquals(1, events[0].updatedAt.year)

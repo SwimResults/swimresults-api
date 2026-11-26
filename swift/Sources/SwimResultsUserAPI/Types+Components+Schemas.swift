@@ -32,7 +32,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Config`.
         public struct Config: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Config/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Config/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Config/_id`.
+            public var _id: Components.Schemas.Config._IdPayload
             /// - Remark: Generated from `#/components/schemas/Config/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Config/enabled`.
@@ -44,7 +62,7 @@ extension Components {
             ///   - meeting:
             ///   - enabled:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Config._IdPayload,
                 meeting: Swift.String? = nil,
                 enabled: Swift.Bool
             ) {
@@ -61,7 +79,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Dashboard`.
         public struct Dashboard: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Dashboard/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Dashboard/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Dashboard/_id`.
+            public var _id: Components.Schemas.Dashboard._IdPayload
             /// - Remark: Generated from `#/components/schemas/Dashboard/widget_container`.
             public var widgetContainer: [Components.Schemas.WidgetContainer]?
             /// - Remark: Generated from `#/components/schemas/Dashboard/user`.
@@ -85,7 +121,7 @@ extension Components {
             ///   - meetingStates:
             ///   - meeting:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Dashboard._IdPayload,
                 widgetContainer: [Components.Schemas.WidgetContainer]? = nil,
                 user: Swift.String? = nil,
                 official: Swift.Bool? = nil,
@@ -114,7 +150,7 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/WidgetContainer`.
         public struct WidgetContainer: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/WidgetContainer/order_position`.
-            public var orderPosition: Swift.Int64?
+            public var orderPosition: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/WidgetContainer/widgets`.
             public var widgets: [Components.Schemas.WidgetTile]?
             /// Creates a new `WidgetContainer`.
@@ -123,7 +159,7 @@ extension Components {
             ///   - orderPosition:
             ///   - widgets:
             public init(
-                orderPosition: Swift.Int64? = nil,
+                orderPosition: Swift.Int? = nil,
                 widgets: [Components.Schemas.WidgetTile]? = nil
             ) {
                 self.orderPosition = orderPosition
@@ -141,7 +177,7 @@ extension Components {
             /// - Remark: Generated from `#/components/schemas/WidgetTile/data`.
             public var data: OpenAPIRuntime.OpenAPIValueContainer?
             /// - Remark: Generated from `#/components/schemas/WidgetTile/order_position`.
-            public var orderPosition: Swift.Int64?
+            public var orderPosition: Swift.Int?
             /// Creates a new `WidgetTile`.
             ///
             /// - Parameters:
@@ -151,7 +187,7 @@ extension Components {
             public init(
                 widget: Components.Schemas.Widget,
                 data: OpenAPIRuntime.OpenAPIValueContainer? = nil,
-                orderPosition: Swift.Int64? = nil
+                orderPosition: Swift.Int? = nil
             ) {
                 self.widget = widget
                 self.data = data
@@ -166,7 +202,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/Widget`.
         public struct Widget: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/Widget/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/Widget/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/Widget/_id`.
+            public var _id: Components.Schemas.Widget._IdPayload
             /// - Remark: Generated from `#/components/schemas/Widget/size`.
             public var size: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Widget/content`.
@@ -178,7 +232,7 @@ extension Components {
             ///   - size:
             ///   - content:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.Widget._IdPayload,
                 size: Swift.String? = nil,
                 content: Swift.String? = nil
             ) {
@@ -288,11 +342,11 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/NotificationsResponseDto`.
         public struct NotificationsResponseDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/NotificationsResponseDto/user_count`.
-            public var userCount: Swift.Int64
+            public var userCount: Swift.Int
             /// - Remark: Generated from `#/components/schemas/NotificationsResponseDto/notification_user_count`.
-            public var notificationUserCount: Swift.Int64
+            public var notificationUserCount: Swift.Int
             /// - Remark: Generated from `#/components/schemas/NotificationsResponseDto/success_count`.
-            public var successCount: Swift.Int64
+            public var successCount: Swift.Int
             /// Creates a new `NotificationsResponseDto`.
             ///
             /// - Parameters:
@@ -300,9 +354,9 @@ extension Components {
             ///   - notificationUserCount:
             ///   - successCount:
             public init(
-                userCount: Swift.Int64,
-                notificationUserCount: Swift.Int64,
-                successCount: Swift.Int64
+                userCount: Swift.Int,
+                notificationUserCount: Swift.Int,
+                successCount: Swift.Int
             ) {
                 self.userCount = userCount
                 self.notificationUserCount = notificationUserCount
@@ -346,7 +400,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/NotificationUser`.
         public struct NotificationUser: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/NotificationUser/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/NotificationUser/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/NotificationUser/_id`.
+            public var _id: Components.Schemas.NotificationUser._IdPayload
             /// - Remark: Generated from `#/components/schemas/NotificationUser/user_id`.
             public var userId: Components.Schemas.ObjectId
             /// - Remark: Generated from `#/components/schemas/NotificationUser/token`.
@@ -373,7 +445,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.NotificationUser._IdPayload,
                 userId: Components.Schemas.ObjectId,
                 token: Swift.String,
                 settings: Components.Schemas.NotificationSettings,
@@ -540,7 +612,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/UserReport`.
         public struct UserReport: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/UserReport/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/UserReport/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/UserReport/_id`.
+            public var _id: Components.Schemas.UserReport._IdPayload
             /// - Remark: Generated from `#/components/schemas/UserReport/message`.
             public var message: Swift.String
             /// - Remark: Generated from `#/components/schemas/UserReport/meeting`.
@@ -570,7 +660,7 @@ extension Components {
             ///   - completed:
             ///   - addedAt:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.UserReport._IdPayload,
                 message: Swift.String,
                 meeting: Swift.String? = nil,
                 userId: Components.Schemas.ObjectId,
@@ -655,7 +745,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/User`.
         public struct User: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/User/_id`.
-            public var _id: Components.Schemas.ObjectId
+            public struct _IdPayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/User/_id/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `_IdPayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/User/_id`.
+            public var _id: Components.Schemas.User._IdPayload
             /// - Remark: Generated from `#/components/schemas/User/keycloak_id`.
             public var keycloakId: Swift.String?
             /// - Remark: Generated from `#/components/schemas/User/following`.
@@ -694,7 +802,7 @@ extension Components {
             ///   - settings:
             ///   - meetings:
             public init(
-                _id: Components.Schemas.ObjectId,
+                _id: Components.Schemas.User._IdPayload,
                 keycloakId: Swift.String? = nil,
                 following: [Components.Schemas.FollowingAthlete]? = nil,
                 ownAthleteId: Components.Schemas.User.OwnAthleteIdPayload? = nil,
@@ -766,7 +874,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto`.
         public struct FollowAthleteRequestDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto/athlete`.
-            public var athlete: Components.Schemas.ObjectId
+            public struct AthletePayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto/athlete/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `AthletePayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto/athlete`.
+            public var athlete: Components.Schemas.FollowAthleteRequestDto.AthletePayload
             /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto/follow`.
             public var follow: Swift.Bool?
             /// Creates a new `FollowAthleteRequestDto`.
@@ -775,7 +901,7 @@ extension Components {
             ///   - athlete:
             ///   - follow:
             public init(
-                athlete: Components.Schemas.ObjectId,
+                athlete: Components.Schemas.FollowAthleteRequestDto.AthletePayload,
                 follow: Swift.Bool? = nil
             ) {
                 self.athlete = athlete
@@ -812,7 +938,25 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/SetMeRequestDto`.
         public struct SetMeRequestDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/SetMeRequestDto/athlete`.
-            public var athlete: Components.Schemas.ObjectId
+            public struct AthletePayload: Codable, Hashable, Sendable {
+                /// - Remark: Generated from `#/components/schemas/SetMeRequestDto/athlete/value1`.
+                public var value1: Components.Schemas.ObjectId
+                /// Creates a new `AthletePayload`.
+                ///
+                /// - Parameters:
+                ///   - value1:
+                public init(value1: Components.Schemas.ObjectId) {
+                    self.value1 = value1
+                }
+                public init(from decoder: any Swift.Decoder) throws {
+                    self.value1 = try decoder.decodeFromSingleValueContainer()
+                }
+                public func encode(to encoder: any Swift.Encoder) throws {
+                    try encoder.encodeToSingleValueContainer(self.value1)
+                }
+            }
+            /// - Remark: Generated from `#/components/schemas/SetMeRequestDto/athlete`.
+            public var athlete: Components.Schemas.SetMeRequestDto.AthletePayload
             /// - Remark: Generated from `#/components/schemas/SetMeRequestDto/set`.
             public var set: Swift.Bool?
             /// Creates a new `SetMeRequestDto`.
@@ -821,7 +965,7 @@ extension Components {
             ///   - athlete:
             ///   - set:
             public init(
-                athlete: Components.Schemas.ObjectId,
+                athlete: Components.Schemas.SetMeRequestDto.AthletePayload,
                 set: Swift.Bool? = nil
             ) {
                 self.athlete = athlete

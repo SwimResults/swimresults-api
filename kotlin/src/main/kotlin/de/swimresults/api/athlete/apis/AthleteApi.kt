@@ -128,10 +128,10 @@ interface AthleteApi {
      *  - 200: OK
      *  - 500: Internal Server Error
      *
-     * @return [kotlin.Long]
+     * @return [kotlin.Int]
      */
     @GET("athlete/amount")
-    suspend fun getAthletesAmount(): Response<kotlin.Long>
+    suspend fun getAthletesAmount(): Response<kotlin.Int>
 
     /**
      * GET athlete/meet/{meet_id}/amount
@@ -143,10 +143,10 @@ interface AthleteApi {
      *  - 500: Internal Server Error
      *
      * @param meetId 
-     * @return [kotlin.Long]
+     * @return [kotlin.Int]
      */
     @GET("athlete/meet/{meet_id}/amount")
-    suspend fun getAthletesAmountByMeeting(@Path("meet_id") meetId: kotlin.String): Response<kotlin.Long>
+    suspend fun getAthletesAmountByMeeting(@Path("meet_id") meetId: kotlin.String): Response<kotlin.Int>
 
     /**
      * GET athlete/meet/{meet_id}

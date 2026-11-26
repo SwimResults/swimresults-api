@@ -74,7 +74,7 @@ jobs:
       - run: cd typescript && npm run build && npm test && npm pack --dry-run
 
   swift:
-    runs-on: macos-15
+    runs-on: macos-26 # Xcode 26 / Swift 6.2 (swift-openapi-generator 1.14 needs tools 6.2)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4

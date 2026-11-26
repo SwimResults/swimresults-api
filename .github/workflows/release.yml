@@ -25,6 +25,11 @@ jobs:
     outputs:
       version: ${{ steps.v.outputs.version }}
     steps:
+      - name: Tag exists
+        run: |
+          tag="${{ inputs.tag || github.ref_name }}"
+          git ls-remote --exit-code --tags "https://github.com/${{ github.repository }}" "refs/tags/$tag" >/dev/null \
+            || { echo "::error::tag $tag does not exist. Create it first: git tag -a $tag -m $tag && git push origin $tag"; exit 1; }
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.tag || github.ref }}
@@ -60,13 +65,13 @@ jobs:
       - run: npm install -g npm@11.6.2 # trusted publishing needs npm >= 11.5.1
       - working-directory: typescript
         run: |
+          if npm view "@swimresults/api@${{ needs.verify.outputs.version }}" version >/dev/null 2>&1; then
+            echo "::notice::@swimresults/api@${{ needs.verify.outputs.version }} is already on npm, skipping"; exit 0
+          fi
           npm ci --no-audit --no-fund
           npm version "${{ needs.verify.outputs.version }}" --no-git-tag-version
           npm run build && npm test
           npm publish --access public --provenance
-        env:
-          # Only needed for the very first publish (before the trusted publisher exists); remove afterwards.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   maven:
     needs: verify
@@ -83,7 +88,12 @@ jobs:
           java-version: 17
       - name: Publish to Maven Central
         working-directory: kotlin
-        run: ./gradlew publishToMavenCentral --no-daemon -PVERSION_NAME=${{ needs.verify.outputs.version }}
+        run: |
+          v="${{ needs.verify.outputs.version }}"
+          if curl -sfI "https://repo1.maven.org/maven2/de/swimresults/swimresults-api/$v/swimresults-api-$v.pom" >/dev/null; then
+            echo "::notice::de.swimresults:swimresults-api:$v is already on Maven Central, skipping"; exit 0
+          fi
+          ./gradlew publishToMavenCentral --no-daemon -PVERSION_NAME="$v"
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}

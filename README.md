@@ -148,6 +148,10 @@ Generated code is committed:
 
    The tag itself is the Go and Swift release.
 
+To publish an **existing** tag again (e.g. after enabling a registry), run
+`gh workflow run release.yml -f tag=v0.1.0`. Versions already on npm or Maven Central are skipped. A new version
+always needs a new tag; the manual run doesn't create one.
+
 Versioning is semver over the **API contract**. A breaking change in any spec (removed field or route, changed
 type) bumps the minor version while in `0.x`, and the major version from `1.0` on. From v2 on, Go also needs a
 `/v2` module path.

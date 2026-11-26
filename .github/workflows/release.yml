@@ -9,6 +9,12 @@ name: Release
 on:
   push:
     tags: ["v*.*.*"]
+  # publish an existing tag to npm/Maven again (e.g. after enabling a registry); skips the GitHub release
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "existing tag, e.g. v0.1.0"
+        required: true
 
 permissions:
   contents: read
@@ -20,9 +26,13 @@ jobs:
       version: ${{ steps.v.outputs.version }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
       - id: v
         run: |
-          v="${GITHUB_REF_NAME#v}"
+          tag="${{ inputs.tag || github.ref_name }}"
+          git rev-parse -q --verify "refs/tags/$tag" >/dev/null || { echo "::error::tag $tag does not exist"; exit 1; }
+          v="${tag#v}"
           [[ "$v" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]] || { echo "::error::tag must be vX.Y.Z"; exit 1; }
           echo "version=$v" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-go@v5
@@ -41,6 +51,8 @@ jobs:
       id-token: write # npm trusted publishing (OIDC) + provenance
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
       - uses: actions/setup-node@v4
         with:
           node-version: 24
@@ -63,6 +75,8 @@ jobs:
     environment: release
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -78,6 +92,7 @@ jobs:
 
   github-release:
     needs: verify
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write

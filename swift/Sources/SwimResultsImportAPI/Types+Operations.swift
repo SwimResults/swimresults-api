@@ -1402,17 +1402,46 @@ public enum Operations {
                 }
             }
             public var headers: Operations.EasyWkLivetimingGetPost.Input.Headers
+            /// - Remark: Generated from `#/paths/easywk/any/livework.php/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// form-encoded fields, parsed like query parameters
+                ///
+                /// - Remark: Generated from `#/paths/easywk/any/livework.php/POST/requestBody/urlEncodedForm`.
+                public struct UrlEncodedFormPayload: Codable, Hashable, Sendable {
+                    /// A container of undocumented properties.
+                    public var additionalProperties: [String: Swift.String]
+                    /// Creates a new `UrlEncodedFormPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - additionalProperties: A container of undocumented properties.
+                    public init(additionalProperties: [String: Swift.String] = .init()) {
+                        self.additionalProperties = additionalProperties
+                    }
+                    public init(from decoder: any Swift.Decoder) throws {
+                        additionalProperties = try decoder.decodeAdditionalProperties(knownKeys: [])
+                    }
+                    public func encode(to encoder: any Swift.Encoder) throws {
+                        try encoder.encodeAdditionalProperties(additionalProperties)
+                    }
+                }
+                /// - Remark: Generated from `#/paths/easywk/any/livework.php/POST/requestBody/content/application\/x-www-form-urlencoded`.
+                case urlEncodedForm(Operations.EasyWkLivetimingGetPost.Input.Body.UrlEncodedFormPayload)
+            }
+            public var body: Operations.EasyWkLivetimingGetPost.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - query:
             ///   - headers:
+            ///   - body:
             public init(
                 query: Operations.EasyWkLivetimingGetPost.Input.Query = .init(),
-                headers: Operations.EasyWkLivetimingGetPost.Input.Headers = .init()
+                headers: Operations.EasyWkLivetimingGetPost.Input.Headers = .init(),
+                body: Operations.EasyWkLivetimingGetPost.Input.Body
             ) {
                 self.query = query
                 self.headers = headers
+                self.body = body
             }
         }
         @frozen public enum Output: Sendable, Hashable {
@@ -1859,17 +1888,46 @@ public enum Operations {
                 }
             }
             public var headers: Operations.EasyWkLivetimingGetPatch.Input.Headers
+            /// - Remark: Generated from `#/paths/easywk/any/livework.php/PATCH/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// form-encoded fields, parsed like query parameters
+                ///
+                /// - Remark: Generated from `#/paths/easywk/any/livework.php/PATCH/requestBody/urlEncodedForm`.
+                public struct UrlEncodedFormPayload: Codable, Hashable, Sendable {
+                    /// A container of undocumented properties.
+                    public var additionalProperties: [String: Swift.String]
+                    /// Creates a new `UrlEncodedFormPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - additionalProperties: A container of undocumented properties.
+                    public init(additionalProperties: [String: Swift.String] = .init()) {
+                        self.additionalProperties = additionalProperties
+                    }
+                    public init(from decoder: any Swift.Decoder) throws {
+                        additionalProperties = try decoder.decodeAdditionalProperties(knownKeys: [])
+                    }
+                    public func encode(to encoder: any Swift.Encoder) throws {
+                        try encoder.encodeAdditionalProperties(additionalProperties)
+                    }
+                }
+                /// - Remark: Generated from `#/paths/easywk/any/livework.php/PATCH/requestBody/content/application\/x-www-form-urlencoded`.
+                case urlEncodedForm(Operations.EasyWkLivetimingGetPatch.Input.Body.UrlEncodedFormPayload)
+            }
+            public var body: Operations.EasyWkLivetimingGetPatch.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - query:
             ///   - headers:
+            ///   - body:
             public init(
                 query: Operations.EasyWkLivetimingGetPatch.Input.Query = .init(),
-                headers: Operations.EasyWkLivetimingGetPatch.Input.Headers = .init()
+                headers: Operations.EasyWkLivetimingGetPatch.Input.Headers = .init(),
+                body: Operations.EasyWkLivetimingGetPatch.Input.Body
             ) {
                 self.query = query
                 self.headers = headers
+                self.body = body
             }
         }
         @frozen public enum Output: Sendable, Hashable {
@@ -2316,17 +2374,46 @@ public enum Operations {
                 }
             }
             public var headers: Operations.EasyWkLivetimingGetPut.Input.Headers
+            /// - Remark: Generated from `#/paths/easywk/any/livework.php/PUT/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// form-encoded fields, parsed like query parameters
+                ///
+                /// - Remark: Generated from `#/paths/easywk/any/livework.php/PUT/requestBody/urlEncodedForm`.
+                public struct UrlEncodedFormPayload: Codable, Hashable, Sendable {
+                    /// A container of undocumented properties.
+                    public var additionalProperties: [String: Swift.String]
+                    /// Creates a new `UrlEncodedFormPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - additionalProperties: A container of undocumented properties.
+                    public init(additionalProperties: [String: Swift.String] = .init()) {
+                        self.additionalProperties = additionalProperties
+                    }
+                    public init(from decoder: any Swift.Decoder) throws {
+                        additionalProperties = try decoder.decodeAdditionalProperties(knownKeys: [])
+                    }
+                    public func encode(to encoder: any Swift.Encoder) throws {
+                        try encoder.encodeAdditionalProperties(additionalProperties)
+                    }
+                }
+                /// - Remark: Generated from `#/paths/easywk/any/livework.php/PUT/requestBody/content/application\/x-www-form-urlencoded`.
+                case urlEncodedForm(Operations.EasyWkLivetimingGetPut.Input.Body.UrlEncodedFormPayload)
+            }
+            public var body: Operations.EasyWkLivetimingGetPut.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - query:
             ///   - headers:
+            ///   - body:
             public init(
                 query: Operations.EasyWkLivetimingGetPut.Input.Query = .init(),
-                headers: Operations.EasyWkLivetimingGetPut.Input.Headers = .init()
+                headers: Operations.EasyWkLivetimingGetPut.Input.Headers = .init(),
+                body: Operations.EasyWkLivetimingGetPut.Input.Body
             ) {
                 self.query = query
                 self.headers = headers
+                self.body = body
             }
         }
         @frozen public enum Output: Sendable, Hashable {
@@ -2773,17 +2860,46 @@ public enum Operations {
                 }
             }
             public var headers: Operations.EasyWkLivetimingGetDelete.Input.Headers
+            /// - Remark: Generated from `#/paths/easywk/any/livework.php/DELETE/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// form-encoded fields, parsed like query parameters
+                ///
+                /// - Remark: Generated from `#/paths/easywk/any/livework.php/DELETE/requestBody/urlEncodedForm`.
+                public struct UrlEncodedFormPayload: Codable, Hashable, Sendable {
+                    /// A container of undocumented properties.
+                    public var additionalProperties: [String: Swift.String]
+                    /// Creates a new `UrlEncodedFormPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - additionalProperties: A container of undocumented properties.
+                    public init(additionalProperties: [String: Swift.String] = .init()) {
+                        self.additionalProperties = additionalProperties
+                    }
+                    public init(from decoder: any Swift.Decoder) throws {
+                        additionalProperties = try decoder.decodeAdditionalProperties(knownKeys: [])
+                    }
+                    public func encode(to encoder: any Swift.Encoder) throws {
+                        try encoder.encodeAdditionalProperties(additionalProperties)
+                    }
+                }
+                /// - Remark: Generated from `#/paths/easywk/any/livework.php/DELETE/requestBody/content/application\/x-www-form-urlencoded`.
+                case urlEncodedForm(Operations.EasyWkLivetimingGetDelete.Input.Body.UrlEncodedFormPayload)
+            }
+            public var body: Operations.EasyWkLivetimingGetDelete.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - query:
             ///   - headers:
+            ///   - body:
             public init(
                 query: Operations.EasyWkLivetimingGetDelete.Input.Query = .init(),
-                headers: Operations.EasyWkLivetimingGetDelete.Input.Headers = .init()
+                headers: Operations.EasyWkLivetimingGetDelete.Input.Headers = .init(),
+                body: Operations.EasyWkLivetimingGetDelete.Input.Body
             ) {
                 self.query = query
                 self.headers = headers
+                self.body = body
             }
         }
         @frozen public enum Output: Sendable, Hashable {
@@ -3687,17 +3803,46 @@ public enum Operations {
                 }
             }
             public var headers: Operations.EasyWkLivetiming.Input.Headers
+            /// - Remark: Generated from `#/paths/easywk/livework.php/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// form-encoded fields, parsed like query parameters
+                ///
+                /// - Remark: Generated from `#/paths/easywk/livework.php/POST/requestBody/urlEncodedForm`.
+                public struct UrlEncodedFormPayload: Codable, Hashable, Sendable {
+                    /// A container of undocumented properties.
+                    public var additionalProperties: [String: Swift.String]
+                    /// Creates a new `UrlEncodedFormPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - additionalProperties: A container of undocumented properties.
+                    public init(additionalProperties: [String: Swift.String] = .init()) {
+                        self.additionalProperties = additionalProperties
+                    }
+                    public init(from decoder: any Swift.Decoder) throws {
+                        additionalProperties = try decoder.decodeAdditionalProperties(knownKeys: [])
+                    }
+                    public func encode(to encoder: any Swift.Encoder) throws {
+                        try encoder.encodeAdditionalProperties(additionalProperties)
+                    }
+                }
+                /// - Remark: Generated from `#/paths/easywk/livework.php/POST/requestBody/content/application\/x-www-form-urlencoded`.
+                case urlEncodedForm(Operations.EasyWkLivetiming.Input.Body.UrlEncodedFormPayload)
+            }
+            public var body: Operations.EasyWkLivetiming.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - query:
             ///   - headers:
+            ///   - body:
             public init(
                 query: Operations.EasyWkLivetiming.Input.Query = .init(),
-                headers: Operations.EasyWkLivetiming.Input.Headers = .init()
+                headers: Operations.EasyWkLivetiming.Input.Headers = .init(),
+                body: Operations.EasyWkLivetiming.Input.Body
             ) {
                 self.query = query
                 self.headers = headers
+                self.body = body
             }
         }
         @frozen public enum Output: Sendable, Hashable {

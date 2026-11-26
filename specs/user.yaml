@@ -277,6 +277,12 @@ paths:
           required: true
           schema:
             type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              description: free-form JSON, passed through unchanged
       security:
         - bearerAuth: []
         - serviceKey: []
@@ -306,6 +312,12 @@ paths:
           required: true
           schema:
             type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              description: free-form JSON, passed through unchanged
       security:
         - bearerAuth: []
         - serviceKey: []

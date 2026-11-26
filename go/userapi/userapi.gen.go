@@ -265,11 +265,23 @@ type GetDefaultDashboardParams struct {
 	MeetingState *string `form:"meeting_state,omitempty" json:"meeting_state,omitempty"`
 }
 
+// SendMeetingBroadcastJSONBody defines parameters for SendMeetingBroadcast.
+type SendMeetingBroadcastJSONBody = interface{}
+
+// SendBroadcastJSONBody defines parameters for SendBroadcast.
+type SendBroadcastJSONBody = interface{}
+
 // AddConfigJSONRequestBody defines body for AddConfig for application/json ContentType.
 type AddConfigJSONRequestBody = Config
 
 // AddUserDashboardJSONRequestBody defines body for AddUserDashboard for application/json ContentType.
 type AddUserDashboardJSONRequestBody = Dashboard
+
+// SendMeetingBroadcastJSONRequestBody defines body for SendMeetingBroadcast for application/json ContentType.
+type SendMeetingBroadcastJSONRequestBody = SendMeetingBroadcastJSONBody
+
+// SendBroadcastJSONRequestBody defines body for SendBroadcast for application/json ContentType.
+type SendBroadcastJSONRequestBody = SendBroadcastJSONBody
 
 // SendNotificationForMeetingJSONRequestBody defines body for SendNotificationForMeeting for application/json ContentType.
 type SendNotificationForMeetingJSONRequestBody = MeetingNotificationRequestDto
@@ -453,15 +465,29 @@ type ClientInterface interface {
 	// Public — no authentication required. The handler reads the user from the bearer token, so a token is required in practice.
 	RemoveUserDashboard(ctx context.Context, id ObjectId, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// SendMeetingBroadcast performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request.
+	// SendMeetingBroadcastWithBody performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Requires Keycloak realm role `admin` (or the service key).
-	SendMeetingBroadcast(ctx context.Context, meeting string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	SendMeetingBroadcastWithBody(ctx context.Context, meeting string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SendMeetingBroadcast performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request.
+	// Takes a body of the `application/json` content type.
+	//
+	// Requires Keycloak realm role `admin` (or the service key).
+	SendMeetingBroadcast(ctx context.Context, meeting string, body SendMeetingBroadcastJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SendBroadcastWithBody performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request,
+	// with any type of body and a specified content type.
+	//
+	// Requires Keycloak realm role `admin` (or the service key).
+	SendBroadcastWithBody(ctx context.Context, channel string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SendBroadcast performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request.
+	// Takes a body of the `application/json` content type.
 	//
 	// Requires Keycloak realm role `admin` (or the service key).
-	SendBroadcast(ctx context.Context, channel string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	SendBroadcast(ctx context.Context, channel string, body SendBroadcastJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// SendNotificationForMeetingWithBody performs a POST /notification/meet/{meeting} (the `SendNotificationForMeeting` operationId) request,
 	// with any type of body and a specified content type.
@@ -924,11 +950,44 @@ func (c *Client) RemoveUserDashboard(ctx context.Context, id ObjectId, reqEditor
 	return c.Client.Do(req)
 }
 
-// SendMeetingBroadcast performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request.
+// SendMeetingBroadcastWithBody performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request,
+// with any type of body and a specified content type.
 //
 // Requires Keycloak realm role `admin` (or the service key).
-func (c *Client) SendMeetingBroadcast(ctx context.Context, meeting string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewSendMeetingBroadcastRequest(c.Server, meeting)
+func (c *Client) SendMeetingBroadcastWithBody(ctx context.Context, meeting string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendMeetingBroadcastRequestWithBody(c.Server, meeting, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SendMeetingBroadcast performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request.
+// Takes a body of the `application/json` content type.
+//
+// Requires Keycloak realm role `admin` (or the service key).
+func (c *Client) SendMeetingBroadcast(ctx context.Context, meeting string, body SendMeetingBroadcastJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendMeetingBroadcastRequest(c.Server, meeting, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SendBroadcastWithBody performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request,
+// with any type of body and a specified content type.
+//
+// Requires Keycloak realm role `admin` (or the service key).
+func (c *Client) SendBroadcastWithBody(ctx context.Context, channel string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendBroadcastRequestWithBody(c.Server, channel, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -940,10 +999,11 @@ func (c *Client) SendMeetingBroadcast(ctx context.Context, meeting string, reqEd
 }
 
 // SendBroadcast performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request.
+// Takes a body of the `application/json` content type.
 //
 // Requires Keycloak realm role `admin` (or the service key).
-func (c *Client) SendBroadcast(ctx context.Context, channel string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewSendBroadcastRequest(c.Server, channel)
+func (c *Client) SendBroadcast(ctx context.Context, channel string, body SendBroadcastJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSendBroadcastRequest(c.Server, channel, body)
 	if err != nil {
 		return nil, err
 	}
@@ -2117,8 +2177,19 @@ func NewRemoveUserDashboardRequest(server string, id ObjectId) (*http.Request, e
 	return req, nil
 }
 
-// NewSendMeetingBroadcastRequest constructs an http.Request for the SendMeetingBroadcast method
-func NewSendMeetingBroadcastRequest(server string, meeting string) (*http.Request, error) {
+// NewSendMeetingBroadcastRequest calls the generic SendMeetingBroadcast builder with application/json body
+func NewSendMeetingBroadcastRequest(server string, meeting string, body SendMeetingBroadcastJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSendMeetingBroadcastRequestWithBody(server, meeting, "application/json", bodyReader)
+}
+
+// NewSendMeetingBroadcastRequestWithBody constructs an http.Request for the SendMeetingBroadcast method, with any body, and a specified content type
+func NewSendMeetingBroadcastRequestWithBody(server string, meeting string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -2143,16 +2214,29 @@ func NewSendMeetingBroadcastRequest(server string, meeting string) (*http.Reques
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
 
+	req.Header.Add("Content-Type", contentType)
+
 	return req, nil
 }
 
-// NewSendBroadcastRequest constructs an http.Request for the SendBroadcast method
-func NewSendBroadcastRequest(server string, channel string) (*http.Request, error) {
+// NewSendBroadcastRequest calls the generic SendBroadcast builder with application/json body
+func NewSendBroadcastRequest(server string, channel string, body SendBroadcastJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSendBroadcastRequestWithBody(server, channel, "application/json", bodyReader)
+}
+
+// NewSendBroadcastRequestWithBody constructs an http.Request for the SendBroadcast method, with any body, and a specified content type
+func NewSendBroadcastRequestWithBody(server string, channel string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -2177,10 +2261,12 @@ func NewSendBroadcastRequest(server string, channel string) (*http.Request, erro
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -3610,19 +3696,33 @@ type ClientWithResponsesInterface interface {
 	// Returns a wrapper object for the known response body format(s).
 	RemoveUserDashboardWithResponse(ctx context.Context, id ObjectId, reqEditors ...RequestEditorFn) (*RemoveUserDashboardResponse, error)
 
-	// SendMeetingBroadcastWithResponse performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request.
+	// SendMeetingBroadcastWithBodyWithResponse performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Requires Keycloak realm role `admin` (or the service key).
 	//
 	// Returns a wrapper object for the known response body format(s).
-	SendMeetingBroadcastWithResponse(ctx context.Context, meeting string, reqEditors ...RequestEditorFn) (*SendMeetingBroadcastResponse, error)
+	SendMeetingBroadcastWithBodyWithResponse(ctx context.Context, meeting string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendMeetingBroadcastResponse, error)
+
+	// SendMeetingBroadcastWithResponse performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request.
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Requires Keycloak realm role `admin` (or the service key).
+	SendMeetingBroadcastWithResponse(ctx context.Context, meeting string, body SendMeetingBroadcastJSONRequestBody, reqEditors ...RequestEditorFn) (*SendMeetingBroadcastResponse, error)
+
+	// SendBroadcastWithBodyWithResponse performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request,
+	// with any type of body and a specified content type.
+	//
+	// Requires Keycloak realm role `admin` (or the service key).
+	//
+	// Returns a wrapper object for the known response body format(s).
+	SendBroadcastWithBodyWithResponse(ctx context.Context, channel string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendBroadcastResponse, error)
 
 	// SendBroadcastWithResponse performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request.
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Requires Keycloak realm role `admin` (or the service key).
-	//
-	// Returns a wrapper object for the known response body format(s).
-	SendBroadcastWithResponse(ctx context.Context, channel string, reqEditors ...RequestEditorFn) (*SendBroadcastResponse, error)
+	SendBroadcastWithResponse(ctx context.Context, channel string, body SendBroadcastJSONRequestBody, reqEditors ...RequestEditorFn) (*SendBroadcastResponse, error)
 
 	// SendNotificationForMeetingWithBodyWithResponse performs a POST /notification/meet/{meeting} (the `SendNotificationForMeeting` operationId) request,
 	// with any type of body and a specified content type.
@@ -6551,26 +6651,52 @@ func (c *ClientWithResponses) RemoveUserDashboardWithResponse(ctx context.Contex
 	return ParseRemoveUserDashboardResponse(rsp)
 }
 
-// SendMeetingBroadcastWithResponse performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request.
+// SendMeetingBroadcastWithBodyWithResponse performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request,
+// with any type of body and a specified content type.
 //
 // Requires Keycloak realm role `admin` (or the service key).
 //
 // Returns a wrapper object for the known response body format(s).
-func (c *ClientWithResponses) SendMeetingBroadcastWithResponse(ctx context.Context, meeting string, reqEditors ...RequestEditorFn) (*SendMeetingBroadcastResponse, error) {
-	rsp, err := c.SendMeetingBroadcast(ctx, meeting, reqEditors...)
+func (c *ClientWithResponses) SendMeetingBroadcastWithBodyWithResponse(ctx context.Context, meeting string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendMeetingBroadcastResponse, error) {
+	rsp, err := c.SendMeetingBroadcastWithBody(ctx, meeting, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
 	return ParseSendMeetingBroadcastResponse(rsp)
 }
 
-// SendBroadcastWithResponse performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request.
+// SendMeetingBroadcastWithResponse performs a POST /notification/broadcast/meeting/{meeting} (the `SendMeetingBroadcast` operationId) request.
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Requires Keycloak realm role `admin` (or the service key).
+func (c *ClientWithResponses) SendMeetingBroadcastWithResponse(ctx context.Context, meeting string, body SendMeetingBroadcastJSONRequestBody, reqEditors ...RequestEditorFn) (*SendMeetingBroadcastResponse, error) {
+	rsp, err := c.SendMeetingBroadcast(ctx, meeting, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSendMeetingBroadcastResponse(rsp)
+}
+
+// SendBroadcastWithBodyWithResponse performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request,
+// with any type of body and a specified content type.
 //
 // Requires Keycloak realm role `admin` (or the service key).
 //
 // Returns a wrapper object for the known response body format(s).
-func (c *ClientWithResponses) SendBroadcastWithResponse(ctx context.Context, channel string, reqEditors ...RequestEditorFn) (*SendBroadcastResponse, error) {
-	rsp, err := c.SendBroadcast(ctx, channel, reqEditors...)
+func (c *ClientWithResponses) SendBroadcastWithBodyWithResponse(ctx context.Context, channel string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SendBroadcastResponse, error) {
+	rsp, err := c.SendBroadcastWithBody(ctx, channel, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSendBroadcastResponse(rsp)
+}
+
+// SendBroadcastWithResponse performs a POST /notification/broadcast/{channel} (the `SendBroadcast` operationId) request.
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Requires Keycloak realm role `admin` (or the service key).
+func (c *ClientWithResponses) SendBroadcastWithResponse(ctx context.Context, channel string, body SendBroadcastJSONRequestBody, reqEditors ...RequestEditorFn) (*SendBroadcastResponse, error) {
+	rsp, err := c.SendBroadcast(ctx, channel, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}

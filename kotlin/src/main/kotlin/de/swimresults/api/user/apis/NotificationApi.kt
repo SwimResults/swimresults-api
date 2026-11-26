@@ -23,10 +23,11 @@ interface NotificationApi {
      *  - 0: response
      *
      * @param channel 
+     * @param body 
      * @return [BroadcastResponseDto]
      */
     @POST("notification/broadcast/{channel}")
-    suspend fun sendBroadcast(@Path("channel") channel: kotlin.String): Response<BroadcastResponseDto>
+    suspend fun sendBroadcast(@Path("channel") channel: kotlin.String, @Body body: kotlin.Any): Response<BroadcastResponseDto>
 
     /**
      * POST notification/broadcast/meeting/{meeting}
@@ -37,10 +38,11 @@ interface NotificationApi {
      *  - 0: response
      *
      * @param meeting 
+     * @param body 
      * @return [BroadcastResponseDto]
      */
     @POST("notification/broadcast/meeting/{meeting}")
-    suspend fun sendMeetingBroadcast(@Path("meeting") meeting: kotlin.String): Response<BroadcastResponseDto>
+    suspend fun sendMeetingBroadcast(@Path("meeting") meeting: kotlin.String, @Body body: kotlin.Any): Response<BroadcastResponseDto>
 
     /**
      * POST notification/{device}

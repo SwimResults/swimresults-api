@@ -1126,7 +1126,11 @@ export interface operations {
             };
             cookie?: never;
         };
-        requestBody?: never;
+        requestBody: {
+            content: {
+                "application/json": unknown;
+            };
+        };
         responses: {
             /** @description Internal Server Error */
             500: {
@@ -1157,7 +1161,11 @@ export interface operations {
             };
             cookie?: never;
         };
-        requestBody?: never;
+        requestBody: {
+            content: {
+                "application/json": unknown;
+            };
+        };
         responses: {
             /** @description Internal Server Error */
             500: {

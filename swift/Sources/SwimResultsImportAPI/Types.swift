@@ -195,11 +195,13 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//easywk/any/livework.php/post(easyWkLivetimingGetPost)`.
     public func easyWkLivetimingGetPost(
         query: Operations.EasyWkLivetimingGetPost.Input.Query = .init(),
-        headers: Operations.EasyWkLivetimingGetPost.Input.Headers = .init()
+        headers: Operations.EasyWkLivetimingGetPost.Input.Headers = .init(),
+        body: Operations.EasyWkLivetimingGetPost.Input.Body
     ) async throws -> Operations.EasyWkLivetimingGetPost.Output {
         try await easyWkLivetimingGetPost(Operations.EasyWkLivetimingGetPost.Input(
             query: query,
-            headers: headers
+            headers: headers,
+            body: body
         ))
     }
     /// Excluded from the auth middleware entirely.
@@ -208,11 +210,13 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//easywk/any/livework.php/patch(easyWkLivetimingGetPatch)`.
     public func easyWkLivetimingGetPatch(
         query: Operations.EasyWkLivetimingGetPatch.Input.Query = .init(),
-        headers: Operations.EasyWkLivetimingGetPatch.Input.Headers = .init()
+        headers: Operations.EasyWkLivetimingGetPatch.Input.Headers = .init(),
+        body: Operations.EasyWkLivetimingGetPatch.Input.Body
     ) async throws -> Operations.EasyWkLivetimingGetPatch.Output {
         try await easyWkLivetimingGetPatch(Operations.EasyWkLivetimingGetPatch.Input(
             query: query,
-            headers: headers
+            headers: headers,
+            body: body
         ))
     }
     /// Excluded from the auth middleware entirely.
@@ -221,11 +225,13 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//easywk/any/livework.php/put(easyWkLivetimingGetPut)`.
     public func easyWkLivetimingGetPut(
         query: Operations.EasyWkLivetimingGetPut.Input.Query = .init(),
-        headers: Operations.EasyWkLivetimingGetPut.Input.Headers = .init()
+        headers: Operations.EasyWkLivetimingGetPut.Input.Headers = .init(),
+        body: Operations.EasyWkLivetimingGetPut.Input.Body
     ) async throws -> Operations.EasyWkLivetimingGetPut.Output {
         try await easyWkLivetimingGetPut(Operations.EasyWkLivetimingGetPut.Input(
             query: query,
-            headers: headers
+            headers: headers,
+            body: body
         ))
     }
     /// Excluded from the auth middleware entirely.
@@ -234,11 +240,13 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//easywk/any/livework.php/delete(easyWkLivetimingGetDelete)`.
     public func easyWkLivetimingGetDelete(
         query: Operations.EasyWkLivetimingGetDelete.Input.Query = .init(),
-        headers: Operations.EasyWkLivetimingGetDelete.Input.Headers = .init()
+        headers: Operations.EasyWkLivetimingGetDelete.Input.Headers = .init(),
+        body: Operations.EasyWkLivetimingGetDelete.Input.Body
     ) async throws -> Operations.EasyWkLivetimingGetDelete.Output {
         try await easyWkLivetimingGetDelete(Operations.EasyWkLivetimingGetDelete.Input(
             query: query,
-            headers: headers
+            headers: headers,
+            body: body
         ))
     }
     /// Excluded from the auth middleware entirely.
@@ -260,11 +268,13 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//easywk/livework.php/post(easyWkLivetiming)`.
     public func easyWkLivetiming(
         query: Operations.EasyWkLivetiming.Input.Query = .init(),
-        headers: Operations.EasyWkLivetiming.Input.Headers = .init()
+        headers: Operations.EasyWkLivetiming.Input.Headers = .init(),
+        body: Operations.EasyWkLivetiming.Input.Body
     ) async throws -> Operations.EasyWkLivetiming.Output {
         try await easyWkLivetiming(Operations.EasyWkLivetiming.Input(
             query: query,
-            headers: headers
+            headers: headers,
+            body: body
         ))
     }
     /// Excluded from the auth middleware entirely.

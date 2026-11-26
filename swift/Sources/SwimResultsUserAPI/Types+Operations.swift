@@ -1720,17 +1720,26 @@ public enum Operations {
                 }
             }
             public var headers: Operations.SendMeetingBroadcast.Input.Headers
+            /// - Remark: Generated from `#/paths/notification/broadcast/meeting/{meeting}/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/notification/broadcast/meeting/{meeting}/POST/requestBody/content/application\/json`.
+                case json(OpenAPIRuntime.OpenAPIValueContainer)
+            }
+            public var body: Operations.SendMeetingBroadcast.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - path:
             ///   - headers:
+            ///   - body:
             public init(
                 path: Operations.SendMeetingBroadcast.Input.Path,
-                headers: Operations.SendMeetingBroadcast.Input.Headers = .init()
+                headers: Operations.SendMeetingBroadcast.Input.Headers = .init(),
+                body: Operations.SendMeetingBroadcast.Input.Body
             ) {
                 self.path = path
                 self.headers = headers
+                self.body = body
             }
         }
         @frozen public enum Output: Sendable, Hashable {
@@ -1895,17 +1904,26 @@ public enum Operations {
                 }
             }
             public var headers: Operations.SendBroadcast.Input.Headers
+            /// - Remark: Generated from `#/paths/notification/broadcast/{channel}/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/notification/broadcast/{channel}/POST/requestBody/content/application\/json`.
+                case json(OpenAPIRuntime.OpenAPIValueContainer)
+            }
+            public var body: Operations.SendBroadcast.Input.Body
             /// Creates a new `Input`.
             ///
             /// - Parameters:
             ///   - path:
             ///   - headers:
+            ///   - body:
             public init(
                 path: Operations.SendBroadcast.Input.Path,
-                headers: Operations.SendBroadcast.Input.Headers = .init()
+                headers: Operations.SendBroadcast.Input.Headers = .init(),
+                body: Operations.SendBroadcast.Input.Body
             ) {
                 self.path = path
                 self.headers = headers
+                self.body = body
             }
         }
         @frozen public enum Output: Sendable, Hashable {

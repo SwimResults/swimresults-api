@@ -359,6 +359,22 @@ func (a *analyzer) analyze(r *route, fn *types.Func, depth int, visiting map[*ty
 			if regexp.MustCompile(`(?i)claims|getuserid`).MatchString(callee.Name()) {
 				r.RequiresUser = true
 			}
+			// io.ReadAll(c.Request.Body): raw body passed through as-is -> free-form JSON
+			if callee.Name() == "ReadAll" && callee.Pkg() != nil && (callee.Pkg().Path() == "io" || callee.Pkg().Path() == "io/ioutil") {
+				if body, ok := call.Args[0].(*ast.SelectorExpr); ok && body.Sel.Name == "Body" {
+					if req, ok := body.X.(*ast.SelectorExpr); ok && req.Sel.Name == "Request" && isCtx(req.X) && r.Body == nil {
+						if assignsRawQuery(decl.Body) {
+							// body copied into c.Request.URL.RawQuery and bound as query: form-encoded (EasyWK)
+							r.Body = om("type", "object", "additionalProperties", om("type", "string"),
+								"description", "form-encoded fields, parsed like query parameters")
+							r.BodyContentType = "application/x-www-form-urlencoded"
+						} else {
+							r.Body = om("description", "free-form JSON, passed through unchanged")
+							r.BodyContentType = "application/json"
+						}
+					}
+				}
+			}
 		}
 
 		name, cc := ctxCall(call)
@@ -1072,4 +1088,20 @@ func defaultGoName(json string) string {
 		return "Underscore" + b.String()
 	}
 	return b.String()
+}
+
+// assignsRawQuery reports whether a handler body assigns ...Request.URL.RawQuery.
+func assignsRawQuery(body *ast.BlockStmt) bool {
+	found := false
+	ast.Inspect(body, func(n ast.Node) bool {
+		if as, ok := n.(*ast.AssignStmt); ok {
+			for _, l := range as.Lhs {
+				if sel, ok := l.(*ast.SelectorExpr); ok && sel.Sel.Name == "RawQuery" {
+					found = true
+				}
+			}
+		}
+		return !found
+	})
+	return found
 }

@@ -341,11 +341,13 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//notification/broadcast/meeting/{meeting}/post(sendMeetingBroadcast)`.
     public func sendMeetingBroadcast(
         path: Operations.SendMeetingBroadcast.Input.Path,
-        headers: Operations.SendMeetingBroadcast.Input.Headers = .init()
+        headers: Operations.SendMeetingBroadcast.Input.Headers = .init(),
+        body: Operations.SendMeetingBroadcast.Input.Body
     ) async throws -> Operations.SendMeetingBroadcast.Output {
         try await sendMeetingBroadcast(Operations.SendMeetingBroadcast.Input(
             path: path,
-            headers: headers
+            headers: headers,
+            body: body
         ))
     }
     /// Requires Keycloak realm role `admin` (or the service key).
@@ -354,11 +356,13 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//notification/broadcast/{channel}/post(sendBroadcast)`.
     public func sendBroadcast(
         path: Operations.SendBroadcast.Input.Path,
-        headers: Operations.SendBroadcast.Input.Headers = .init()
+        headers: Operations.SendBroadcast.Input.Headers = .init(),
+        body: Operations.SendBroadcast.Input.Body
     ) async throws -> Operations.SendBroadcast.Output {
         try await sendBroadcast(Operations.SendBroadcast.Input(
             path: path,
-            headers: headers
+            headers: headers,
+            body: body
         ))
     }
     /// Requires Keycloak realm role `admin` (or the service key).

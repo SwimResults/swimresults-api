@@ -191,6 +191,10 @@ type AlgeLivetimingData500JSONResponseBody struct {
 	union json.RawMessage
 }
 
+// EasyWkLivetimingGetDeleteFormdataBody defines parameters for EasyWkLivetimingGetDelete.
+type EasyWkLivetimingGetDeleteFormdataBody struct {
+}
+
 // EasyWkLivetimingGetDeleteParams defines parameters for EasyWkLivetimingGetDelete.
 type EasyWkLivetimingGetDeleteParams struct {
 	Pwd       *string `form:"pwd,omitempty" json:"pwd,omitempty"`
@@ -311,6 +315,10 @@ type EasyWkLivetimingGet500JSONResponseBody struct {
 	union json.RawMessage
 }
 
+// EasyWkLivetimingGetPatchFormdataBody defines parameters for EasyWkLivetimingGetPatch.
+type EasyWkLivetimingGetPatchFormdataBody struct {
+}
+
 // EasyWkLivetimingGetPatchParams defines parameters for EasyWkLivetimingGetPatch.
 type EasyWkLivetimingGetPatchParams struct {
 	Pwd       *string `form:"pwd,omitempty" json:"pwd,omitempty"`
@@ -371,6 +379,10 @@ type EasyWkLivetimingGetPatch500JSONResponseBody struct {
 	union json.RawMessage
 }
 
+// EasyWkLivetimingGetPostFormdataBody defines parameters for EasyWkLivetimingGetPost.
+type EasyWkLivetimingGetPostFormdataBody struct {
+}
+
 // EasyWkLivetimingGetPostParams defines parameters for EasyWkLivetimingGetPost.
 type EasyWkLivetimingGetPostParams struct {
 	Pwd       *string `form:"pwd,omitempty" json:"pwd,omitempty"`
@@ -429,6 +441,10 @@ type EasyWkLivetimingGetPost500JSONResponseBody1 = string
 // EasyWkLivetimingGetPost500JSONResponseBody defines parameters for EasyWkLivetimingGetPost.
 type EasyWkLivetimingGetPost500JSONResponseBody struct {
 	union json.RawMessage
+}
+
+// EasyWkLivetimingGetPutFormdataBody defines parameters for EasyWkLivetimingGetPut.
+type EasyWkLivetimingGetPutFormdataBody struct {
 }
 
 // EasyWkLivetimingGetPutParams defines parameters for EasyWkLivetimingGetPut.
@@ -551,6 +567,10 @@ type EasyWkLivetimingGetGet500JSONResponseBody struct {
 	union json.RawMessage
 }
 
+// EasyWkLivetimingFormdataBody defines parameters for EasyWkLivetiming.
+type EasyWkLivetimingFormdataBody struct {
+}
+
 // EasyWkLivetimingParams defines parameters for EasyWkLivetiming.
 type EasyWkLivetimingParams struct {
 	Pwd       *string `form:"pwd,omitempty" json:"pwd,omitempty"`
@@ -654,6 +674,21 @@ type AlgeLivetimingDataWithAuthJSONRequestBody = AlgeActionRequest
 
 // ImportCertificatesJSONRequestBody defines body for ImportCertificates for application/json ContentType.
 type ImportCertificatesJSONRequestBody = ImportCertificatesRequestDto
+
+// EasyWkLivetimingGetDeleteFormdataRequestBody defines body for EasyWkLivetimingGetDelete for application/x-www-form-urlencoded ContentType.
+type EasyWkLivetimingGetDeleteFormdataRequestBody EasyWkLivetimingGetDeleteFormdataBody
+
+// EasyWkLivetimingGetPatchFormdataRequestBody defines body for EasyWkLivetimingGetPatch for application/x-www-form-urlencoded ContentType.
+type EasyWkLivetimingGetPatchFormdataRequestBody EasyWkLivetimingGetPatchFormdataBody
+
+// EasyWkLivetimingGetPostFormdataRequestBody defines body for EasyWkLivetimingGetPost for application/x-www-form-urlencoded ContentType.
+type EasyWkLivetimingGetPostFormdataRequestBody EasyWkLivetimingGetPostFormdataBody
+
+// EasyWkLivetimingGetPutFormdataRequestBody defines body for EasyWkLivetimingGetPut for application/x-www-form-urlencoded ContentType.
+type EasyWkLivetimingGetPutFormdataRequestBody EasyWkLivetimingGetPutFormdataBody
+
+// EasyWkLivetimingFormdataRequestBody defines body for EasyWkLivetiming for application/x-www-form-urlencoded ContentType.
+type EasyWkLivetimingFormdataRequestBody EasyWkLivetimingFormdataBody
 
 // EasyWkLivetimingV2PostJSONRequestBody defines body for EasyWkLivetimingV2Post for application/json ContentType.
 type EasyWkLivetimingV2PostJSONRequestBody = EasyWkLivetimingV2PostJSONBody
@@ -1529,40 +1564,75 @@ type ClientInterface interface {
 	// Requires realm role `manager` or `admin` (any meeting), or the service key.
 	ImportCertificates(ctx context.Context, body ImportCertificatesJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// EasyWkLivetimingGetDelete performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request.
+	// EasyWkLivetimingGetDeleteWithBody performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Excluded from the auth middleware entirely.
-	EasyWkLivetimingGetDelete(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	EasyWkLivetimingGetDeleteWithBody(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EasyWkLivetimingGetDeleteWithFormdataBody performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type.
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingGetDeleteWithFormdataBody(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, body EasyWkLivetimingGetDeleteFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// EasyWkLivetimingGet performs a GET /easywk/any/livework.php (the `EasyWkLivetimingGet` operationId) request.
 	//
 	// Excluded from the auth middleware entirely.
 	EasyWkLivetimingGet(ctx context.Context, params *EasyWkLivetimingGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// EasyWkLivetimingGetPatch performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request.
+	// EasyWkLivetimingGetPatchWithBody performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Excluded from the auth middleware entirely.
-	EasyWkLivetimingGetPatch(ctx context.Context, params *EasyWkLivetimingGetPatchParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	EasyWkLivetimingGetPatchWithBody(ctx context.Context, params *EasyWkLivetimingGetPatchParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// EasyWkLivetimingGetPost performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request.
+	// EasyWkLivetimingGetPatchWithFormdataBody performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type.
 	//
 	// Excluded from the auth middleware entirely.
-	EasyWkLivetimingGetPost(ctx context.Context, params *EasyWkLivetimingGetPostParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	EasyWkLivetimingGetPatchWithFormdataBody(ctx context.Context, params *EasyWkLivetimingGetPatchParams, body EasyWkLivetimingGetPatchFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// EasyWkLivetimingGetPut performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request.
+	// EasyWkLivetimingGetPostWithBody performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Excluded from the auth middleware entirely.
-	EasyWkLivetimingGetPut(ctx context.Context, params *EasyWkLivetimingGetPutParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	EasyWkLivetimingGetPostWithBody(ctx context.Context, params *EasyWkLivetimingGetPostParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EasyWkLivetimingGetPostWithFormdataBody performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type.
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingGetPostWithFormdataBody(ctx context.Context, params *EasyWkLivetimingGetPostParams, body EasyWkLivetimingGetPostFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EasyWkLivetimingGetPutWithBody performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request,
+	// with any type of body and a specified content type.
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingGetPutWithBody(ctx context.Context, params *EasyWkLivetimingGetPutParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EasyWkLivetimingGetPutWithFormdataBody performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type.
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingGetPutWithFormdataBody(ctx context.Context, params *EasyWkLivetimingGetPutParams, body EasyWkLivetimingGetPutFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// EasyWkLivetimingGetGet performs a GET /easywk/get/livework.php (the `EasyWkLivetimingGetGet` operationId) request.
 	//
 	// Excluded from the auth middleware entirely.
 	EasyWkLivetimingGetGet(ctx context.Context, params *EasyWkLivetimingGetGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// EasyWkLivetiming performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request.
+	// EasyWkLivetimingWithBody performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Excluded from the auth middleware entirely.
-	EasyWkLivetiming(ctx context.Context, params *EasyWkLivetimingParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	EasyWkLivetimingWithBody(ctx context.Context, params *EasyWkLivetimingParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// EasyWkLivetimingWithFormdataBody performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type.
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingWithFormdataBody(ctx context.Context, params *EasyWkLivetimingParams, body EasyWkLivetimingFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// EasyWkLivetimingV2 performs a GET /easywk/v2/livework.php (the `EasyWkLivetimingV2` operationId) request.
 	//
@@ -1771,11 +1841,28 @@ func (c *Client) ImportCertificates(ctx context.Context, body ImportCertificates
 	return c.Client.Do(req)
 }
 
-// EasyWkLivetimingGetDelete performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request.
+// EasyWkLivetimingGetDeleteWithBody performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
-func (c *Client) EasyWkLivetimingGetDelete(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewEasyWkLivetimingGetDeleteRequest(c.Server, params)
+func (c *Client) EasyWkLivetimingGetDeleteWithBody(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingGetDeleteRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// EasyWkLivetimingGetDeleteWithFormdataBody performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type.
+//
+// Excluded from the auth middleware entirely.
+func (c *Client) EasyWkLivetimingGetDeleteWithFormdataBody(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, body EasyWkLivetimingGetDeleteFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingGetDeleteRequestWithFormdataBody(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -1801,11 +1888,12 @@ func (c *Client) EasyWkLivetimingGet(ctx context.Context, params *EasyWkLivetimi
 	return c.Client.Do(req)
 }
 
-// EasyWkLivetimingGetPatch performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request.
+// EasyWkLivetimingGetPatchWithBody performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
-func (c *Client) EasyWkLivetimingGetPatch(ctx context.Context, params *EasyWkLivetimingGetPatchParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewEasyWkLivetimingGetPatchRequest(c.Server, params)
+func (c *Client) EasyWkLivetimingGetPatchWithBody(ctx context.Context, params *EasyWkLivetimingGetPatchParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingGetPatchRequestWithBody(c.Server, params, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -1816,11 +1904,12 @@ func (c *Client) EasyWkLivetimingGetPatch(ctx context.Context, params *EasyWkLiv
 	return c.Client.Do(req)
 }
 
-// EasyWkLivetimingGetPost performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request.
+// EasyWkLivetimingGetPatchWithFormdataBody performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type.
 //
 // Excluded from the auth middleware entirely.
-func (c *Client) EasyWkLivetimingGetPost(ctx context.Context, params *EasyWkLivetimingGetPostParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewEasyWkLivetimingGetPostRequest(c.Server, params)
+func (c *Client) EasyWkLivetimingGetPatchWithFormdataBody(ctx context.Context, params *EasyWkLivetimingGetPatchParams, body EasyWkLivetimingGetPatchFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingGetPatchRequestWithFormdataBody(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -1831,11 +1920,60 @@ func (c *Client) EasyWkLivetimingGetPost(ctx context.Context, params *EasyWkLive
 	return c.Client.Do(req)
 }
 
-// EasyWkLivetimingGetPut performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request.
+// EasyWkLivetimingGetPostWithBody performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
-func (c *Client) EasyWkLivetimingGetPut(ctx context.Context, params *EasyWkLivetimingGetPutParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewEasyWkLivetimingGetPutRequest(c.Server, params)
+func (c *Client) EasyWkLivetimingGetPostWithBody(ctx context.Context, params *EasyWkLivetimingGetPostParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingGetPostRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// EasyWkLivetimingGetPostWithFormdataBody performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type.
+//
+// Excluded from the auth middleware entirely.
+func (c *Client) EasyWkLivetimingGetPostWithFormdataBody(ctx context.Context, params *EasyWkLivetimingGetPostParams, body EasyWkLivetimingGetPostFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingGetPostRequestWithFormdataBody(c.Server, params, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// EasyWkLivetimingGetPutWithBody performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request,
+// with any type of body and a specified content type.
+//
+// Excluded from the auth middleware entirely.
+func (c *Client) EasyWkLivetimingGetPutWithBody(ctx context.Context, params *EasyWkLivetimingGetPutParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingGetPutRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// EasyWkLivetimingGetPutWithFormdataBody performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type.
+//
+// Excluded from the auth middleware entirely.
+func (c *Client) EasyWkLivetimingGetPutWithFormdataBody(ctx context.Context, params *EasyWkLivetimingGetPutParams, body EasyWkLivetimingGetPutFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingGetPutRequestWithFormdataBody(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -1861,11 +1999,28 @@ func (c *Client) EasyWkLivetimingGetGet(ctx context.Context, params *EasyWkLivet
 	return c.Client.Do(req)
 }
 
-// EasyWkLivetiming performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request.
+// EasyWkLivetimingWithBody performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
-func (c *Client) EasyWkLivetiming(ctx context.Context, params *EasyWkLivetimingParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewEasyWkLivetimingRequest(c.Server, params)
+func (c *Client) EasyWkLivetimingWithBody(ctx context.Context, params *EasyWkLivetimingParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingRequestWithBody(c.Server, params, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// EasyWkLivetimingWithFormdataBody performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type.
+//
+// Excluded from the auth middleware entirely.
+func (c *Client) EasyWkLivetimingWithFormdataBody(ctx context.Context, params *EasyWkLivetimingParams, body EasyWkLivetimingFormdataRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewEasyWkLivetimingRequestWithFormdataBody(c.Server, params, body)
 	if err != nil {
 		return nil, err
 	}
@@ -2295,8 +2450,19 @@ func NewImportCertificatesRequestWithBody(server string, contentType string, bod
 	return req, nil
 }
 
-// NewEasyWkLivetimingGetDeleteRequest constructs an http.Request for the EasyWkLivetimingGetDelete method
-func NewEasyWkLivetimingGetDeleteRequest(server string, params *EasyWkLivetimingGetDeleteParams) (*http.Request, error) {
+// NewEasyWkLivetimingGetDeleteRequestWithFormdataBody calls the generic EasyWkLivetimingGetDelete builder with application/x-www-form-urlencoded body
+func NewEasyWkLivetimingGetDeleteRequestWithFormdataBody(server string, params *EasyWkLivetimingGetDeleteParams, body EasyWkLivetimingGetDeleteFormdataRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	bodyStr, err := runtime.MarshalForm(body, nil)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = strings.NewReader(bodyStr.Encode())
+	return NewEasyWkLivetimingGetDeleteRequestWithBody(server, params, "application/x-www-form-urlencoded", bodyReader)
+}
+
+// NewEasyWkLivetimingGetDeleteRequestWithBody constructs an http.Request for the EasyWkLivetimingGetDelete method, with any body, and a specified content type
+func NewEasyWkLivetimingGetDeleteRequestWithBody(server string, params *EasyWkLivetimingGetDeleteParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -2905,10 +3071,12 @@ func NewEasyWkLivetimingGetDeleteRequest(server string, params *EasyWkLivetiming
 		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
-	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -3531,8 +3699,19 @@ func NewEasyWkLivetimingGetRequest(server string, params *EasyWkLivetimingGetPar
 	return req, nil
 }
 
-// NewEasyWkLivetimingGetPatchRequest constructs an http.Request for the EasyWkLivetimingGetPatch method
-func NewEasyWkLivetimingGetPatchRequest(server string, params *EasyWkLivetimingGetPatchParams) (*http.Request, error) {
+// NewEasyWkLivetimingGetPatchRequestWithFormdataBody calls the generic EasyWkLivetimingGetPatch builder with application/x-www-form-urlencoded body
+func NewEasyWkLivetimingGetPatchRequestWithFormdataBody(server string, params *EasyWkLivetimingGetPatchParams, body EasyWkLivetimingGetPatchFormdataRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	bodyStr, err := runtime.MarshalForm(body, nil)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = strings.NewReader(bodyStr.Encode())
+	return NewEasyWkLivetimingGetPatchRequestWithBody(server, params, "application/x-www-form-urlencoded", bodyReader)
+}
+
+// NewEasyWkLivetimingGetPatchRequestWithBody constructs an http.Request for the EasyWkLivetimingGetPatch method, with any body, and a specified content type
+func NewEasyWkLivetimingGetPatchRequestWithBody(server string, params *EasyWkLivetimingGetPatchParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -4141,16 +4320,29 @@ func NewEasyWkLivetimingGetPatchRequest(server string, params *EasyWkLivetimingG
 		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
-	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
 
-// NewEasyWkLivetimingGetPostRequest constructs an http.Request for the EasyWkLivetimingGetPost method
-func NewEasyWkLivetimingGetPostRequest(server string, params *EasyWkLivetimingGetPostParams) (*http.Request, error) {
+// NewEasyWkLivetimingGetPostRequestWithFormdataBody calls the generic EasyWkLivetimingGetPost builder with application/x-www-form-urlencoded body
+func NewEasyWkLivetimingGetPostRequestWithFormdataBody(server string, params *EasyWkLivetimingGetPostParams, body EasyWkLivetimingGetPostFormdataRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	bodyStr, err := runtime.MarshalForm(body, nil)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = strings.NewReader(bodyStr.Encode())
+	return NewEasyWkLivetimingGetPostRequestWithBody(server, params, "application/x-www-form-urlencoded", bodyReader)
+}
+
+// NewEasyWkLivetimingGetPostRequestWithBody constructs an http.Request for the EasyWkLivetimingGetPost method, with any body, and a specified content type
+func NewEasyWkLivetimingGetPostRequestWithBody(server string, params *EasyWkLivetimingGetPostParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -4759,16 +4951,29 @@ func NewEasyWkLivetimingGetPostRequest(server string, params *EasyWkLivetimingGe
 		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
 
-// NewEasyWkLivetimingGetPutRequest constructs an http.Request for the EasyWkLivetimingGetPut method
-func NewEasyWkLivetimingGetPutRequest(server string, params *EasyWkLivetimingGetPutParams) (*http.Request, error) {
+// NewEasyWkLivetimingGetPutRequestWithFormdataBody calls the generic EasyWkLivetimingGetPut builder with application/x-www-form-urlencoded body
+func NewEasyWkLivetimingGetPutRequestWithFormdataBody(server string, params *EasyWkLivetimingGetPutParams, body EasyWkLivetimingGetPutFormdataRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	bodyStr, err := runtime.MarshalForm(body, nil)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = strings.NewReader(bodyStr.Encode())
+	return NewEasyWkLivetimingGetPutRequestWithBody(server, params, "application/x-www-form-urlencoded", bodyReader)
+}
+
+// NewEasyWkLivetimingGetPutRequestWithBody constructs an http.Request for the EasyWkLivetimingGetPut method, with any body, and a specified content type
+func NewEasyWkLivetimingGetPutRequestWithBody(server string, params *EasyWkLivetimingGetPutParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -5377,10 +5582,12 @@ func NewEasyWkLivetimingGetPutRequest(server string, params *EasyWkLivetimingGet
 		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
-	req, err := http.NewRequest(http.MethodPut, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPut, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -6003,8 +6210,19 @@ func NewEasyWkLivetimingGetGetRequest(server string, params *EasyWkLivetimingGet
 	return req, nil
 }
 
-// NewEasyWkLivetimingRequest constructs an http.Request for the EasyWkLivetiming method
-func NewEasyWkLivetimingRequest(server string, params *EasyWkLivetimingParams) (*http.Request, error) {
+// NewEasyWkLivetimingRequestWithFormdataBody calls the generic EasyWkLivetiming builder with application/x-www-form-urlencoded body
+func NewEasyWkLivetimingRequestWithFormdataBody(server string, params *EasyWkLivetimingParams, body EasyWkLivetimingFormdataRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	bodyStr, err := runtime.MarshalForm(body, nil)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = strings.NewReader(bodyStr.Encode())
+	return NewEasyWkLivetimingRequestWithBody(server, params, "application/x-www-form-urlencoded", bodyReader)
+}
+
+// NewEasyWkLivetimingRequestWithBody constructs an http.Request for the EasyWkLivetiming method, with any body, and a specified content type
+func NewEasyWkLivetimingRequestWithBody(server string, params *EasyWkLivetimingParams, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6613,10 +6831,12 @@ func NewEasyWkLivetimingRequest(server string, params *EasyWkLivetimingParams) (
 		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -7131,12 +7351,19 @@ type ClientWithResponsesInterface interface {
 	// Requires realm role `manager` or `admin` (any meeting), or the service key.
 	ImportCertificatesWithResponse(ctx context.Context, body ImportCertificatesJSONRequestBody, reqEditors ...RequestEditorFn) (*ImportCertificatesResponse, error)
 
-	// EasyWkLivetimingGetDeleteWithResponse performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request.
+	// EasyWkLivetimingGetDeleteWithBodyWithResponse performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Excluded from the auth middleware entirely.
 	//
 	// Returns a wrapper object for the known response body format(s).
-	EasyWkLivetimingGetDeleteWithResponse(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetDeleteResponse, error)
+	EasyWkLivetimingGetDeleteWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetDeleteResponse, error)
+
+	// EasyWkLivetimingGetDeleteWithFormdataBodyWithResponse performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingGetDeleteWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, body EasyWkLivetimingGetDeleteFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetDeleteResponse, error)
 
 	// EasyWkLivetimingGetWithResponse performs a GET /easywk/any/livework.php (the `EasyWkLivetimingGet` operationId) request.
 	//
@@ -7145,26 +7372,47 @@ type ClientWithResponsesInterface interface {
 	// Returns a wrapper object for the known response body format(s).
 	EasyWkLivetimingGetWithResponse(ctx context.Context, params *EasyWkLivetimingGetParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetResponse, error)
 
-	// EasyWkLivetimingGetPatchWithResponse performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request.
+	// EasyWkLivetimingGetPatchWithBodyWithResponse performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Excluded from the auth middleware entirely.
 	//
 	// Returns a wrapper object for the known response body format(s).
-	EasyWkLivetimingGetPatchWithResponse(ctx context.Context, params *EasyWkLivetimingGetPatchParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPatchResponse, error)
+	EasyWkLivetimingGetPatchWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPatchParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPatchResponse, error)
 
-	// EasyWkLivetimingGetPostWithResponse performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request.
+	// EasyWkLivetimingGetPatchWithFormdataBodyWithResponse performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Excluded from the auth middleware entirely.
-	//
-	// Returns a wrapper object for the known response body format(s).
-	EasyWkLivetimingGetPostWithResponse(ctx context.Context, params *EasyWkLivetimingGetPostParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPostResponse, error)
+	EasyWkLivetimingGetPatchWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPatchParams, body EasyWkLivetimingGetPatchFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPatchResponse, error)
 
-	// EasyWkLivetimingGetPutWithResponse performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request.
+	// EasyWkLivetimingGetPostWithBodyWithResponse performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Excluded from the auth middleware entirely.
 	//
 	// Returns a wrapper object for the known response body format(s).
-	EasyWkLivetimingGetPutWithResponse(ctx context.Context, params *EasyWkLivetimingGetPutParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPutResponse, error)
+	EasyWkLivetimingGetPostWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPostParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPostResponse, error)
+
+	// EasyWkLivetimingGetPostWithFormdataBodyWithResponse performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingGetPostWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPostParams, body EasyWkLivetimingGetPostFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPostResponse, error)
+
+	// EasyWkLivetimingGetPutWithBodyWithResponse performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request,
+	// with any type of body and a specified content type.
+	//
+	// Excluded from the auth middleware entirely.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	EasyWkLivetimingGetPutWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPutParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPutResponse, error)
+
+	// EasyWkLivetimingGetPutWithFormdataBodyWithResponse performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingGetPutWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPutParams, body EasyWkLivetimingGetPutFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPutResponse, error)
 
 	// EasyWkLivetimingGetGetWithResponse performs a GET /easywk/get/livework.php (the `EasyWkLivetimingGetGet` operationId) request.
 	//
@@ -7173,12 +7421,19 @@ type ClientWithResponsesInterface interface {
 	// Returns a wrapper object for the known response body format(s).
 	EasyWkLivetimingGetGetWithResponse(ctx context.Context, params *EasyWkLivetimingGetGetParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetGetResponse, error)
 
-	// EasyWkLivetimingWithResponse performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request.
+	// EasyWkLivetimingWithBodyWithResponse performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request,
+	// with any type of body and a specified content type.
 	//
 	// Excluded from the auth middleware entirely.
 	//
 	// Returns a wrapper object for the known response body format(s).
-	EasyWkLivetimingWithResponse(ctx context.Context, params *EasyWkLivetimingParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingResponse, error)
+	EasyWkLivetimingWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingResponse, error)
+
+	// EasyWkLivetimingWithFormdataBodyWithResponse performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request.
+	// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Excluded from the auth middleware entirely.
+	EasyWkLivetimingWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingParams, body EasyWkLivetimingFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingResponse, error)
 
 	// EasyWkLivetimingV2WithResponse performs a GET /easywk/v2/livework.php (the `EasyWkLivetimingV2` operationId) request.
 	//
@@ -8376,13 +8631,26 @@ func (c *ClientWithResponses) ImportCertificatesWithResponse(ctx context.Context
 	return ParseImportCertificatesResponse(rsp)
 }
 
-// EasyWkLivetimingGetDeleteWithResponse performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request.
+// EasyWkLivetimingGetDeleteWithBodyWithResponse performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
 //
 // Returns a wrapper object for the known response body format(s).
-func (c *ClientWithResponses) EasyWkLivetimingGetDeleteWithResponse(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetDeleteResponse, error) {
-	rsp, err := c.EasyWkLivetimingGetDelete(ctx, params, reqEditors...)
+func (c *ClientWithResponses) EasyWkLivetimingGetDeleteWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetDeleteResponse, error) {
+	rsp, err := c.EasyWkLivetimingGetDeleteWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseEasyWkLivetimingGetDeleteResponse(rsp)
+}
+
+// EasyWkLivetimingGetDeleteWithFormdataBodyWithResponse performs a DELETE /easywk/any/livework.php (the `EasyWkLivetimingGetDelete` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+//
+// Excluded from the auth middleware entirely.
+func (c *ClientWithResponses) EasyWkLivetimingGetDeleteWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetDeleteParams, body EasyWkLivetimingGetDeleteFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetDeleteResponse, error) {
+	rsp, err := c.EasyWkLivetimingGetDeleteWithFormdataBody(ctx, params, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -8402,39 +8670,78 @@ func (c *ClientWithResponses) EasyWkLivetimingGetWithResponse(ctx context.Contex
 	return ParseEasyWkLivetimingGetResponse(rsp)
 }
 
-// EasyWkLivetimingGetPatchWithResponse performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request.
+// EasyWkLivetimingGetPatchWithBodyWithResponse performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
 //
 // Returns a wrapper object for the known response body format(s).
-func (c *ClientWithResponses) EasyWkLivetimingGetPatchWithResponse(ctx context.Context, params *EasyWkLivetimingGetPatchParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPatchResponse, error) {
-	rsp, err := c.EasyWkLivetimingGetPatch(ctx, params, reqEditors...)
+func (c *ClientWithResponses) EasyWkLivetimingGetPatchWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPatchParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPatchResponse, error) {
+	rsp, err := c.EasyWkLivetimingGetPatchWithBody(ctx, params, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
 	return ParseEasyWkLivetimingGetPatchResponse(rsp)
 }
 
-// EasyWkLivetimingGetPostWithResponse performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request.
+// EasyWkLivetimingGetPatchWithFormdataBodyWithResponse performs a PATCH /easywk/any/livework.php (the `EasyWkLivetimingGetPatch` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+//
+// Excluded from the auth middleware entirely.
+func (c *ClientWithResponses) EasyWkLivetimingGetPatchWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPatchParams, body EasyWkLivetimingGetPatchFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPatchResponse, error) {
+	rsp, err := c.EasyWkLivetimingGetPatchWithFormdataBody(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseEasyWkLivetimingGetPatchResponse(rsp)
+}
+
+// EasyWkLivetimingGetPostWithBodyWithResponse performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
 //
 // Returns a wrapper object for the known response body format(s).
-func (c *ClientWithResponses) EasyWkLivetimingGetPostWithResponse(ctx context.Context, params *EasyWkLivetimingGetPostParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPostResponse, error) {
-	rsp, err := c.EasyWkLivetimingGetPost(ctx, params, reqEditors...)
+func (c *ClientWithResponses) EasyWkLivetimingGetPostWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPostParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPostResponse, error) {
+	rsp, err := c.EasyWkLivetimingGetPostWithBody(ctx, params, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
 	return ParseEasyWkLivetimingGetPostResponse(rsp)
 }
 
-// EasyWkLivetimingGetPutWithResponse performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request.
+// EasyWkLivetimingGetPostWithFormdataBodyWithResponse performs a POST /easywk/any/livework.php (the `EasyWkLivetimingGetPost` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+//
+// Excluded from the auth middleware entirely.
+func (c *ClientWithResponses) EasyWkLivetimingGetPostWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPostParams, body EasyWkLivetimingGetPostFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPostResponse, error) {
+	rsp, err := c.EasyWkLivetimingGetPostWithFormdataBody(ctx, params, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseEasyWkLivetimingGetPostResponse(rsp)
+}
+
+// EasyWkLivetimingGetPutWithBodyWithResponse performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
 //
 // Returns a wrapper object for the known response body format(s).
-func (c *ClientWithResponses) EasyWkLivetimingGetPutWithResponse(ctx context.Context, params *EasyWkLivetimingGetPutParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPutResponse, error) {
-	rsp, err := c.EasyWkLivetimingGetPut(ctx, params, reqEditors...)
+func (c *ClientWithResponses) EasyWkLivetimingGetPutWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPutParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPutResponse, error) {
+	rsp, err := c.EasyWkLivetimingGetPutWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseEasyWkLivetimingGetPutResponse(rsp)
+}
+
+// EasyWkLivetimingGetPutWithFormdataBodyWithResponse performs a PUT /easywk/any/livework.php (the `EasyWkLivetimingGetPut` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+//
+// Excluded from the auth middleware entirely.
+func (c *ClientWithResponses) EasyWkLivetimingGetPutWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingGetPutParams, body EasyWkLivetimingGetPutFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingGetPutResponse, error) {
+	rsp, err := c.EasyWkLivetimingGetPutWithFormdataBody(ctx, params, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -8454,13 +8761,26 @@ func (c *ClientWithResponses) EasyWkLivetimingGetGetWithResponse(ctx context.Con
 	return ParseEasyWkLivetimingGetGetResponse(rsp)
 }
 
-// EasyWkLivetimingWithResponse performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request.
+// EasyWkLivetimingWithBodyWithResponse performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request,
+// with any type of body and a specified content type.
 //
 // Excluded from the auth middleware entirely.
 //
 // Returns a wrapper object for the known response body format(s).
-func (c *ClientWithResponses) EasyWkLivetimingWithResponse(ctx context.Context, params *EasyWkLivetimingParams, reqEditors ...RequestEditorFn) (*EasyWkLivetimingResponse, error) {
-	rsp, err := c.EasyWkLivetiming(ctx, params, reqEditors...)
+func (c *ClientWithResponses) EasyWkLivetimingWithBodyWithResponse(ctx context.Context, params *EasyWkLivetimingParams, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*EasyWkLivetimingResponse, error) {
+	rsp, err := c.EasyWkLivetimingWithBody(ctx, params, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseEasyWkLivetimingResponse(rsp)
+}
+
+// EasyWkLivetimingWithFormdataBodyWithResponse performs a POST /easywk/livework.php (the `EasyWkLivetiming` operationId) request.
+// Takes a body of the `application/x-www-form-urlencoded` content type, and returns a wrapper object for the known response body format(s).
+//
+// Excluded from the auth middleware entirely.
+func (c *ClientWithResponses) EasyWkLivetimingWithFormdataBodyWithResponse(ctx context.Context, params *EasyWkLivetimingParams, body EasyWkLivetimingFormdataRequestBody, reqEditors ...RequestEditorFn) (*EasyWkLivetimingResponse, error) {
+	rsp, err := c.EasyWkLivetimingWithFormdataBody(ctx, params, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}

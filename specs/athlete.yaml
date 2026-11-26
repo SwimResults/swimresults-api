@@ -1407,8 +1407,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         name:
           type: string
@@ -1443,8 +1444,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         name:
           type: string
@@ -1527,8 +1529,9 @@ components:
       type: object
       properties:
         athlete:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: AthleteId
         meeting:
           type: string
@@ -1549,8 +1552,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         name:
           type: string

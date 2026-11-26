@@ -56,14 +56,16 @@ type BroadcastResponseDto struct {
 
 // Config defines model for Config.
 type Config struct {
-	Identifier ObjectId `json:"_id"`
-	Enabled    bool     `json:"enabled"`
-	Meeting    string   `json:"meeting,omitempty"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string `json:"_id"`
+	Enabled    bool   `json:"enabled"`
+	Meeting    string `json:"meeting,omitempty"`
 }
 
 // Dashboard defines model for Dashboard.
 type Dashboard struct {
-	Identifier      ObjectId          `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier      string            `json:"_id"`
 	Default         bool              `json:"default,omitempty"`
 	Meeting         string            `json:"meeting,omitempty"`
 	MeetingStates   []string          `json:"meeting_states,omitempty"`
@@ -92,8 +94,9 @@ type Error struct {
 
 // FollowAthleteRequestDto defines model for FollowAthleteRequestDto.
 type FollowAthleteRequestDto struct {
-	AthleteId ObjectId `json:"athlete"`
-	Follow    bool     `json:"follow,omitempty"`
+	// AthleteId MongoDB ObjectID (hex)
+	AthleteId string `json:"athlete"`
+	Follow    bool   `json:"follow,omitempty"`
 }
 
 // FollowingAthlete defines model for FollowingAthlete.
@@ -136,7 +139,8 @@ type NotificationSettings struct {
 
 // NotificationUser defines model for NotificationUser.
 type NotificationUser struct {
-	Identifier  ObjectId             `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier  string               `json:"_id"`
 	AddedAt     time.Time            `json:"added_at"`
 	Device      Device               `json:"device"`
 	PushService string               `json:"push_service"`
@@ -176,8 +180,9 @@ type SetLanguageRequestDto struct {
 
 // SetMeRequestDto defines model for SetMeRequestDto.
 type SetMeRequestDto struct {
-	AthleteId ObjectId `json:"athlete"`
-	Set       bool     `json:"set,omitempty"`
+	// AthleteId MongoDB ObjectID (hex)
+	AthleteId string `json:"athlete"`
+	Set       bool   `json:"set,omitempty"`
 }
 
 // SetThemeRequestDto defines model for SetThemeRequestDto.
@@ -199,17 +204,21 @@ type SubscribeMeetingRequestDto struct {
 
 // User defines model for User.
 type User struct {
-	Identifier   ObjectId           `json:"_id"`
-	Following    []FollowingAthlete `json:"following,omitempty"`
-	KeycloakId   string             `json:"keycloak_id,omitempty"`
-	Meetings     []string           `json:"meetings,omitempty"`
-	OwnAthleteId ObjectId           `json:"own_athlete_id,omitempty"`
-	Settings     Settings           `json:"settings"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string             `json:"_id"`
+	Following  []FollowingAthlete `json:"following,omitempty"`
+	KeycloakId string             `json:"keycloak_id,omitempty"`
+	Meetings   []string           `json:"meetings,omitempty"`
+
+	// OwnAthleteId MongoDB ObjectID (hex)
+	OwnAthleteId string   `json:"own_athlete_id,omitempty"`
+	Settings     Settings `json:"settings"`
 }
 
 // UserReport defines model for UserReport.
 type UserReport struct {
-	Identifier   ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier   string    `json:"_id"`
 	Acknowledged bool      `json:"acknowledged"`
 	AddedAt      time.Time `json:"added_at"`
 	Completed    bool      `json:"completed"`
@@ -237,9 +246,10 @@ type UserReportSubmission struct {
 
 // Widget defines model for Widget.
 type Widget struct {
-	Identifier ObjectId `json:"_id"`
-	Content    string   `json:"content,omitempty"`
-	Size       string   `json:"size,omitempty"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string `json:"_id"`
+	Content    string `json:"content,omitempty"`
+	Size       string `json:"size,omitempty"`
 }
 
 // WidgetContainer defines model for WidgetContainer.

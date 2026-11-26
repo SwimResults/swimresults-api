@@ -501,7 +501,8 @@ export interface components {
         /** @description MongoDB ObjectID (hex) */
         ObjectId: string;
         Athlete: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             name?: string;
             firstname?: string;
             lastname?: string;
@@ -514,7 +515,8 @@ export interface components {
             participation?: string[] | null;
         };
         Team: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             name?: string;
             alias?: string[] | null;
             country?: string;
@@ -550,14 +552,16 @@ export interface components {
             athlete: components["schemas"]["Athlete"];
         };
         AddParticipationRequestDto: {
-            athlete: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            athlete: string;
             meeting?: string;
         };
         AthleteIdList: {
             athletes: components["schemas"]["ObjectId"][] | null;
         };
         Certificate: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             name?: string;
             athlete_id: components["schemas"]["ObjectId"];
             meeting?: string;

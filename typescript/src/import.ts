@@ -292,7 +292,8 @@ export interface components {
             meeting: string;
         };
         ImportSetting: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting?: string;
             pdf_start_list_settings: components["schemas"]["ImportPdfStartListSettings"];
             pdf_result_list_settings: components["schemas"]["ImportPdfResultListSettings"];

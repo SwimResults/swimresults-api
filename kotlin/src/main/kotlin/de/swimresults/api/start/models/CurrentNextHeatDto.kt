@@ -36,10 +36,10 @@ import com.google.gson.annotations.SerializedName
 data class CurrentNextHeatDto (
 
     @SerializedName("current")
-    val current: Heat?,
+    val current: Heat? = null,
 
     @SerializedName("next")
-    val next: Heat?
+    val next: Heat? = null
 
 ) {
 

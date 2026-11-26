@@ -19,8 +19,9 @@ import (
 
 // AddParticipationRequestDto defines model for AddParticipationRequestDto.
 type AddParticipationRequestDto struct {
-	AthleteId ObjectId `json:"athlete"`
-	MeetingId string   `json:"meeting,omitempty"`
+	// AthleteId MongoDB ObjectID (hex)
+	AthleteId string `json:"athlete"`
+	MeetingId string `json:"meeting,omitempty"`
 }
 
 // Address defines model for Address.
@@ -33,7 +34,8 @@ type Address struct {
 
 // Athlete defines model for Athlete.
 type Athlete struct {
-	Identifier    ObjectId `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier    string   `json:"_id"`
 	Alias         []string `json:"alias,omitempty"`
 	DsvId         int      `json:"dsv_id,omitempty"`
 	FirstMeeting  string   `json:"first_meeting,omitempty"`
@@ -53,7 +55,8 @@ type AthleteIdList struct {
 
 // Certificate defines model for Certificate.
 type Certificate struct {
-	Identifier ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string    `json:"_id"`
 	AddedAt    time.Time `json:"added_at"`
 
 	// AthleteId MongoDB ObjectID (hex)
@@ -114,7 +117,8 @@ type ObjectId = string
 
 // Team defines model for Team.
 type Team struct {
-	Identifier    ObjectId `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier    string   `json:"_id"`
 	Address       Address  `json:"address"`
 	Alias         []string `json:"alias,omitempty"`
 	ColorSet      ColorSet `json:"color_set"`

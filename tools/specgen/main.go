@@ -590,14 +590,13 @@ func (s *schemaSet) nullable(schema any) any {
 	if !ok {
 		return schema
 	}
-	if ref, isRef := m.vals["$ref"].(string); isRef {
-		typ := "object" // structs (incl. components still being built during recursion)
-		if def, ok := s.defs[strings.TrimPrefix(ref, "#/components/schemas/")].(*orderedMap); ok {
-			if t, ok := def.vals["type"].(string); ok {
-				typ = t
-			}
+	if _, isRef := m.vals["$ref"]; isRef {
+		if inline := s.inlineScalar(m); inline != nil {
+			inline.set("nullable", true)
+			return inline
 		}
-		return om("type", typ, "allOf", []any{m}, "nullable", true)
+		// object $ref: left as plain $ref; the caller makes the field optional instead of nullable
+		return m
 	}
 	c := om()
 	for _, k := range m.keys {
@@ -748,9 +747,22 @@ func (s *schemaSet) structSchema(st *types.Struct, owner *types.TypeName) any {
 		if f.Name() != defaultGoName(name) {
 			if m, ok := fs.(*orderedMap); ok {
 				if _, isRef := m.vals["$ref"]; isRef {
-					fs = om("allOf", []any{m}) // OpenAPI 3.0 ignores siblings of $ref
+					// OpenAPI 3.0 ignores siblings of $ref, and wrapping in allOf produces wrapper types in the
+					// Swift/Kotlin clients: inline scalar components (e.g. ObjectId); object refs keep the default Go name
+					if inline := s.inlineScalar(m); inline != nil {
+						inline.set("x-go-name", f.Name())
+						fs = inline
+					}
+				} else {
+					m.set("x-go-name", f.Name())
 				}
-				fs.(*orderedMap).set("x-go-name", f.Name())
+			}
+		}
+		if _, isPtr := types.Unalias(f.Type()).(*types.Pointer); isPtr {
+			if m, ok := fs.(*orderedMap); ok {
+				if _, isRef := m.vals["$ref"]; isRef {
+					omitempty = true // nil pointer -> null; modelled as an optional field
+				}
 			}
 		}
 		props.set(name, fs)
@@ -1104,4 +1116,21 @@ func assignsRawQuery(body *ast.BlockStmt) bool {
 		return !found
 	})
 	return found
+}
+
+// inlineScalar returns a copy of a referenced scalar component (e.g. ObjectId: string + pattern), or nil for objects.
+func (s *schemaSet) inlineScalar(ref *orderedMap) *orderedMap {
+	r, _ := ref.vals["$ref"].(string)
+	def, ok := s.defs[strings.TrimPrefix(r, "#/components/schemas/")].(*orderedMap)
+	if !ok {
+		return nil
+	}
+	if typ, _ := def.vals["type"].(string); typ == "" || typ == "object" || def.vals["properties"] != nil {
+		return nil
+	}
+	c := om()
+	for _, k := range def.keys {
+		c.set(k, def.vals[k])
+	}
+	return c
 }

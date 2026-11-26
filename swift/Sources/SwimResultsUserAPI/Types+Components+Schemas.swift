@@ -31,26 +31,10 @@ extension Components {
         public typealias ObjectId = Swift.String
         /// - Remark: Generated from `#/components/schemas/Config`.
         public struct Config: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Config/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Config/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Config/_id`.
-            public var _id: Components.Schemas.Config._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Config/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Config/enabled`.
@@ -58,11 +42,11 @@ extension Components {
             /// Creates a new `Config`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - enabled:
             public init(
-                _id: Components.Schemas.Config._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String? = nil,
                 enabled: Swift.Bool
             ) {
@@ -78,26 +62,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Dashboard`.
         public struct Dashboard: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Dashboard/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Dashboard/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Dashboard/_id`.
-            public var _id: Components.Schemas.Dashboard._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Dashboard/widget_container`.
             public var widgetContainer: [Components.Schemas.WidgetContainer]?
             /// - Remark: Generated from `#/components/schemas/Dashboard/user`.
@@ -113,7 +81,7 @@ extension Components {
             /// Creates a new `Dashboard`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - widgetContainer:
             ///   - user:
             ///   - official:
@@ -121,7 +89,7 @@ extension Components {
             ///   - meetingStates:
             ///   - meeting:
             public init(
-                _id: Components.Schemas.Dashboard._IdPayload,
+                _id: Swift.String,
                 widgetContainer: [Components.Schemas.WidgetContainer]? = nil,
                 user: Swift.String? = nil,
                 official: Swift.Bool? = nil,
@@ -201,26 +169,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Widget`.
         public struct Widget: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Widget/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Widget/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Widget/_id`.
-            public var _id: Components.Schemas.Widget._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Widget/size`.
             public var size: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Widget/content`.
@@ -228,11 +180,11 @@ extension Components {
             /// Creates a new `Widget`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - size:
             ///   - content:
             public init(
-                _id: Components.Schemas.Widget._IdPayload,
+                _id: Swift.String,
                 size: Swift.String? = nil,
                 content: Swift.String? = nil
             ) {
@@ -399,26 +351,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/NotificationUser`.
         public struct NotificationUser: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/NotificationUser/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/NotificationUser/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/NotificationUser/_id`.
-            public var _id: Components.Schemas.NotificationUser._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/NotificationUser/user_id`.
             public var userId: Components.Schemas.ObjectId
             /// - Remark: Generated from `#/components/schemas/NotificationUser/token`.
@@ -436,7 +372,7 @@ extension Components {
             /// Creates a new `NotificationUser`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - userId:
             ///   - token:
             ///   - settings:
@@ -445,7 +381,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.NotificationUser._IdPayload,
+                _id: Swift.String,
                 userId: Components.Schemas.ObjectId,
                 token: Swift.String,
                 settings: Components.Schemas.NotificationSettings,
@@ -611,26 +547,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/UserReport`.
         public struct UserReport: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/UserReport/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/UserReport/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/UserReport/_id`.
-            public var _id: Components.Schemas.UserReport._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/UserReport/message`.
             public var message: Swift.String
             /// - Remark: Generated from `#/components/schemas/UserReport/meeting`.
@@ -650,7 +570,7 @@ extension Components {
             /// Creates a new `UserReport`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - message:
             ///   - meeting:
             ///   - userId:
@@ -660,7 +580,7 @@ extension Components {
             ///   - completed:
             ///   - addedAt:
             public init(
-                _id: Components.Schemas.UserReport._IdPayload,
+                _id: Swift.String,
                 message: Swift.String,
                 meeting: Swift.String? = nil,
                 userId: Components.Schemas.ObjectId,
@@ -744,50 +664,18 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/User`.
         public struct User: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/User/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/User/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/User/_id`.
-            public var _id: Components.Schemas.User._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/User/keycloak_id`.
             public var keycloakId: Swift.String?
             /// - Remark: Generated from `#/components/schemas/User/following`.
             public var following: [Components.Schemas.FollowingAthlete]?
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/User/own_athlete_id`.
-            public struct OwnAthleteIdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/User/own_athlete_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `OwnAthleteIdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/User/own_athlete_id`.
-            public var ownAthleteId: Components.Schemas.User.OwnAthleteIdPayload?
+            public var ownAthleteId: Swift.String?
             /// - Remark: Generated from `#/components/schemas/User/settings`.
             public var settings: Components.Schemas.Settings
             /// - Remark: Generated from `#/components/schemas/User/meetings`.
@@ -795,17 +683,17 @@ extension Components {
             /// Creates a new `User`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - keycloakId:
             ///   - following:
-            ///   - ownAthleteId:
+            ///   - ownAthleteId: MongoDB ObjectID (hex)
             ///   - settings:
             ///   - meetings:
             public init(
-                _id: Components.Schemas.User._IdPayload,
+                _id: Swift.String,
                 keycloakId: Swift.String? = nil,
                 following: [Components.Schemas.FollowingAthlete]? = nil,
-                ownAthleteId: Components.Schemas.User.OwnAthleteIdPayload? = nil,
+                ownAthleteId: Swift.String? = nil,
                 settings: Components.Schemas.Settings,
                 meetings: [Swift.String]? = nil
             ) {
@@ -873,35 +761,19 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto`.
         public struct FollowAthleteRequestDto: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto/athlete`.
-            public struct AthletePayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto/athlete/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `AthletePayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto/athlete`.
-            public var athlete: Components.Schemas.FollowAthleteRequestDto.AthletePayload
+            public var athlete: Swift.String
             /// - Remark: Generated from `#/components/schemas/FollowAthleteRequestDto/follow`.
             public var follow: Swift.Bool?
             /// Creates a new `FollowAthleteRequestDto`.
             ///
             /// - Parameters:
-            ///   - athlete:
+            ///   - athlete: MongoDB ObjectID (hex)
             ///   - follow:
             public init(
-                athlete: Components.Schemas.FollowAthleteRequestDto.AthletePayload,
+                athlete: Swift.String,
                 follow: Swift.Bool? = nil
             ) {
                 self.athlete = athlete
@@ -937,35 +809,19 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/SetMeRequestDto`.
         public struct SetMeRequestDto: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/SetMeRequestDto/athlete`.
-            public struct AthletePayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/SetMeRequestDto/athlete/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `AthletePayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/SetMeRequestDto/athlete`.
-            public var athlete: Components.Schemas.SetMeRequestDto.AthletePayload
+            public var athlete: Swift.String
             /// - Remark: Generated from `#/components/schemas/SetMeRequestDto/set`.
             public var set: Swift.Bool?
             /// Creates a new `SetMeRequestDto`.
             ///
             /// - Parameters:
-            ///   - athlete:
+            ///   - athlete: MongoDB ObjectID (hex)
             ///   - set:
             public init(
-                athlete: Components.Schemas.SetMeRequestDto.AthletePayload,
+                athlete: Swift.String,
                 set: Swift.Bool? = nil
             ) {
                 self.athlete = athlete

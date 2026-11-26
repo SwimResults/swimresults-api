@@ -31,26 +31,10 @@ extension Components {
         public typealias ObjectId = Swift.String
         /// - Remark: Generated from `#/components/schemas/AgeGroup`.
         public struct AgeGroup: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/AgeGroup/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/AgeGroup/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/AgeGroup/_id`.
-            public var _id: Components.Schemas.AgeGroup._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/AgeGroup/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/AgeGroup/event`.
@@ -76,7 +60,7 @@ extension Components {
             /// Creates a new `AgeGroup`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - event:
             ///   - _default:
@@ -89,7 +73,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.AgeGroup._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String? = nil,
                 event: Swift.Int? = nil,
                 _default: Swift.Bool? = nil,
@@ -147,26 +131,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Event`.
         public struct Event: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Event/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Event/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Event/_id`.
-            public var _id: Components.Schemas.Event._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Event/number`.
             public var number: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Event/distance`.
@@ -200,7 +168,7 @@ extension Components {
             /// Creates a new `Event`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - number:
             ///   - distance:
             ///   - relayDistance:
@@ -217,7 +185,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Event._IdPayload,
+                _id: Swift.String,
                 number: Swift.Int? = nil,
                 distance: Swift.Int? = nil,
                 relayDistance: Swift.String? = nil,
@@ -272,26 +240,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Style`.
         public struct Style: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Style/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Style/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Style/_id`.
-            public var _id: Components.Schemas.Style._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Style/name`.
             public var name: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Style/aliases`.
@@ -301,12 +253,12 @@ extension Components {
             /// Creates a new `Style`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - name:
             ///   - aliases:
             ///   - relay:
             public init(
-                _id: Components.Schemas.Style._IdPayload,
+                _id: Swift.String,
                 name: Swift.String? = nil,
                 aliases: [Swift.String]? = nil,
                 relay: Swift.Bool? = nil
@@ -464,26 +416,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/StorageFile`.
         public struct StorageFile: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/StorageFile/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/StorageFile/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/StorageFile/_id`.
-            public var _id: Components.Schemas.StorageFile._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/StorageFile/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/StorageFile/path`.
@@ -511,7 +447,7 @@ extension Components {
             /// Creates a new `StorageFile`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - path:
             ///   - url:
@@ -525,7 +461,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.StorageFile._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String? = nil,
                 path: Swift.String? = nil,
                 url: Swift.String? = nil,
@@ -571,26 +507,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Incident`.
         public struct Incident: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Incident/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Incident/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Incident/_id`.
-            public var _id: Components.Schemas.Incident._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Incident/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Incident/type`.
@@ -614,7 +534,7 @@ extension Components {
             /// Creates a new `Incident`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - _type:
             ///   - name:
@@ -626,7 +546,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Incident._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String? = nil,
                 _type: Swift.String? = nil,
                 name: Swift.String? = nil,
@@ -689,26 +609,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Location`.
         public struct Location: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Location/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Location/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Location/_id`.
-            public var _id: Components.Schemas.Location._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Location/street`.
             public var street: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Location/number`.
@@ -730,7 +634,7 @@ extension Components {
             /// Creates a new `Location`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - street:
             ///   - number:
             ///   - city:
@@ -741,7 +645,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Location._IdPayload,
+                _id: Swift.String,
                 street: Swift.String? = nil,
                 number: Swift.String? = nil,
                 city: Swift.String? = nil,
@@ -778,52 +682,20 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Meeting`.
         public struct Meeting: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Meeting/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Meeting/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Meeting/_id`.
-            public var _id: Components.Schemas.Meeting._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Meeting/date_start`.
             public var dateStart: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/Meeting/date_end`.
             public var dateEnd: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/Meeting/location`.
             public var location: Components.Schemas.Location
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Meeting/organizer_id`.
-            public struct OrganizerIdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Meeting/organizer_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `OrganizerIdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Meeting/organizer_id`.
-            public var organizerId: Components.Schemas.Meeting.OrganizerIdPayload
+            public var organizerId: Swift.String
             /// - Remark: Generated from `#/components/schemas/Meeting/series`.
             public var series: Components.Schemas.MeetingSeries
             /// - Remark: Generated from `#/components/schemas/Meeting/iteration`.
@@ -851,11 +723,11 @@ extension Components {
             /// Creates a new `Meeting`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - dateStart:
             ///   - dateEnd:
             ///   - location:
-            ///   - organizerId:
+            ///   - organizerId: MongoDB ObjectID (hex)
             ///   - series:
             ///   - iteration:
             ///   - subtitles:
@@ -869,11 +741,11 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Meeting._IdPayload,
+                _id: Swift.String,
                 dateStart: Foundation.Date,
                 dateEnd: Foundation.Date,
                 location: Components.Schemas.Location,
-                organizerId: Components.Schemas.Meeting.OrganizerIdPayload,
+                organizerId: Swift.String,
                 series: Components.Schemas.MeetingSeries,
                 iteration: Swift.Int? = nil,
                 subtitles: [Swift.String]? = nil,
@@ -927,26 +799,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/MeetingSeries`.
         public struct MeetingSeries: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/MeetingSeries/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/MeetingSeries/_id`.
-            public var _id: Components.Schemas.MeetingSeries._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/name_full`.
             public var nameFull: Swift.String?
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/name_medium`.
@@ -955,26 +811,10 @@ extension Components {
             public var nameShort: Swift.String?
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/location`.
             public var location: Components.Schemas.Location
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/organizer_id`.
-            public struct OrganizerIdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/MeetingSeries/organizer_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `OrganizerIdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/MeetingSeries/organizer_id`.
-            public var organizerId: Components.Schemas.MeetingSeries.OrganizerIdPayload
+            public var organizerId: Swift.String
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/added_at`.
             public var addedAt: Foundation.Date
             /// - Remark: Generated from `#/components/schemas/MeetingSeries/updated_at`.
@@ -982,21 +822,21 @@ extension Components {
             /// Creates a new `MeetingSeries`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - nameFull:
             ///   - nameMedium:
             ///   - nameShort:
             ///   - location:
-            ///   - organizerId:
+            ///   - organizerId: MongoDB ObjectID (hex)
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.MeetingSeries._IdPayload,
+                _id: Swift.String,
                 nameFull: Swift.String? = nil,
                 nameMedium: Swift.String? = nil,
                 nameShort: Swift.String? = nil,
                 location: Components.Schemas.Location,
-                organizerId: Components.Schemas.MeetingSeries.OrganizerIdPayload,
+                organizerId: Swift.String,
                 addedAt: Foundation.Date,
                 updatedAt: Foundation.Date
             ) {

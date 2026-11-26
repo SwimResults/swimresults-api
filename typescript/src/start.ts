@@ -779,7 +779,8 @@ export interface components {
             start: components["schemas"]["Start"];
         };
         Disqualification: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             type?: string;
             reason?: string;
             /** Format: date-time */
@@ -788,7 +789,8 @@ export interface components {
             added_at: string;
         };
         Start: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting?: string;
             event?: number;
             heat_number: number;
@@ -815,7 +817,8 @@ export interface components {
             updated_at: string;
         };
         Heat: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting?: string;
             event?: number;
             number?: number;
@@ -842,7 +845,8 @@ export interface components {
             added_at: string;
         };
         Rank: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             rank?: number;
             ranking: components["schemas"]["Ranking"];
             /** Format: date-time */
@@ -851,7 +855,8 @@ export interface components {
             updated_at: string;
         };
         Ranking: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting?: string;
             event?: number;
             gender?: string;
@@ -882,8 +887,8 @@ export interface components {
             amount?: number;
         };
         CurrentNextHeatDto: {
-            current: components["schemas"]["Heat"] | null;
-            next: components["schemas"]["Heat"] | null;
+            current?: components["schemas"]["Heat"];
+            next?: components["schemas"]["Heat"];
         };
         ImportHeatRequestDto: {
             heat: components["schemas"]["Heat"];
@@ -907,7 +912,8 @@ export interface components {
             ranking: components["schemas"]["Ranking"];
         };
         Registration: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting: string;
             creator_user_id: components["schemas"]["ObjectId"];
             address: components["schemas"]["Address"];

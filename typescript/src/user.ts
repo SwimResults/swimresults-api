@@ -636,12 +636,14 @@ export interface components {
         /** @description MongoDB ObjectID (hex) */
         ObjectId: string;
         Config: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting?: string;
             enabled: boolean;
         };
         Dashboard: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             widget_container?: components["schemas"]["WidgetContainer"][] | null;
             user?: string;
             official?: boolean;
@@ -659,7 +661,8 @@ export interface components {
             order_position?: number;
         };
         Widget: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             size?: string;
             content?: string;
         };
@@ -690,7 +693,8 @@ export interface components {
             body: string;
         };
         NotificationUser: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             user_id: components["schemas"]["ObjectId"];
             token: string;
             settings: components["schemas"]["NotificationSettings"];
@@ -725,7 +729,8 @@ export interface components {
             push_service?: string;
         };
         UserReport: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             message: string;
             meeting?: string;
             user_id: components["schemas"]["ObjectId"];
@@ -746,10 +751,12 @@ export interface components {
             subject_type?: components["schemas"]["ReportSubjectType"];
         };
         User: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             keycloak_id?: string;
             following?: components["schemas"]["FollowingAthlete"][] | null;
-            own_athlete_id?: (string & components["schemas"]["ObjectId"]) | null;
+            /** @description MongoDB ObjectID (hex) */
+            own_athlete_id?: string | null;
             settings: components["schemas"]["Settings"];
             meetings?: string[] | null;
         };
@@ -763,7 +770,8 @@ export interface components {
             theme?: string;
         };
         FollowAthleteRequestDto: {
-            athlete: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            athlete: string;
             follow?: boolean;
         };
         SubscribeMeetingRequestDto: {
@@ -771,7 +779,8 @@ export interface components {
             subscribe?: boolean;
         };
         SetMeRequestDto: {
-            athlete: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            athlete: string;
             set?: boolean;
         };
         SetLanguageRequestDto: {

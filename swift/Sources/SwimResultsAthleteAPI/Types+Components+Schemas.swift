@@ -31,26 +31,10 @@ extension Components {
         public typealias ObjectId = Swift.String
         /// - Remark: Generated from `#/components/schemas/Athlete`.
         public struct Athlete: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Athlete/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Athlete/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Athlete/_id`.
-            public var _id: Components.Schemas.Athlete._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Athlete/name`.
             public var name: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Athlete/firstname`.
@@ -74,7 +58,7 @@ extension Components {
             /// Creates a new `Athlete`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - name:
             ///   - firstname:
             ///   - lastname:
@@ -86,7 +70,7 @@ extension Components {
             ///   - firstMeeting:
             ///   - participation:
             public init(
-                _id: Components.Schemas.Athlete._IdPayload,
+                _id: Swift.String,
                 name: Swift.String? = nil,
                 firstname: Swift.String? = nil,
                 lastname: Swift.String? = nil,
@@ -126,26 +110,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Team`.
         public struct Team: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Team/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Team/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Team/_id`.
-            public var _id: Components.Schemas.Team._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Team/name`.
             public var name: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Team/alias`.
@@ -173,7 +141,7 @@ extension Components {
             /// Creates a new `Team`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - name:
             ///   - alias:
             ///   - country:
@@ -187,7 +155,7 @@ extension Components {
             ///   - firstMeeting:
             ///   - participation:
             public init(
-                _id: Components.Schemas.Team._IdPayload,
+                _id: Swift.String,
                 name: Swift.String? = nil,
                 alias: [Swift.String]? = nil,
                 country: Swift.String? = nil,
@@ -355,35 +323,19 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/AddParticipationRequestDto`.
         public struct AddParticipationRequestDto: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/AddParticipationRequestDto/athlete`.
-            public struct AthletePayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/AddParticipationRequestDto/athlete/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `AthletePayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/AddParticipationRequestDto/athlete`.
-            public var athlete: Components.Schemas.AddParticipationRequestDto.AthletePayload
+            public var athlete: Swift.String
             /// - Remark: Generated from `#/components/schemas/AddParticipationRequestDto/meeting`.
             public var meeting: Swift.String?
             /// Creates a new `AddParticipationRequestDto`.
             ///
             /// - Parameters:
-            ///   - athlete:
+            ///   - athlete: MongoDB ObjectID (hex)
             ///   - meeting:
             public init(
-                athlete: Components.Schemas.AddParticipationRequestDto.AthletePayload,
+                athlete: Swift.String,
                 meeting: Swift.String? = nil
             ) {
                 self.athlete = athlete
@@ -411,26 +363,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Certificate`.
         public struct Certificate: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Certificate/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Certificate/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Certificate/_id`.
-            public var _id: Components.Schemas.Certificate._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Certificate/name`.
             public var name: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Certificate/athlete_id`.
@@ -454,7 +390,7 @@ extension Components {
             /// Creates a new `Certificate`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - name:
             ///   - athleteId:
             ///   - meeting:
@@ -466,7 +402,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Certificate._IdPayload,
+                _id: Swift.String,
                 name: Swift.String? = nil,
                 athleteId: Components.Schemas.ObjectId,
                 meeting: Swift.String? = nil,

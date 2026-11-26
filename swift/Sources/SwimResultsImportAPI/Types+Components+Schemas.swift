@@ -119,26 +119,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/ImportSetting`.
         public struct ImportSetting: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/ImportSetting/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/ImportSetting/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/ImportSetting/_id`.
-            public var _id: Components.Schemas.ImportSetting._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/ImportSetting/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/ImportSetting/pdf_start_list_settings`.
@@ -152,14 +136,14 @@ extension Components {
             /// Creates a new `ImportSetting`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - pdfStartListSettings:
             ///   - pdfResultListSettings:
             ///   - certificateSettings:
             ///   - timeZone:
             public init(
-                _id: Components.Schemas.ImportSetting._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String? = nil,
                 pdfStartListSettings: Components.Schemas.ImportPdfStartListSettings,
                 pdfResultListSettings: Components.Schemas.ImportPdfResultListSettings,

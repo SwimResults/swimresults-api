@@ -19,7 +19,8 @@ import (
 
 // AgeGroup defines model for AgeGroup.
 type AgeGroup struct {
-	Identifier ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string    `json:"_id"`
 	AddedAt    time.Time `json:"added_at"`
 	Ages       []int     `json:"ages,omitempty"`
 	Default    bool      `json:"default,omitempty"`
@@ -47,7 +48,8 @@ type Error struct {
 
 // Event defines model for Event.
 type Event struct {
-	Identifier    ObjectId    `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier    string      `json:"_id"`
 	AddedAt       time.Time   `json:"added_at"`
 	Certified     bool        `json:"certified,omitempty"`
 	Distance      int         `json:"distance,omitempty"`
@@ -99,7 +101,8 @@ type ImportEventRequestDto struct {
 
 // Incident defines model for Incident.
 type Incident struct {
-	Identifier    ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier    string    `json:"_id"`
 	AddedAt       time.Time `json:"added_at"`
 	End           time.Time `json:"end"`
 	Meeting       string    `json:"meeting,omitempty"`
@@ -120,7 +123,8 @@ type IncidentDateRequest struct {
 
 // Location defines model for Location.
 type Location struct {
-	Identifier ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string    `json:"_id"`
 	AddedAt    time.Time `json:"added_at"`
 	City       string    `json:"city,omitempty"`
 	FirstLane  int       `json:"first_lane,omitempty"`
@@ -134,16 +138,19 @@ type Location struct {
 
 // Meeting defines model for Meeting.
 type Meeting struct {
-	Identifier  ObjectId      `json:"_id"`
-	AddedAt     time.Time     `json:"added_at"`
-	Data        MeetingData   `json:"data"`
-	DateEnd     time.Time     `json:"date_end"`
-	DateStart   time.Time     `json:"date_start"`
-	Iteration   int           `json:"iteration,omitempty"`
-	Layout      MeetingLayout `json:"layout"`
-	Location    Location      `json:"location"`
-	MeetId      string        `json:"meet_id,omitempty"`
-	Organizer   ObjectId      `json:"organizer_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string        `json:"_id"`
+	AddedAt    time.Time     `json:"added_at"`
+	Data       MeetingData   `json:"data"`
+	DateEnd    time.Time     `json:"date_end"`
+	DateStart  time.Time     `json:"date_start"`
+	Iteration  int           `json:"iteration,omitempty"`
+	Layout     MeetingLayout `json:"layout"`
+	Location   Location      `json:"location"`
+	MeetId     string        `json:"meet_id,omitempty"`
+
+	// Organizer MongoDB ObjectID (hex)
+	Organizer   string        `json:"organizer_id"`
 	Series      MeetingSeries `json:"series"`
 	State       string        `json:"state,omitempty"`
 	Subtitles   []string      `json:"subtitles,omitempty"`
@@ -188,14 +195,17 @@ type MeetingPart struct {
 
 // MeetingSeries defines model for MeetingSeries.
 type MeetingSeries struct {
-	Identifier ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string    `json:"_id"`
 	AddedAt    time.Time `json:"added_at"`
 	Location   Location  `json:"location"`
 	NameFull   string    `json:"name_full,omitempty"`
 	NameMedium string    `json:"name_medium,omitempty"`
 	NameShort  string    `json:"name_short,omitempty"`
-	Organizer  ObjectId  `json:"organizer_id"`
-	UpdatedAt  time.Time `json:"updated_at"`
+
+	// Organizer MongoDB ObjectID (hex)
+	Organizer string    `json:"organizer_id"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 // ObjectId MongoDB ObjectID (hex)
@@ -210,7 +220,8 @@ type Sponsor struct {
 
 // StorageFile defines model for StorageFile.
 type StorageFile struct {
-	Identifier ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string    `json:"_id"`
 	AddedAt    time.Time `json:"added_at"`
 	Downloads  int       `json:"downloads,omitempty"`
 	Existing   bool      `json:"existing,omitempty"`
@@ -227,7 +238,8 @@ type StorageFile struct {
 
 // Style defines model for Style.
 type Style struct {
-	Identifier ObjectId `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string   `json:"_id"`
 	Aliases    []string `json:"aliases,omitempty"`
 	Name       string   `json:"name,omitempty"`
 	Relay      bool     `json:"relay,omitempty"`

@@ -54,26 +54,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Disqualification`.
         public struct Disqualification: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Disqualification/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Disqualification/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Disqualification/_id`.
-            public var _id: Components.Schemas.Disqualification._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Disqualification/type`.
             public var _type: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Disqualification/reason`.
@@ -85,13 +69,13 @@ extension Components {
             /// Creates a new `Disqualification`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - _type:
             ///   - reason:
             ///   - announcementTime:
             ///   - addedAt:
             public init(
-                _id: Components.Schemas.Disqualification._IdPayload,
+                _id: Swift.String,
                 _type: Swift.String? = nil,
                 reason: Swift.String? = nil,
                 announcementTime: Foundation.Date,
@@ -113,26 +97,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Start`.
         public struct Start: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Start/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Start/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Start/_id`.
-            public var _id: Components.Schemas.Start._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Start/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Start/event`.
@@ -180,7 +148,7 @@ extension Components {
             /// Creates a new `Start`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - event:
             ///   - heatNumber:
@@ -204,7 +172,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Start._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String? = nil,
                 event: Swift.Int? = nil,
                 heatNumber: Swift.Int,
@@ -280,26 +248,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Heat`.
         public struct Heat: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Heat/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Heat/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Heat/_id`.
-            public var _id: Components.Schemas.Heat._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Heat/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Heat/event`.
@@ -321,7 +273,7 @@ extension Components {
             /// Creates a new `Heat`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - event:
             ///   - number:
@@ -332,7 +284,7 @@ extension Components {
             ///   - finishedAt:
             ///   - startSoonNotified:
             public init(
-                _id: Components.Schemas.Heat._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String? = nil,
                 event: Swift.Int? = nil,
                 number: Swift.Int? = nil,
@@ -406,26 +358,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Rank`.
         public struct Rank: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Rank/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Rank/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Rank/_id`.
-            public var _id: Components.Schemas.Rank._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Rank/rank`.
             public var rank: Swift.Int?
             /// - Remark: Generated from `#/components/schemas/Rank/ranking`.
@@ -437,13 +373,13 @@ extension Components {
             /// Creates a new `Rank`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - rank:
             ///   - ranking:
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Rank._IdPayload,
+                _id: Swift.String,
                 rank: Swift.Int? = nil,
                 ranking: Components.Schemas.Ranking,
                 addedAt: Foundation.Date,
@@ -465,26 +401,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Ranking`.
         public struct Ranking: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Ranking/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Ranking/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Ranking/_id`.
-            public var _id: Components.Schemas.Ranking._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Ranking/meeting`.
             public var meeting: Swift.String?
             /// - Remark: Generated from `#/components/schemas/Ranking/event`.
@@ -512,7 +432,7 @@ extension Components {
             /// Creates a new `Ranking`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - event:
             ///   - gender:
@@ -526,7 +446,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Ranking._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String? = nil,
                 event: Swift.Int? = nil,
                 gender: Swift.String? = nil,
@@ -647,53 +567,17 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/CurrentNextHeatDto`.
         public struct CurrentNextHeatDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/CurrentNextHeatDto/current`.
-            public struct CurrentPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/CurrentNextHeatDto/current/value1`.
-                public var value1: Components.Schemas.Heat
-                /// Creates a new `CurrentPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.Heat) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try .init(from: decoder)
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try self.value1.encode(to: encoder)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/CurrentNextHeatDto/current`.
-            public var current: Components.Schemas.CurrentNextHeatDto.CurrentPayload?
+            public var current: Components.Schemas.Heat?
             /// - Remark: Generated from `#/components/schemas/CurrentNextHeatDto/next`.
-            public struct NextPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/CurrentNextHeatDto/next/value1`.
-                public var value1: Components.Schemas.Heat
-                /// Creates a new `NextPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.Heat) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try .init(from: decoder)
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try self.value1.encode(to: encoder)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/CurrentNextHeatDto/next`.
-            public var next: Components.Schemas.CurrentNextHeatDto.NextPayload?
+            public var next: Components.Schemas.Heat?
             /// Creates a new `CurrentNextHeatDto`.
             ///
             /// - Parameters:
             ///   - current:
             ///   - next:
             public init(
-                current: Components.Schemas.CurrentNextHeatDto.CurrentPayload? = nil,
-                next: Components.Schemas.CurrentNextHeatDto.NextPayload? = nil
+                current: Components.Schemas.Heat? = nil,
+                next: Components.Schemas.Heat? = nil
             ) {
                 self.current = current
                 self.next = next
@@ -810,26 +694,10 @@ extension Components {
         }
         /// - Remark: Generated from `#/components/schemas/Registration`.
         public struct Registration: Codable, Hashable, Sendable {
+            /// MongoDB ObjectID (hex)
+            ///
             /// - Remark: Generated from `#/components/schemas/Registration/_id`.
-            public struct _IdPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/Registration/_id/value1`.
-                public var value1: Components.Schemas.ObjectId
-                /// Creates a new `_IdPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.ObjectId) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try decoder.decodeFromSingleValueContainer()
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try encoder.encodeToSingleValueContainer(self.value1)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/Registration/_id`.
-            public var _id: Components.Schemas.Registration._IdPayload
+            public var _id: Swift.String
             /// - Remark: Generated from `#/components/schemas/Registration/meeting`.
             public var meeting: Swift.String
             /// - Remark: Generated from `#/components/schemas/Registration/creator_user_id`.
@@ -847,7 +715,7 @@ extension Components {
             /// Creates a new `Registration`.
             ///
             /// - Parameters:
-            ///   - _id:
+            ///   - _id: MongoDB ObjectID (hex)
             ///   - meeting:
             ///   - creatorUserId:
             ///   - address:
@@ -856,7 +724,7 @@ extension Components {
             ///   - addedAt:
             ///   - updatedAt:
             public init(
-                _id: Components.Schemas.Registration._IdPayload,
+                _id: Swift.String,
                 meeting: Swift.String,
                 creatorUserId: Components.Schemas.ObjectId,
                 address: Components.Schemas.Address,
@@ -1047,25 +915,7 @@ extension Components {
         /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto`.
         public struct EventStartResultRequestDto: Codable, Hashable, Sendable {
             /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto/age_group`.
-            public struct AgeGroupPayload: Codable, Hashable, Sendable {
-                /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto/age_group/value1`.
-                public var value1: Components.Schemas.Ranking
-                /// Creates a new `AgeGroupPayload`.
-                ///
-                /// - Parameters:
-                ///   - value1:
-                public init(value1: Components.Schemas.Ranking) {
-                    self.value1 = value1
-                }
-                public init(from decoder: any Swift.Decoder) throws {
-                    self.value1 = try .init(from: decoder)
-                }
-                public func encode(to encoder: any Swift.Encoder) throws {
-                    try self.value1.encode(to: encoder)
-                }
-            }
-            /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto/age_group`.
-            public var ageGroup: Components.Schemas.EventStartResultRequestDto.AgeGroupPayload
+            public var ageGroup: Components.Schemas.Ranking
             /// - Remark: Generated from `#/components/schemas/EventStartResultRequestDto/starts`.
             public var starts: [Components.Schemas.Start]?
             /// Creates a new `EventStartResultRequestDto`.
@@ -1074,7 +924,7 @@ extension Components {
             ///   - ageGroup:
             ///   - starts:
             public init(
-                ageGroup: Components.Schemas.EventStartResultRequestDto.AgeGroupPayload,
+                ageGroup: Components.Schemas.Ranking,
                 starts: [Components.Schemas.Start]? = nil
             ) {
                 self.ageGroup = ageGroup

@@ -615,7 +615,8 @@ export interface components {
         /** @description MongoDB ObjectID (hex) */
         ObjectId: string;
         AgeGroup: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting?: string;
             event?: number;
             default?: boolean;
@@ -634,7 +635,8 @@ export interface components {
             age_group: components["schemas"]["AgeGroup"];
         };
         Event: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             number?: number;
             distance?: number;
             relay_distance?: string;
@@ -654,7 +656,8 @@ export interface components {
             updated_at: string;
         };
         Style: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             name?: string;
             aliases?: string[] | null;
             relay?: boolean;
@@ -684,7 +687,8 @@ export interface components {
             toggle_certification?: boolean;
         };
         StorageFile: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting?: string;
             path?: string;
             url?: string;
@@ -701,7 +705,8 @@ export interface components {
             updated_at: string;
         };
         Incident: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             meeting?: string;
             type?: string;
             name?: string;
@@ -723,7 +728,8 @@ export interface components {
             update_time_zone: boolean;
         };
         Location: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             street?: string;
             number?: string;
             city?: string;
@@ -737,13 +743,15 @@ export interface components {
             updated_at: string;
         };
         Meeting: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             /** Format: date-time */
             date_start: string;
             /** Format: date-time */
             date_end: string;
             location: components["schemas"]["Location"];
-            organizer_id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            organizer_id: string;
             series: components["schemas"]["MeetingSeries"];
             iteration?: number;
             subtitles?: string[] | null;
@@ -760,12 +768,14 @@ export interface components {
             updated_at: string;
         };
         MeetingSeries: {
-            _id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            _id: string;
             name_full?: string;
             name_medium?: string;
             name_short?: string;
             location: components["schemas"]["Location"];
-            organizer_id: components["schemas"]["ObjectId"];
+            /** @description MongoDB ObjectID (hex) */
+            organizer_id: string;
             /** Format: date-time */
             added_at: string;
             /** Format: date-time */

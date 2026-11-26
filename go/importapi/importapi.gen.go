@@ -172,7 +172,8 @@ type ImportPdfStartListSettings struct {
 
 // ImportSetting defines model for ImportSetting.
 type ImportSetting struct {
-	Identifier            ObjectId                    `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier            string                      `json:"_id"`
 	CertificateSettings   ImportCertificateSettings   `json:"certificate_settings"`
 	Meeting               string                      `json:"meeting,omitempty"`
 	PdfResultListSettings ImportPdfResultListSettings `json:"pdf_result_list_settings"`

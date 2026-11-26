@@ -46,13 +46,14 @@ type Contact struct {
 
 // CurrentNextHeatDto defines model for CurrentNextHeatDto.
 type CurrentNextHeatDto struct {
-	Current Heat `json:"current"`
-	Next    Heat `json:"next"`
+	Current Heat `json:"current,omitempty"`
+	Next    Heat `json:"next,omitempty"`
 }
 
 // Disqualification defines model for Disqualification.
 type Disqualification struct {
-	Identifier       ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier       string    `json:"_id"`
 	AddedAt          time.Time `json:"added_at"`
 	AnnouncementTime time.Time `json:"announcement_time"`
 	Reason           string    `json:"reason,omitempty"`
@@ -71,13 +72,14 @@ type EventHeatInfoDto struct {
 
 // EventStartResultRequestDto defines model for EventStartResultRequestDto.
 type EventStartResultRequestDto struct {
-	Ranking Ranking `json:"age_group"`
-	Starts  []Start `json:"starts"`
+	AgeGroup Ranking `json:"age_group"`
+	Starts   []Start `json:"starts"`
 }
 
 // Heat defines model for Heat.
 type Heat struct {
-	Identifier           ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier           string    `json:"_id"`
 	Event                int       `json:"event,omitempty"`
 	FinishedAt           time.Time `json:"finished_at"`
 	IsPreList            bool      `json:"is_pre_list,omitempty"`
@@ -194,7 +196,8 @@ type ObjectId = string
 
 // Rank defines model for Rank.
 type Rank struct {
-	Identifier ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string    `json:"_id"`
 	AddedAt    time.Time `json:"added_at"`
 	Rank       int       `json:"rank,omitempty"`
 	Ranking    Ranking   `json:"ranking"`
@@ -203,7 +206,8 @@ type Rank struct {
 
 // Ranking defines model for Ranking.
 type Ranking struct {
-	Identifier ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string    `json:"_id"`
 	AddedAt    time.Time `json:"added_at"`
 	Ages       []int     `json:"ages,omitempty"`
 	DsvId      string    `json:"dsv_id,omitempty"`
@@ -220,7 +224,8 @@ type Ranking struct {
 
 // Registration defines model for Registration.
 type Registration struct {
-	Identifier           ObjectId              `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier           string                `json:"_id"`
 	AddedAt              time.Time             `json:"added_at"`
 	Address              Address               `json:"address"`
 	AthleteRegistrations []AthleteRegistration `json:"athlete_registrations"`
@@ -244,7 +249,8 @@ type Result struct {
 
 // Start defines model for Start.
 type Start struct {
-	Identifier ObjectId  `json:"_id"`
+	// Identifier MongoDB ObjectID (hex)
+	Identifier string    `json:"_id"`
 	AddedAt    time.Time `json:"added_at"`
 
 	// Athlete MongoDB ObjectID (hex)

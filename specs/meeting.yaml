@@ -1879,8 +1879,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         meeting:
           type: string
@@ -1924,8 +1925,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         number:
           type: integer
@@ -1970,8 +1972,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         name:
           type: string
@@ -2043,8 +2046,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         meeting:
           type: string
@@ -2080,8 +2084,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         meeting:
           type: string
@@ -2128,8 +2133,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         street:
           type: string
@@ -2159,8 +2165,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         date_start:
           type: string
@@ -2171,8 +2178,9 @@ components:
         location:
           $ref: '#/components/schemas/Location'
         organizer_id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Organizer
         series:
           $ref: '#/components/schemas/MeetingSeries'
@@ -2224,8 +2232,9 @@ components:
       type: object
       properties:
         _id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Identifier
         name_full:
           type: string
@@ -2236,8 +2245,9 @@ components:
         location:
           $ref: '#/components/schemas/Location'
         organizer_id:
-          allOf:
-            - $ref: '#/components/schemas/ObjectId'
+          type: string
+          pattern: ^[0-9a-fA-F]{24}$
+          description: MongoDB ObjectID (hex)
           x-go-name: Organizer
         added_at:
           type: string

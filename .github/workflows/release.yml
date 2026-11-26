@@ -18,6 +18,7 @@ on:
 
 permissions:
   contents: read
+  actions: read # verify: check the CI run of the tagged commit
 
 jobs:
   verify:
@@ -40,6 +41,13 @@ jobs:
           v="${tag#v}"
           [[ "$v" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]] || { echo "::error::tag must be vX.Y.Z"; exit 1; }
           echo "version=$v" >> "$GITHUB_OUTPUT"
+      - name: CI passed for this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(git rev-parse HEAD)
+          ok=$(gh api "repos/${{ github.repository }}/actions/workflows/ci.yml/runs?head_sha=$sha&status=success" --jq '.total_count')
+          [ "$ok" -gt 0 ] || { echo "::error::no successful CI run (ci.yml) for $sha. Wait for CI to pass before tagging."; exit 1; }
       - uses: actions/setup-go@v5
         with:
           go-version-file: tools/go.mod

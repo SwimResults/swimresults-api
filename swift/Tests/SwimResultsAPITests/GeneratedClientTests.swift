@@ -35,7 +35,7 @@ struct GeneratedClientTests {
         let client = Client(serverURL: try Servers.Server1.url(), configuration: .swimResults, transport: transport)
 
         let output = try await client.getEventsByMeetId(path: .init(meetId: "IESC19"))
-        let list = try output.ok.body.json
+        let list = try output.ok.body.json ?? [] // Go sends null for an empty list
 
         #expect(transport.lastBaseURL?.absoluteString == "https://api.swimresults.de/meeting/v1")
         #expect(transport.lastPath == "/event/meet/IESC19")

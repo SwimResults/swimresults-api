@@ -2,7 +2,8 @@
 import type { Meeting, Event, paths as MeetingPaths } from '../src/meeting';
 import type { Start, Heat, paths as StartPaths } from '../src/start';
 
-type Json<R> = R extends { content: { 'application/json': infer T } } ? T : never;
+// list responses are nullable: Go sends null for an empty list
+type Json<R> = R extends { content: { 'application/json': infer T } } ? NonNullable<T> : never;
 type Assert<T extends true> = T;
 
 type MeetingList = Json<MeetingPaths['/meeting']['get']['responses'][200]>;

@@ -1693,32 +1693,8 @@ public enum Operations {
         }
         @frozen public enum Output: Sendable, Hashable {
             public struct NoContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/age_group/{id}/DELETE/responses/204/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/age_group/{id}/DELETE/responses/204/content/application\/json`.
-                    case json(Swift.String)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Swift.String {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.RemoveAgeGroup.Output.NoContent.Body
                 /// Creates a new `NoContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.RemoveAgeGroup.Output.NoContent.Body) {
-                    self.body = body
-                }
+                public init() {}
             }
             /// No Content
             ///
@@ -1726,6 +1702,14 @@ public enum Operations {
             ///
             /// HTTP response code: `204 noContent`.
             case noContent(Operations.RemoveAgeGroup.Output.NoContent)
+            /// No Content
+            ///
+            /// - Remark: Generated from `#/paths//age_group/{id}/delete(removeAgeGroup)/responses/204`.
+            ///
+            /// HTTP response code: `204 noContent`.
+            public static var noContent: Self {
+                .noContent(.init())
+            }
             /// The associated value of the enum case if `self` is `.noContent`.
             ///
             /// - Throws: An error if `self` is not `.noContent`.
@@ -4163,32 +4147,8 @@ public enum Operations {
         }
         @frozen public enum Output: Sendable, Hashable {
             public struct NoContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/event/{id}/DELETE/responses/204/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/event/{id}/DELETE/responses/204/content/application\/json`.
-                    case json(Swift.String)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Swift.String {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.RemoveEvent.Output.NoContent.Body
                 /// Creates a new `NoContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.RemoveEvent.Output.NoContent.Body) {
-                    self.body = body
-                }
+                public init() {}
             }
             /// No Content
             ///
@@ -4196,6 +4156,14 @@ public enum Operations {
             ///
             /// HTTP response code: `204 noContent`.
             case noContent(Operations.RemoveEvent.Output.NoContent)
+            /// No Content
+            ///
+            /// - Remark: Generated from `#/paths//event/{id}/delete(removeEvent)/responses/204`.
+            ///
+            /// HTTP response code: `204 noContent`.
+            public static var noContent: Self {
+                .noContent(.init())
+            }
             /// The associated value of the enum case if `self` is `.noContent`.
             ///
             /// - Throws: An error if `self` is not `.noContent`.
@@ -5837,32 +5805,8 @@ public enum Operations {
         }
         @frozen public enum Output: Sendable, Hashable {
             public struct NoContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/file/{id}/DELETE/responses/204/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/file/{id}/DELETE/responses/204/content/application\/json`.
-                    case json(Swift.String)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Swift.String {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.RemoveFile.Output.NoContent.Body
                 /// Creates a new `NoContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.RemoveFile.Output.NoContent.Body) {
-                    self.body = body
-                }
+                public init() {}
             }
             /// No Content
             ///
@@ -5870,6 +5814,14 @@ public enum Operations {
             ///
             /// HTTP response code: `204 noContent`.
             case noContent(Operations.RemoveFile.Output.NoContent)
+            /// No Content
+            ///
+            /// - Remark: Generated from `#/paths//file/{id}/delete(removeFile)/responses/204`.
+            ///
+            /// HTTP response code: `204 noContent`.
+            public static var noContent: Self {
+                .noContent(.init())
+            }
             /// The associated value of the enum case if `self` is `.noContent`.
             ///
             /// - Throws: An error if `self` is not `.noContent`.
@@ -7218,32 +7170,8 @@ public enum Operations {
         }
         @frozen public enum Output: Sendable, Hashable {
             public struct NoContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/incident/{id}/DELETE/responses/204/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/incident/{id}/DELETE/responses/204/content/application\/json`.
-                    case json(Swift.String)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Swift.String {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.RemoveIncident.Output.NoContent.Body
                 /// Creates a new `NoContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.RemoveIncident.Output.NoContent.Body) {
-                    self.body = body
-                }
+                public init() {}
             }
             /// No Content
             ///
@@ -7251,6 +7179,14 @@ public enum Operations {
             ///
             /// HTTP response code: `204 noContent`.
             case noContent(Operations.RemoveIncident.Output.NoContent)
+            /// No Content
+            ///
+            /// - Remark: Generated from `#/paths//incident/{id}/delete(removeIncident)/responses/204`.
+            ///
+            /// HTTP response code: `204 noContent`.
+            public static var noContent: Self {
+                .noContent(.init())
+            }
             /// The associated value of the enum case if `self` is `.noContent`.
             ///
             /// - Throws: An error if `self` is not `.noContent`.
@@ -9418,32 +9354,8 @@ public enum Operations {
         }
         @frozen public enum Output: Sendable, Hashable {
             public struct NoContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/meeting/{id}/DELETE/responses/204/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/meeting/{id}/DELETE/responses/204/content/application\/json`.
-                    case json(Swift.String)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Swift.String {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.RemoveMeeting.Output.NoContent.Body
                 /// Creates a new `NoContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.RemoveMeeting.Output.NoContent.Body) {
-                    self.body = body
-                }
+                public init() {}
             }
             /// No Content
             ///
@@ -9451,6 +9363,14 @@ public enum Operations {
             ///
             /// HTTP response code: `204 noContent`.
             case noContent(Operations.RemoveMeeting.Output.NoContent)
+            /// No Content
+            ///
+            /// - Remark: Generated from `#/paths//meeting/{id}/delete(removeMeeting)/responses/204`.
+            ///
+            /// HTTP response code: `204 noContent`.
+            public static var noContent: Self {
+                .noContent(.init())
+            }
             /// The associated value of the enum case if `self` is `.noContent`.
             ///
             /// - Throws: An error if `self` is not `.noContent`.
@@ -10434,32 +10354,8 @@ public enum Operations {
         }
         @frozen public enum Output: Sendable, Hashable {
             public struct NoContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/meeting_series/{id}/DELETE/responses/204/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/meeting_series/{id}/DELETE/responses/204/content/application\/json`.
-                    case json(Swift.String)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Swift.String {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.RemoveMeetingSeries.Output.NoContent.Body
                 /// Creates a new `NoContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.RemoveMeetingSeries.Output.NoContent.Body) {
-                    self.body = body
-                }
+                public init() {}
             }
             /// No Content
             ///
@@ -10467,6 +10363,14 @@ public enum Operations {
             ///
             /// HTTP response code: `204 noContent`.
             case noContent(Operations.RemoveMeetingSeries.Output.NoContent)
+            /// No Content
+            ///
+            /// - Remark: Generated from `#/paths//meeting_series/{id}/delete(removeMeetingSeries)/responses/204`.
+            ///
+            /// HTTP response code: `204 noContent`.
+            public static var noContent: Self {
+                .noContent(.init())
+            }
             /// The associated value of the enum case if `self` is `.noContent`.
             ///
             /// - Throws: An error if `self` is not `.noContent`.
@@ -11680,32 +11584,8 @@ public enum Operations {
         }
         @frozen public enum Output: Sendable, Hashable {
             public struct NoContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/style/{id}/DELETE/responses/204/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/style/{id}/DELETE/responses/204/content/application\/json`.
-                    case json(Swift.String)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Swift.String {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.RemoveStyle.Output.NoContent.Body
                 /// Creates a new `NoContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.RemoveStyle.Output.NoContent.Body) {
-                    self.body = body
-                }
+                public init() {}
             }
             /// No Content
             ///
@@ -11713,6 +11593,14 @@ public enum Operations {
             ///
             /// HTTP response code: `204 noContent`.
             case noContent(Operations.RemoveStyle.Output.NoContent)
+            /// No Content
+            ///
+            /// - Remark: Generated from `#/paths//style/{id}/delete(removeStyle)/responses/204`.
+            ///
+            /// HTTP response code: `204 noContent`.
+            public static var noContent: Self {
+                .noContent(.init())
+            }
             /// The associated value of the enum case if `self` is `.noContent`.
             ///
             /// - Throws: An error if `self` is not `.noContent`.

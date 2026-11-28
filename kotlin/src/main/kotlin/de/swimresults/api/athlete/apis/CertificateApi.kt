@@ -136,10 +136,10 @@ interface CertificateApi {
      *  - 500: Internal Server Error
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("certificate/{id}")
-    suspend fun removeCertificate(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeCertificate(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT certificate

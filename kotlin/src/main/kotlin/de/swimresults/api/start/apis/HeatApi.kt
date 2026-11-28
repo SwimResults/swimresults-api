@@ -43,10 +43,10 @@ interface HeatApi {
      *
      * @param meetId 
      * @param eventId 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("heat/meet/{meet_id}/event/{event_id}")
-    suspend fun deleteHeatsByMeetingAndEvent(@Path("meet_id") meetId: kotlin.String, @Path("event_id") eventId: kotlin.Int): Response<kotlin.String>
+    suspend fun deleteHeatsByMeetingAndEvent(@Path("meet_id") meetId: kotlin.String, @Path("event_id") eventId: kotlin.Int): Response<Unit>
 
     /**
      * GET heat/meet/{meet_id}/current
@@ -237,10 +237,10 @@ interface HeatApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("heat/{id}")
-    suspend fun removeHeat(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeHeat(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * POST heat/meet/{meet_id}/event/{event_id}/heat/{heat}/start

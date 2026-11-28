@@ -752,10 +752,6 @@ paths:
       responses:
         "204":
           description: No Content
-          content:
-            application/json:
-              schema:
-                type: string
         "400":
           description: Bad Request
           content:
@@ -1388,10 +1384,6 @@ paths:
       responses:
         "204":
           description: No Content
-          content:
-            application/json:
-              schema:
-                type: string
         "400":
           description: Bad Request
           content:

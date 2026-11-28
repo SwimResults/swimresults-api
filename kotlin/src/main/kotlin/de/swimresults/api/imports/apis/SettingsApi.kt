@@ -77,9 +77,9 @@ interface SettingsApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("settings/{id}")
-    suspend fun removeImportSetting(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeImportSetting(@Path("id") id: kotlin.String): Response<Unit>
 
 }

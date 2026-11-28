@@ -144,10 +144,10 @@ interface EventApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("event/{id}")
-    suspend fun removeEvent(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeEvent(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT event

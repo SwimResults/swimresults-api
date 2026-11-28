@@ -122,10 +122,10 @@ interface NotificationUserApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("notification_user/{id}")
-    suspend fun removeNotificationUser(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeNotificationUser(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT notification_user

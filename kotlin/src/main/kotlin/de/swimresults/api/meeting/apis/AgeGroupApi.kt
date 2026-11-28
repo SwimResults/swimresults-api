@@ -110,10 +110,10 @@ interface AgeGroupApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("age_group/{id}")
-    suspend fun removeAgeGroup(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeAgeGroup(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT age_group

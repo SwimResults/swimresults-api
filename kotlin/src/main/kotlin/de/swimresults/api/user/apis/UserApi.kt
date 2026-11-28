@@ -100,10 +100,10 @@ interface UserApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("user/{id}")
-    suspend fun removeUser(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeUser(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * POST user/meeting

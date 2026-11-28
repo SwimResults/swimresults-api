@@ -81,10 +81,10 @@ interface RegistrationApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("registration/{id}")
-    suspend fun removeRegistration(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeRegistration(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT registration

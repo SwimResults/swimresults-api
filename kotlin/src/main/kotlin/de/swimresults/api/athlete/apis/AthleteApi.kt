@@ -263,10 +263,10 @@ interface AthleteApi {
      *  - 500: Internal Server Error
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("athlete/{id}")
-    suspend fun removeAthlete(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeAthlete(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT athlete

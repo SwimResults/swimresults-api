@@ -920,7 +920,8 @@ func buildSpec(svc, dir string, ex *extracted) any {
 		for _, c := range codes {
 			resp := r.Responses[c]
 			rm := om("description", statusText(c))
-			if len(resp.Schemas) > 0 && resp.ContentType != "" {
+			// 204 never carries a body (net/http drops it); declaring one breaks strict clients (Swift decodes "")
+			if c != "204" && len(resp.Schemas) > 0 && resp.ContentType != "" {
 				var schema any = resp.Schemas[0]
 				if len(resp.Schemas) > 1 {
 					schema = om("oneOf", resp.Schemas)

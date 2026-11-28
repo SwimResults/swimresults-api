@@ -4410,17 +4410,10 @@ func (r GetAthletesByTeamAndMeetingResponse) ContentType() string {
 type RemoveAthleteResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r RemoveAthleteResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
@@ -4980,17 +4973,10 @@ func (r GetCertificatesAmountByMeetingResponse) ContentType() string {
 type RemoveCertificateResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON500 the response for an HTTP 500 `application/json` response
 	JSON500 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r RemoveCertificateResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
@@ -6856,12 +6842,8 @@ func ParseRemoveAthleteResponse(rsp *http.Response) (*RemoveAthleteResponse, err
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest Error
@@ -7261,12 +7243,8 @@ func ParseRemoveCertificateResponse(rsp *http.Response) (*RemoveCertificateRespo
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest Error

@@ -110,10 +110,10 @@ interface RankingApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("ranking/{id}")
-    suspend fun removeRanking(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeRanking(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT ranking

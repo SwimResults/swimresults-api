@@ -41,10 +41,10 @@ interface StartApi {
      *
      * @param meetId 
      * @param eventId 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("start/meet/{meet_id}/event/{event_id}")
-    suspend fun deleteStartsByMeetingAndEvent(@Path("meet_id") meetId: kotlin.String, @Path("event_id") eventId: kotlin.Int): Response<kotlin.String>
+    suspend fun deleteStartsByMeetingAndEvent(@Path("meet_id") meetId: kotlin.String, @Path("event_id") eventId: kotlin.Int): Response<Unit>
 
     /**
      * GET start/meet/{meet_id}/current
@@ -301,10 +301,10 @@ interface StartApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("start/{id}")
-    suspend fun removeStart(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeStart(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT start

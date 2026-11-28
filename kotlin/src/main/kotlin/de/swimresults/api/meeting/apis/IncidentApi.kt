@@ -65,10 +65,10 @@ interface IncidentApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("incident/{id}")
-    suspend fun removeIncident(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeIncident(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT incident

@@ -5960,15 +5960,8 @@ func (r GetCurrentNextHeatResponse) ContentType() string {
 type DeleteHeatsByMeetingAndEventResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r DeleteHeatsByMeetingAndEventResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
@@ -6303,17 +6296,10 @@ func (r GetHeatInfoByMeetingResponse) ContentType() string {
 type RemoveHeatResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r RemoveHeatResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
@@ -6860,17 +6846,10 @@ func (r GetRankingByMeetingAndEventResponse) ContentType() string {
 type RemoveRankingResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r RemoveRankingResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
@@ -7169,17 +7148,10 @@ func (r GetRegistrationsByMeetingForMeResponse) ContentType() string {
 type RemoveRegistrationResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r RemoveRegistrationResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
@@ -7849,15 +7821,8 @@ func (r GetCurrentStartsResponse) ContentType() string {
 type DeleteStartsByMeetingAndEventResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r DeleteStartsByMeetingAndEventResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
@@ -8233,17 +8198,10 @@ func (r GetStartStatsByMeetingResponse) ContentType() string {
 type RemoveStartResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r RemoveStartResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
@@ -9677,12 +9635,8 @@ func ParseDeleteHeatsByMeetingAndEventResponse(rsp *http.Response) (*DeleteHeats
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest Error
@@ -9915,12 +9869,8 @@ func ParseRemoveHeatResponse(rsp *http.Response) (*RemoveHeatResponse, error) {
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest Error
@@ -10322,12 +10272,8 @@ func ParseRemoveRankingResponse(rsp *http.Response) (*RemoveRankingResponse, err
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest Error
@@ -10541,12 +10487,8 @@ func ParseRemoveRegistrationResponse(rsp *http.Response) (*RemoveRegistrationRes
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest Error
@@ -11026,12 +10968,8 @@ func ParseDeleteStartsByMeetingAndEventResponse(rsp *http.Response) (*DeleteStar
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest Error
@@ -11290,12 +11228,8 @@ func ParseRemoveStartResponse(rsp *http.Response) (*RemoveStartResponse, error) 
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest Error

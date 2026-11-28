@@ -8400,17 +8400,10 @@ func (r GetImportSettingByMeetIdResponse) ContentType() string {
 type RemoveImportSettingResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON204 the response for an HTTP 204 `application/json` response
-	JSON204 *string
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *Error
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *Error
-}
-
-// GetJSON204 returns the response for an HTTP 204 `application/json` response
-func (r RemoveImportSettingResponse) GetJSON204() *string {
-	return r.JSON204
 }
 
 // GetJSON400 returns the response for an HTTP 400 `application/json` response
@@ -9564,12 +9557,8 @@ func ParseRemoveImportSettingResponse(rsp *http.Response) (*RemoveImportSettingR
 	}
 
 	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 204:
-		var dest string
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON204 = &dest
+	case rsp.StatusCode == 204:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest Error

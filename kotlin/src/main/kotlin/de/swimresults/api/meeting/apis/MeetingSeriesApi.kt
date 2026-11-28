@@ -62,10 +62,10 @@ interface MeetingSeriesApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("meeting_series/{id}")
-    suspend fun removeMeetingSeries(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeMeetingSeries(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT meeting_series

@@ -28,7 +28,7 @@ let package = Package(
         ),
         .testTarget(
             name: "SwimResultsAPITests",
-            dependencies: ["SwimResultsMeetingAPI", "SwimResultsAPISupport"],
+            dependencies: ["SwimResultsMeetingAPI", "SwimResultsStartAPI", "SwimResultsAPISupport"],
             path: "swift/Tests/SwimResultsAPITests"
         ),
     ]

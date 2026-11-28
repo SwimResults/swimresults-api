@@ -92,10 +92,10 @@ interface MeetingApi {
      *  - 404: Not Found
      *
      * @param id 
-     * @return [kotlin.String]
+     * @return [Unit]
      */
     @DELETE("meeting/{id}")
-    suspend fun removeMeeting(@Path("id") id: kotlin.String): Response<kotlin.String>
+    suspend fun removeMeeting(@Path("id") id: kotlin.String): Response<Unit>
 
     /**
      * PUT meeting

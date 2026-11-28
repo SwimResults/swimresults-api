@@ -6018,32 +6018,8 @@ public enum Operations {
         }
         @frozen public enum Output: Sendable, Hashable {
             public struct NoContent: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/settings/{id}/DELETE/responses/204/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/settings/{id}/DELETE/responses/204/content/application\/json`.
-                    case json(Swift.String)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Swift.String {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                return body
-                            }
-                        }
-                    }
-                }
-                /// Received HTTP response body
-                public var body: Operations.RemoveImportSetting.Output.NoContent.Body
                 /// Creates a new `NoContent`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.RemoveImportSetting.Output.NoContent.Body) {
-                    self.body = body
-                }
+                public init() {}
             }
             /// No Content
             ///
@@ -6051,6 +6027,14 @@ public enum Operations {
             ///
             /// HTTP response code: `204 noContent`.
             case noContent(Operations.RemoveImportSetting.Output.NoContent)
+            /// No Content
+            ///
+            /// - Remark: Generated from `#/paths//settings/{id}/delete(removeImportSetting)/responses/204`.
+            ///
+            /// HTTP response code: `204 noContent`.
+            public static var noContent: Self {
+                .noContent(.init())
+            }
             /// The associated value of the enum case if `self` is `.noContent`.
             ///
             /// - Throws: An error if `self` is not `.noContent`.

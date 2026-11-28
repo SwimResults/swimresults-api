@@ -72,7 +72,7 @@ One version for everything: a git tag `vX.Y.Z` releases all packages (see [Relea
 |---|---|---|---|
 | Go | `github.com/swimresults/swimresults-api/go/<svc>api` | [oapi-codegen](https://github.com/oapi-codegen/oapi-codegen) v2.8.2 (models + typed client) | services calling other services |
 | TypeScript | [`@swimresults/api`](https://www.npmjs.com/package/@swimresults/api) (`/meeting`, `/athlete`, …) | [openapi-typescript](https://openapi-ts.dev) 7.13.0 (types only) | WebApplication, ManagerApplication |
-| Swift | SwiftPM package at this repo's root, products `SwimResults<Svc>API` + `SwimResultsAPISupport` | [swift-openapi-generator](https://github.com/apple/swift-openapi-generator) 1.14.4 | iosApplication |
+| Swift | SwiftPM package at this repo's root, products `SwimResults<Svc>API` + `SwimResultsAPISupport` | [swift-openapi-generator](https://github.com/apple/swift-openapi-generator) 1.14.4 | iosApplication, iosManagerApplication |
 | Kotlin | `de.swimresults:swimresults-api` (Maven Central), packages `de.swimresults.api.<svc>` | [openapi-generator](https://openapi-generator.tech) 7.27.0, `kotlin` / Retrofit 2 + Gson | AndroidApplication |
 
 `<svc>` is `meeting`, `athlete`, `start`, `user` or `import` (the Kotlin package is `imports`, because
@@ -113,8 +113,15 @@ let events = try await client.getEventsByMeetId(path: .init(meetId: "IESC19")).o
 ```
 
 Always pass `configuration: .swimResults`. It decodes Go timestamps with and without fractional seconds; the
-default decoder rejects `2023-09-19T03:01:09.904Z`. `Date.isGoZeroTime` detects `0001-01-01T00:00:00Z`
-(meaning "not set").
+default decoder rejects `2023-09-19T03:01:09.904Z`. `Date.isGoZeroTime` / `nilIfGoZeroTime` detect
+`0001-01-01T00:00:00Z` (meaning "not set"), and `Date.goZeroTime` sends it.
+
+`SwimResultsAPISupport` also has:
+
+- `SwimResultsServer.production` / `.development` and `.url(for: "meeting")`, for the service base URLs.
+- `BearerTokenMiddleware { try await freshAccessToken() }`, for routes that need a login.
+- `.swimResults(encodingIn: timeZone)`, which writes request dates with that time zone's offset instead
+  of UTC. Use it where the service reads the time zone from the timestamp, e.g. `update_time_zone`.
 
 ### Kotlin / Android
 

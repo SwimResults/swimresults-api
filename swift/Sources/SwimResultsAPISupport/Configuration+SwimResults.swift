@@ -62,4 +62,7 @@ extension Date {
 
     /// Go's zero `time.Time`, to send "not set" where a request field is required.
     public static let goZeroTime = Date(timeIntervalSince1970: -62_135_596_800)
+
+    /// `nil` for Go's zero time, so "not set" can be handled as an optional.
+    public var nilIfGoZeroTime: Date? { isGoZeroTime ? nil : self }
 }

@@ -12,11 +12,13 @@ private final class StubTransport: ClientTransport, @unchecked Sendable {
     let status: HTTPResponse.Status
     var lastPath: String?
     var lastBaseURL: URL?
+    var lastAuthorization: String?
     init(body: String, status: HTTPResponse.Status = .ok) { self.body = body; self.status = status }
 
     func send(_ request: HTTPRequest, body: HTTPBody?, baseURL: URL, operationID: String) async throws -> (HTTPResponse, HTTPBody?) {
         lastPath = request.path
         lastBaseURL = baseURL
+        lastAuthorization = request.headerFields[.authorization]
         var response = HTTPResponse(status: status)
         response.headerFields[.contentType] = "application/json" // Gin sets it even for 204
         return (response, self.body.isEmpty ? nil : HTTPBody(self.body))
@@ -65,5 +67,18 @@ struct GeneratedClientTests {
         #expect(try berlin.encode(date) == "2026-11-28T09:30:00.000+01:00")
         #expect(try berlin.decode("2026-11-28T09:30:00.000+01:00") == date)
         #expect(Date.goZeroTime.isGoZeroTime)
+    }
+
+    @Test func sendsBearerTokenAndUsesServerURL() async throws {
+        let transport = StubTransport(body: "", status: .noContent)
+        let client = SwimResultsStartAPI.Client(
+            serverURL: SwimResultsServer.development.url(for: "start"), configuration: .swimResults, transport: transport,
+            middlewares: [BearerTokenMiddleware { "abc" }])
+
+        _ = try await client.deleteStartsByMeetingAndEvent(path: .init(meetId: "IESC19", eventId: 2)).noContent
+
+        #expect(transport.lastBaseURL?.absoluteString == "https://api-dev.swimresults.de/start/v1")
+        #expect(transport.lastAuthorization == "Bearer abc")
+        #expect(Date.goZeroTime.nilIfGoZeroTime == nil)
     }
 }

@@ -29,6 +29,9 @@ public struct SwimResultsDateTranscoder: DateTranscoder, @unchecked Sendable {
     }
 
     public func encode(_ date: Date) throws -> String {
+        // Foundation formats years before 1582 in the Julian calendar (Go's zero time would come out as
+        // 0001-01-03), Go uses the proleptic Gregorian one: write the zero time literally.
+        if date.isGoZeroTime { return "0001-01-01T00:00:00Z" }
         lock.lock(); defer { lock.unlock() }
         return fractional.string(from: date)
     }
@@ -60,8 +63,9 @@ extension Date {
     /// Go's zero `time.Time` (`0001-01-01T00:00:00Z`), which the services use for "not set".
     public var isGoZeroTime: Bool { timeIntervalSince1970 <= -62_135_596_800 }
 
-    /// Go's zero `time.Time`, to send "not set" where a request field is required.
-    public static let goZeroTime = Date(timeIntervalSince1970: -62_135_596_800)
+    /// Go's zero `time.Time`, to send "not set" where a request field is required. Equal to what
+    /// `SwimResultsDateTranscoder` decodes from `0001-01-01T00:00:00Z` (Foundation reads year 1 as Julian).
+    public static let goZeroTime = Date(timeIntervalSince1970: -62_135_769_600)
 
     /// `nil` for Go's zero time, so "not set" can be handled as an optional.
     public var nilIfGoZeroTime: Date? { isGoZeroTime ? nil : self }

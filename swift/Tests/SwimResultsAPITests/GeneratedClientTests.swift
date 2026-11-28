@@ -67,6 +67,11 @@ struct GeneratedClientTests {
         #expect(try berlin.encode(date) == "2026-11-28T09:30:00.000+01:00")
         #expect(try berlin.decode("2026-11-28T09:30:00.000+01:00") == date)
         #expect(Date.goZeroTime.isGoZeroTime)
+        // Go's zero time round-trips literally (Foundation alone would write 0001-01-03)
+        let zero = try SwimResultsDateTranscoder().decode("0001-01-01T00:00:00Z")
+        #expect(zero == Date.goZeroTime)
+        #expect(try SwimResultsDateTranscoder().encode(.goZeroTime) == "0001-01-01T00:00:00Z")
+        #expect(try berlin.encode(zero) == "0001-01-01T00:00:00Z")
     }
 
     @Test func sendsBearerTokenAndUsesServerURL() async throws {
